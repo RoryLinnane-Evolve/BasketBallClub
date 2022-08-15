@@ -1,0 +1,167 @@
+﻿@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700|Lato:100,300,400);
+body
+{
+    /* background-image: url("../App_Themes/Images/subtle-pattern-2.jpg");*/
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    font-size: 16px;
+    font-family: "PT Sans" , Arial, Helvetica, sans-serif;
+    line-height: 18px;
+}
+*
+{
+    font-family: "PT Sans" , Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+span
+{
+    font-family: "PT Sans" , Arial, Helvetica, sans-serif;
+}
+a.brand
+{
+    left: -30px;
+    position: relative;
+}
+.img-thumbnail, .thumbnail
+{
+    width: 550px;
+}
+
+
+.navbar 
+{
+    margin-bottom:20px;
+}
+
+footer.navbar-fixed-bottom
+{
+    font-size: 16px;
+    font-family: "PT Sans" , Arial, Helvetica, sans-serif;
+    line-height: 18px;
+    height: 55px;
+    font-weight: 400;
+    margin: 0 auto;
+}
+input[type=checkbox], input[type=radio]
+{
+    width: 20px;
+    height: 20px;
+}
+#rcorners3
+{
+    position: relative;
+    height: 10px;
+    text-decoration: none;
+    top: -22px;
+    float: right;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #337AB7;
+    color: white !important;
+    background-position: left top;
+    background-repeat: repeat;
+    padding: 20px;
+    width: 100px;
+    box-shadow: 0px 0px 5px #bbbbbb;
+    text-align: center;
+    font-size: 14px;
+}
+
+input#rcorners3
+{
+    text-decoration: none;
+}
+input#rcorners3:hover
+{
+    color: blue;
+}
+
+@media (max-width: 600px)
+{
+    #rcorners3
+    {
+        visibility: hidden;
+    }
+}
+
+#GridView1 > tbody > tr > td:nth-child(1)
+{
+    text-align: center;
+}
+/* Align thumbnail center */
+
+#form1 > div.container > div > div:nth-child(1) > div.panel-body > table > tbody > tr > td > table:nth-child(2) > tbody > tr:nth-child(1)
+{
+    background-color: #337AB7;
+    color: white !important;
+}
+
+#grdProductPoints .table-striped > tbody > tr:nth-child(odd) > td, #grdProductPoints .table-striped > tbody > tr:nth-child(odd) > th
+{
+    background-color: #fff;
+}
+
+
+#grdProductPoints .table-striped > tbody > tr:nth-child(even) > td, #grdProductPoints .table-striped > tbody > tr:nth-child(even) > th
+{
+    background-color: #f9f9f9;
+}
+
+
+
+#ctl00_ContentPlaceHolder1_grdProductPoints > tbody > tr > td > table > tbody > tr:nth-child(2)
+{
+    background-color: #337AB7 !important;
+    color: white !important;
+}
+
+span#Label2, #lblStatusMessage
+{
+    color: white !important;
+}
+
+span#lblPointsAvailable2 {
+    font-size: 14px !important;
+    color: #d22727 !important;
+    font-weight:600;
+ 
+}
+
+span#lblPointsTotal2 {
+    font-size: 14px !important;
+    color: #d22727 !important;
+    font-weight: 600;
+}
+
+img#imgScheme
+{
+    width: 240px;
+    height: 180px;
+}
+
+#prodImage
+{
+    /* width: 600px; */
+    margin: 0 auto;
+    border: 6px solid;
+    border-color: #337AB7;
+    padding: 30px 10px 10px 10px;
+    top: 100px;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 56px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 56px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 56px -10px rgba(0,0,0,0.75);
+}
+
+#prodPopUp
+{
+    margin:0 auto;
+    }
+
+
+
+

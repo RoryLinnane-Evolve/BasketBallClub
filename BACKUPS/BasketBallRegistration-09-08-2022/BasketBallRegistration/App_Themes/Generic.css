@@ -1,0 +1,121 @@
+﻿/* @charset "utf-8"; */
+/* CSS Document */
+
+body {
+	font-family:'Lucida Sans Unicode','Lucida Sans','Lucida Grande',Verdana,Helvetica,Arial,sans-serif;
+	background-color: #FFFFFF; /*#7e7e7e; */
+	margin: 0px;
+	padding: 0px;
+	background-attachment: scroll;
+	background-image: url(../images/body_bg.gif);
+	background-repeat: repeat-x;
+	font-size:0.8em;
+}
+#wrapper {
+	width: 1024px;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+#header {
+	height: 121px;
+
+	width: 1024px;
+	margin:0px;
+	padding:0px;
+}
+
+#footer{
+	height: 50px;
+	width: 1024px;
+	margin:0px;
+	padding:0px;
+	clear: both;
+}
+
+#logo{
+	float: left;
+	height: 60px;
+	width: 227px;
+	margin-top: 25px;
+	margin-left: 15px;
+}
+#topNav {
+	margin-top: 20px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	float: left;
+	height: 40px;
+	width: 1024px;
+	background-image: url(../images/main_top.gif);
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+#topNav .welcome{
+	padding: 0px;
+	color: #FFFFFF;
+	font-size: 1.0em;
+	float: left;
+	width: 300px;
+	margin: 0 0 0 20px;
+}
+
+#topNav .time{
+	padding: 0px;
+	color: #FFFFFF;
+	font-size: 1em;
+	float: right;
+	margin: 0 30px 0 0px;
+}
+#mainBody {
+	background-color: #FFFFFF;
+	background-attachment: scroll;
+	background-image: url(../images/main_body.gif);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	float: left;
+	padding:20px 40px;
+	/*width:944px;*/
+	clear: both;
+	min-height:600px;
+}
+#headNav {
+	float: right;
+	width: 200px;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #FF0000;
+	margin: 10px 0 0 0;
+}
+
+#headNav ul{
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+	list-style-type: none;
+}
+#headNav li{
+	margin: 0px;
+	padding-top: 0.1em;
+	padding-right: 0px;
+	padding-bottom: 0.1em;
+	padding-left: 0px;
+}
+h1 {
+	color: #c54b25;
+	font-weight: normal;
+	font-size: 2em;
+	margin: 0px;
+	padding: 0px;
+}
+
+.submenu {z-index: 9999; /* IE8 FIX for asp:Menu */
+	background-color: #7e7e7e; /*#7e7e7e;
+	} 

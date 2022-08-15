@@ -1,0 +1,85 @@
+﻿
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BasketBallRegistration.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>RewardNet</title>
+    <link href="App_Themes/Generic.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/menu.css"/>
+    <link rel="stylesheet" href=" https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+
+	
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+
+	 <script type="text/javascript" src="js/moment.js"></script>
+	 <script type="text/javascript" src="js/datetime-moment.js"></script>
+	 <script type="text/javascript" src="js/date-uk.js"></script>
+
+	
+
+    <script type="text/javascript">
+        $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
+    </script>
+    <style type="text/css">
+        li :hover {
+            color: #337AB7 !important;
+        }
+    </style>
+    </head>
+        <body>
+            <form id="form1" runat="server">
+                <div class="container">
+            <div class="panel-group">
+                <div class="panel panel-default" style="height:80px">
+                <div class="panel-body">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <div id="Menu1" runat="server">
+                                <nav class="navbar ">
+                                    <div class="container-fluid">
+                                        <div class="navbar-header">
+                                            <a class="navbar-brand" href="frmHome.aspx"> <img alt="ClareCascadersLogo" src="images/ClareCascadersLogo.png" style="width: 50px; position:relative; top:-4px"/></a> 
+                                        </div>
+                                        <div>
+                                            <ul class="nav navbar-nav">
+                                            <li ><a href="frmPlayer_Grid.aspx">Players</a></li>
+                                            <li ><a href="frmPayment_Grid.aspx">Payments</a></li>
+                                            <li ><a href="frmMyTeam_Grid.aspx">My Team</a></li>
+                                            <li ><a href="frmPlayer.aspx?mode=add">Register Player</a></li>
+                                            <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities
+                                                <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                <li><a href="frmCommsLog_Grid.aspx">Comms Log</a></li>
+                                                <li><a href="frmAuditTrail_Grid.aspx">AuditTrail</a></li>
+                                                </ul>
+                                        </li>
+                                        <li ><asp:LinkButton ID="lnkLogoutUser" runat="server" OnClick="lnkLogoutUser_Click">Logout</asp:LinkButton></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    </div>
+                </div>
+                    </div>
+                    </div>
+                    <!--End of navigation-->
+                </div>
+                <div>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
