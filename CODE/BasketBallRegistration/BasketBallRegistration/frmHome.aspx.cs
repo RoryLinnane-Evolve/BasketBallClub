@@ -11,7 +11,8 @@ namespace BasketBallRegistration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string Name = Context.User.Identity.Name;
+            ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", $"welcome(\"Welcome {Name}!\")",true);
         }
     }
 }

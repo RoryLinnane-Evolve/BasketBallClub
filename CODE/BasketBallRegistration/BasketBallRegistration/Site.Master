@@ -53,7 +53,7 @@
                                             <li ><a href="frmPlayer_Grid.aspx">Players</a></li>
                                             <li ><a href="frmPayment_Grid.aspx">Payments</a></li>
                                             <li ><a href="frmMyTeam_Grid.aspx">My Team</a></li>
-                                            <li ><a href="frmPlayer.aspx?mode=add">Register Player</a></li>
+                                            <li ><a href="frmRegister_Grid.aspx">Register Player</a></li>
                                             <li class="dropdown">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities
                                                 <span class="caret"></span></a>

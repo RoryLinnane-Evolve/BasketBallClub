@@ -101,3 +101,10 @@ C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBall
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\obj\Debug\BasketBallRegistration.dll
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\obj\Debug\BasketBallRegistration.pdb
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\obj\Debug\BasketBallRegistration.csproj.AssemblyReference.cache
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Microsoft.IdentityModel.Logging.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Microsoft.IdentityModel.Tokens.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Twilio.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Microsoft.IdentityModel.Tokens.xml
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Twilio.xml

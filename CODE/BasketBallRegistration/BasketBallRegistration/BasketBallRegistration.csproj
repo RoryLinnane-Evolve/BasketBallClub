@@ -50,11 +50,25 @@
       <HintPath>bin\GMDatePicker.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -85,8 +99,8 @@
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Twilio, Version=5.78.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.78.1\lib\net451\Twilio.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -235,6 +249,8 @@
     <Content Include="frmPayment_Grid.aspx" />
     <Content Include="frmPlayer.aspx" />
     <Content Include="frmPlayer_Grid.aspx" />
+    <Content Include="frmRegister.aspx" />
+    <Content Include="frmRegister_Grid.aspx" />
     <Content Include="frmUser.aspx" />
     <Content Include="frmUser_Grid.aspx" />
     <Content Include="Global.asax" />
@@ -498,6 +514,20 @@
     </Compile>
     <Compile Include="frmPlayer_Grid.aspx.designer.cs">
       <DependentUpon>frmPlayer_Grid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegister.aspx.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRegister.aspx.designer.cs">
+      <DependentUpon>frmRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegister_Grid.aspx.cs">
+      <DependentUpon>frmRegister_Grid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRegister_Grid.aspx.designer.cs">
+      <DependentUpon>frmRegister_Grid.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmUser.aspx.cs">
       <DependentUpon>frmUser.aspx</DependentUpon>
