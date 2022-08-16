@@ -41,8 +41,16 @@
                 </div>
             </div>
 
-            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" CssClass="table table-hover table-striped" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" CssClass="table table-hover table-striped" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId" DataSourceID="Cart">
                 <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                    <asp:BoundField DataField="PlayerId" HeaderText="PlayerId" InsertVisible="False" ReadOnly="True" SortExpression="PlayerId" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
+                    <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+                    <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
+                </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -54,6 +62,15 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
+    <asp:Button ID="cmdContinue" runat="server" CausesValidation="False" Text="Continue" width="100px" class="btn btn-primary" OnClick="cmdContinue_Click" />
+            <br />
+            <asp:SqlDataSource ID="Cart" runat="server" ConnectionString="<%$ ConnectionStrings:CascadersRegDBConnectionString %>" SelectCommand="SELECT PlayerId, Name, DateOfBirth, Gender, RoleId
+FROM Players
+WHERE RegistrarEmail=@RegistrarEmail AND Payed = 0;">
+                <SelectParameters>
+                    <asp:Parameter Name="RegistrarEmail" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
     </div>
     &nbsp;

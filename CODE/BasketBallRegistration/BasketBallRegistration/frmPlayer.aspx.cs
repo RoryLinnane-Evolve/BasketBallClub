@@ -26,7 +26,6 @@ namespace BasketBallRegistration
 
                 try
                 {
-
                     PK = Convert.ToInt32(Request.QueryString["PK"]);
                 }
                 catch (Exception)
@@ -66,12 +65,6 @@ namespace BasketBallRegistration
 
          
         }
-
-        protected void SchemeStatus_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
-        {
-
-        }
-
         protected void cmdSave_Click(object sender, EventArgs e)
         {
             var taAT = new AuditTrailTableAdapter();
@@ -108,6 +101,7 @@ namespace BasketBallRegistration
                 }catch (Exception ex)
                 {
                     //Log it \/
+
                     taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, ex.Message);
                 }                
             }

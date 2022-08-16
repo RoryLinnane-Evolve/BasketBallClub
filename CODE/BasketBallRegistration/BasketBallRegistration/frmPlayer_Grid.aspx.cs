@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BasketBallRegistration.DAL.BasketBallTableAdapters;
+using System;
 using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using BasketBallRegistration.DAL.BasketBallTableAdapters;
 using static BasketBallRegistration.DAL.BasketBall;
 
 namespace BasketBallRegistration
@@ -18,7 +14,7 @@ namespace BasketBallRegistration
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Page.IsPostBack == false)
+            if (Page.IsPostBack == false)
                 ddRole.SelectedValue = "1";
 
 
@@ -59,7 +55,7 @@ namespace BasketBallRegistration
         public void Refresh_Grid()
         {
             PlayersTableAdapter taPlayers = new PlayersTableAdapter();
-            PlayersDataTable dtPlayers= new PlayersDataTable();
+            PlayersDataTable dtPlayers = new PlayersDataTable();
             DataView dv;
             taPlayers.FillBy_Grid(dtPlayers);
             dv = dtPlayers.DefaultView;

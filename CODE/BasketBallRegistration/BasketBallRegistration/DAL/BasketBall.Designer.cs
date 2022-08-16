@@ -4789,7 +4789,7 @@ namespace BasketBallRegistration.DAL.BasketBallTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        PlayerId, BI_PIN, Name, DateOfBirth, Gender, Address, Email, PhoneNumber, MedicalConditions, EmergencyContactNumber, EmergencyContactRelationship, Allergies, MedicalNotes, CountryOfBirth, ParentName, ParentEmail, 
@@ -4803,24 +4803,32 @@ WHERE        (PlayerId = @PK)";
             this._commandCollection[1].CommandText = @"SELECT        PlayerId, BI_PIN, Name, DateOfBirth, Gender, Address, Email, PhoneNumber, MedicalConditions, EmergencyContactNumber, EmergencyContactRelationship, Allergies, MedicalNotes, CountryOfBirth, ParentName, ParentEmail, 
                          ParentPhoneNumber, RoleId, RegistrarEmail, DateRegistered, Payed
 FROM            Players
-WHERE        (DateOfBirth >= @MIN) AND (DateOfBirth <= @MAX) AND (Gender =@Gender)";
+WHERE        (RegistrarEmail = @RegistrarEmail) AND (Payed = 0);";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MIN", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MAX", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrarEmail", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrarEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT Address, Allergies, BI_PIN, CountryOfBirth, DateOfBirth, DateRegistered, Email, EmergencyContactNumber, EmergencyContactRelationship, Gender, MedicalConditions, MedicalNotes, Name, ParentEmail, ParentName, ParentPhoneNumber, Payed, PhoneNumber, PlayerId, RegistrarEmail, RoleId 
-FROM Players";
+            this._commandCollection[2].CommandText = @"SELECT        PlayerId, BI_PIN, Name, DateOfBirth, Gender, Address, Email, PhoneNumber, MedicalConditions, EmergencyContactNumber, EmergencyContactRelationship, Allergies, MedicalNotes, CountryOfBirth, ParentName, ParentEmail, 
+                         ParentPhoneNumber, RoleId, RegistrarEmail, DateRegistered, Payed
+FROM            Players
+WHERE        (DateOfBirth >= @MIN) AND (DateOfBirth <= @MAX) AND (Gender =@Gender)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MIN", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MAX", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT Address, Allergies, BI_PIN, CountryOfBirth, DateOfBirth, DateRegistered, Email, EmergencyContactNumber, EmergencyContactRelationship, Gender, MedicalConditions, MedicalNotes, Name, ParentEmail, ParentName, ParentPhoneNumber, Payed, PhoneNumber, PlayerId, RegistrarEmail, RoleId FROM Players WHERE (RoleId = @RoleId)";
+            this._commandCollection[3].CommandText = @"SELECT Address, Allergies, BI_PIN, CountryOfBirth, DateOfBirth, DateRegistered, Email, EmergencyContactNumber, EmergencyContactRelationship, Gender, MedicalConditions, MedicalNotes, Name, ParentEmail, ParentName, ParentPhoneNumber, Payed, PhoneNumber, PlayerId, RegistrarEmail, RoleId 
+FROM Players";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RoleId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"
+            this._commandCollection[4].CommandText = @"SELECT Address, Allergies, BI_PIN, CountryOfBirth, DateOfBirth, DateRegistered, Email, EmergencyContactNumber, EmergencyContactRelationship, Gender, MedicalConditions, MedicalNotes, Name, ParentEmail, ParentName, ParentPhoneNumber, Payed, PhoneNumber, PlayerId, RegistrarEmail, RoleId FROM Players WHERE (RoleId = @RoleId)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RoleId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"
 
 IF @RoleId = 1 BEGIN SELECT PlayerId, BI_PIN,Name, DateOfBirth, Gender, Email AS 'Email/Parent Email', PhoneNumber AS 'Phone/Parent Phone', MedicalConditions, Allergies, MedicalNotes, RoleId, RegistrarEmail, Payed, 
                                                                           EmergencyContactNumber AS 'EmergencyContactPhone/CountryOfBirth', EmergencyContactRelationship AS 'EmergencyContactRel/ParentName', DateRegistered
@@ -4832,9 +4840,15 @@ BEGIN
 	SELECT PlayerId, BI_PIN,Name, DateOfBirth, Gender, ParentEmail AS 'Email/Parent Email',ParentPhoneNumber AS 'Phone/Parent Phone', MedicalConditions, Allergies, MedicalNotes, RoleId, RegistrarEmail, Payed,	CountryOfBirth AS 'EmergencyContactPhone/CountryOfBirth', ParentName AS 'EmergencyContactRel/ParentName', DateRegistered
 	FROM Players WHERE RoleId = 2 AND Name LIKE N'%' + @SearchKey + N'%'; 
 END";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchKey", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RoleId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchKey", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RoleId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "dbo.PRICE_CALC";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrarEmail", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4867,8 +4881,44 @@ END";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy_DOB(BasketBall.PlayersDataTable dataTable, System.DateTime MIN, System.DateTime MAX, string Gender) {
+        public virtual int FillBy_Cart(BasketBall.PlayersDataTable dataTable, string RegistrarEmail) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((RegistrarEmail == null)) {
+                throw new global::System.ArgumentNullException("RegistrarEmail");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(RegistrarEmail));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual BasketBall.PlayersDataTable GetDataBy_Cart(string RegistrarEmail) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((RegistrarEmail == null)) {
+                throw new global::System.ArgumentNullException("RegistrarEmail");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(RegistrarEmail));
+            }
+            BasketBall.PlayersDataTable dataTable = new BasketBall.PlayersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_DOB(BasketBall.PlayersDataTable dataTable, System.DateTime MIN, System.DateTime MAX, string Gender) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(MIN));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(MAX));
             if ((Gender == null)) {
@@ -4889,7 +4939,7 @@ END";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BasketBall.PlayersDataTable GetDataBy_DOB(System.DateTime MIN, System.DateTime MAX, string Gender) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(MIN));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(MAX));
             if ((Gender == null)) {
@@ -4908,7 +4958,7 @@ END";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy_Grid(BasketBall.PlayersDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -4921,7 +4971,7 @@ END";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BasketBall.PlayersDataTable GetDataBy_Grid() {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             BasketBall.PlayersDataTable dataTable = new BasketBall.PlayersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -4932,7 +4982,7 @@ END";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy_RoleId(BasketBall.PlayersDataTable dataTable, int RoleId) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(RoleId));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4946,7 +4996,7 @@ END";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BasketBall.PlayersDataTable GetDataBy_RoleId(int RoleId) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(RoleId));
             BasketBall.PlayersDataTable dataTable = new BasketBall.PlayersDataTable();
             this.Adapter.Fill(dataTable);
@@ -4958,7 +5008,7 @@ END";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy_Search(BasketBall.PlayersDataTable dataTable, string SearchKey, int RoleId) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((SearchKey == null)) {
                 throw new global::System.ArgumentNullException("SearchKey");
             }
@@ -4978,7 +5028,7 @@ END";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual BasketBall.PlayersDataTable GetDataBy_Search(string SearchKey, int RoleId) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             if ((SearchKey == null)) {
                 throw new global::System.ArgumentNullException("SearchKey");
             }
@@ -5323,6 +5373,40 @@ END";
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object PRICE_CALC(string RegistrarEmail) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            if ((RegistrarEmail == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(RegistrarEmail));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
             }
         }
     }

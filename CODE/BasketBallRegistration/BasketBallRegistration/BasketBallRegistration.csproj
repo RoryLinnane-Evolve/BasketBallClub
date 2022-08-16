@@ -246,6 +246,8 @@
     <Content Include="frmHome.aspx" />
     <Content Include="frmMyTeam_Grid.aspx" />
     <Content Include="frmPayment.aspx" />
+    <Content Include="frmPaymentFailed.aspx" />
+    <Content Include="frmPaymentSuccess.aspx" />
     <Content Include="frmPayment_Grid.aspx" />
     <Content Include="frmPlayer.aspx" />
     <Content Include="frmPlayer_Grid.aspx" />
@@ -493,6 +495,20 @@
     </Compile>
     <Compile Include="frmPayment.aspx.designer.cs">
       <DependentUpon>frmPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentFailed.aspx.cs">
+      <DependentUpon>frmPaymentFailed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPaymentFailed.aspx.designer.cs">
+      <DependentUpon>frmPaymentFailed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentSuccess.aspx.cs">
+      <DependentUpon>frmPaymentSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmPaymentSuccess.aspx.designer.cs">
+      <DependentUpon>frmPaymentSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmPayment_Grid.aspx.cs">
       <DependentUpon>frmPayment_Grid.aspx</DependentUpon>
