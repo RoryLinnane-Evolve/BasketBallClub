@@ -29,7 +29,8 @@
 
 
     <asp:GridView ID="grdAudits" clientIdMode="Static" runat="server" AutoGenerateColumns="False" DataKeyNames="AuditTrailId"
-        DataSourceID="AuditTrail"  CssClass="table table-hover table-striped"  >
+        DataSourceID="AuditTrail"  CssClass="table table-hover table-striped" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None"  >
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="AuditTrailId" HeaderText="AuditTrailId" InsertVisible="False"
                 ReadOnly="True" SortExpression="AuditTrailId" />
@@ -40,6 +41,16 @@
             <asp:BoundField DataField="AuditCode" HeaderText="AuditCode" SortExpression="AuditCode" />
             <asp:BoundField DataField="Annotation" HeaderText="Annotation" SortExpression="Annotation" />
         </Columns>
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
 
        <asp:Button ID="cmdClose" runat="server" Text="Close" width="120px" class="btn btn-primary" OnClick="cmdClose_Click"/>

@@ -264,12 +264,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Account\Web.config" />
     <Content Include="DAL\BasketBall.xsc">
       <DependentUpon>BasketBall.xsd</DependentUpon>
     </Content>
     <Content Include="App_Themes\RewardNet\RewardNet.skin" />
     <Content Include="frmCommsLog_Grid.aspx" />
+    <Content Include="Account\Web.config" />
     <None Include="DAL\BasketBall.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

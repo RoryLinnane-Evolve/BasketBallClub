@@ -73,7 +73,7 @@
             <td> <asp:Button ID="cmdGo" runat="server"  Text="Search" width="120px" class="btn btn-primary" OnClick="cmdGo_Click" /></td>
         </tr>
             </table>
-
+            
             <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PlayerId" CssClass="table table-hover table-striped" DataSourceID="PlayersData" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>

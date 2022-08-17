@@ -1,5 +1,6 @@
 ﻿using BasketBallRegistration.DAL.BasketBallTableAdapters;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using static BasketBallRegistration.DAL.BasketBall;
 
@@ -51,8 +52,48 @@ namespace BasketBallRegistration
         {
             var taPlayers = new PlayersTableAdapter();
 
+
             decimal amount = (decimal)taPlayers.PRICE_CALC(Context.User.Identity.Name);
-            Response.Redirect($"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=G2TDTBCFJJVM4&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=0&cn=Add%20special%20instructions%20to%20the%20seller%3a&no_shipping=2&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
+
+            amount = PRICE_CALC();
+                       
+
+            Response.Redirect($"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=G2TDTBCFJJVM4&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=1&no_shipping=1&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
+        }
+
+
+        decimal PRICE_CALC()
+        {
+            decimal a = 0;
+            var taPlayers = new PlayersTableAdapter();
+            var taAT = new AuditTrailTableAdapter();
+            var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
+            cart.DefaultView.Sort = "DateOfBirth ASC";
+            List<int> Years = new List<int>();          
+
+            int count = 0;
+            foreach (var row in cart)
+            {
+                Years.Add(row.DateOfBirth.Year);
+            }
+
+            Years.Sort();
+
+            //foreach(var year in Years)
+            //{
+            //    if (year >= DateTime.Now.Year - 19 && year <= DateTime.Now.Year - 13)
+            //    {
+            //        a += 170M;
+            //    }
+            //    else if (year >= DateTime.Now.Year - 11 && year <= DateTime.Now.Year - 10)
+            //    { 
+                    
+            //    }
+            //    count++;
+            //}
+
+            //TODO
+            return a;
         }
 
         protected void cmdClose_Click(object sender, EventArgs e)

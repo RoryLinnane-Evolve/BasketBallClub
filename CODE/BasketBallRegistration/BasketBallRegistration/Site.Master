@@ -50,19 +50,40 @@
                                         </div>
                                         <div>
                                             <ul class="nav navbar-nav">
-                                            <li ><a href="frmPlayer_Grid.aspx">Players</a></li>
-                                            <li ><a href="frmPayment_Grid.aspx">Payments</a></li>
-                                            <li ><a href="frmMyTeam_Grid.aspx">My Team</a></li>
-                                            <li ><a href="frmRegister_Grid.aspx">Register Player</a></li>
-                                            <li class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities
+                                                <li ><a href="frmRegister_Grid.aspx">Register Player</a></li>
+                                                <li id="optMyTeam" runat="server"><a href="frmMyTeam_Grid.aspx">My Team</a></li>
+                                                
+                                                <li id="optPayment" runat="server"><a href="frmPayment_Grid.aspx">Payments</a></li>                                                
+                                                <li id="optPlayers" runat="server"><a href="frmPlayer_Grid.aspx">Players</a></li>
+                                                <li id="ddUtils"  runat="server" class="dropdown">
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities
                                                 <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                <li><a href="frmCommsLog_Grid.aspx">Comms Log</a></li>
-                                                <li><a href="frmAuditTrail_Grid.aspx">AuditTrail</a></li>
+                                                    <ul class="dropdown-menu">
+                                                    <li><a href="frmCommsLog_Grid.aspx">Comms Log</a></li>
+                                                    <li><a href="frmAuditTrail_Grid.aspx">AuditTrail</a></li>
+                                                    </ul>
+                                                </li>
+                                            <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                Account
+                                                <span class="caret"></span>
+                                            </a>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <li><a class="dropdown-item" href="/Account/Manage.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/ManageLogins.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/ManagePasswords.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/Forgot.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/Confirm.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/AddPhoneNumber.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/Lockout.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/Register.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/RegisterExternalLogin.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/ResetPassowrd.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/ResetPassowrdConfirmation.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/TwoFactorAuthenticationSignIn.aspx"></a></li>
+                                                    <li><a class="dropdown-item" href="/Account/VerifyPhoneNumber.aspx"></a></li>
                                                 </ul>
-                                        </li>
-                                        <li ><asp:LinkButton ID="lnkLogoutUser" runat="server" OnClick="lnkLogoutUser_Click">Logout</asp:LinkButton></li>
+                                            </li>
                                     </ul>
                                 </div>
                             </div>

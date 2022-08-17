@@ -15,6 +15,7 @@ namespace BasketBallRegistration
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -65,10 +66,29 @@ namespace BasketBallRegistration
                     throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
             }
+            //if (Context.User.IsInRole("Admin"))
+            //{
+            //    optPlayers.Visible=true;
+            //    optMyTeam.Visible=true;
+            //    optPayment.Visible=true; 
+            //    ddUtils.Visible=true;
+            //}else if(Context.User.IsInRole("CoachOrCommittee"))
+            //{
+            //    optMyTeam.Visible = true;
+            //}
+            //else
+            //{
+            //    optPlayers.Visible = false;
+            //    optMyTeam.Visible = false;
+            //    optPayment.Visible = false;
+            //    ddUtils.Visible = false;
+            //    optMyTeam.Visible = false;
+            //}
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             
         }
 

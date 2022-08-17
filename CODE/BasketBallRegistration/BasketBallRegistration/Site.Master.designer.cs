@@ -33,13 +33,40 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Menu1;
 
         /// <summary>
-        /// lnkLogoutUser control.
+        /// optMyTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLogoutUser;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optMyTeam;
+
+        /// <summary>
+        /// optPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optPayment;
+
+        /// <summary>
+        /// optPlayers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optPlayers;
+
+        /// <summary>
+        /// ddUtils control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddUtils;
 
         /// <summary>
         /// MainContent control.

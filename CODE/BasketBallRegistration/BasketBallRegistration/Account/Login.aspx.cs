@@ -38,7 +38,7 @@ namespace BasketBallRegistration.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        Response.Redirect("../frmHome.aspx");
+                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");

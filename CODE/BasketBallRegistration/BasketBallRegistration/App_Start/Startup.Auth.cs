@@ -61,8 +61,8 @@ namespace BasketBallRegistration
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
-            //    ClientId = "",
-            //    ClientSecret = ""
+            //    ClientId = "179204998943-ss4sbms9s0ulv7a7vdg4ao9n89brkb7u.apps.googleusercontent.com",
+            //    ClientSecret = "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"
             //});
         }
     }

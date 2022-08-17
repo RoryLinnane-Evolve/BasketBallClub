@@ -32,7 +32,6 @@ namespace BasketBallRegistration
 
                 if (mode == "edit")
                 {
-
                     foreach (var playerRow in dtPlayers)
                     {
                         this.txtName.Text = playerRow.Name;
