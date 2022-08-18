@@ -58,21 +58,21 @@ namespace BasketBallRegistration
             ddUtils.Visible = false;
             AspNetUserRolesTableAdapter taUserRoles = new AspNetUserRolesTableAdapter();
 
-            optLogin.Visible = false;
-            optLogout.Visible = false;
-            optManage.Visible = false;
-            optRegister.Visible = false;
+            //optLogin.Visible = false;
+            //optLogout.Visible = false;
+            //optManage.Visible = false;
+            //optRegister.Visible = false;
 
-            if(Context.User.Identity.IsAuthenticated)
-            {
-                optLogout.Visible = true;
-                optManage.Visible = true;
-            }
-            else
-            {
-                optLogin.Visible = false;
-                optRegister.Visible = false;
-            }
+            //if(Context.User.Identity.IsAuthenticated)
+            //{
+            //    optLogout.Visible = true;
+            //    optManage.Visible = true;
+            //}
+            //else
+            //{
+            //    optLogin.Visible = false;
+            //    optRegister.Visible = false;
+            //}
 
             int? roleId = Convert.ToInt32(taUserRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name));
 
@@ -133,9 +133,34 @@ namespace BasketBallRegistration
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
-        protected void lnkLogoutUser_Click(object sender, EventArgs e)
+        protected void lnkLogout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("~/Account/Logout.aspx");
+        }
+
+        protected void lnkManage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Account/Manage.aspx");
+        }
+
+        protected void lnkAccountRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Account/Register.aspx");
+        }
+
+        protected void lnkLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Account/Login.aspx");
+        }
+
+        protected void lnkCommsLog_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/frmCommsLog_Grid.aspx");
+        }
+
+        protected void lnkAuditTrail_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/frmAuditTrail_Grid.aspx");
         }
     }
 

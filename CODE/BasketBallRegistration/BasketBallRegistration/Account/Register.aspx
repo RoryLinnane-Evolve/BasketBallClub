@@ -1,6 +1,13 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="BasketBallRegistration.Account.Register" %>
+﻿<%@ Page Title="Register" Language="C#"  AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="BasketBallRegistration.Account.Register" %>
 
-<asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
     <h2><%: Title %>.</h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
@@ -42,4 +49,7 @@
             </div>
         </div>
     </div>
-</asp:Content>
+
+    </form>
+</body>
+</html>

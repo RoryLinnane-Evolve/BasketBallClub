@@ -120,7 +120,7 @@ namespace BasketBallRegistration
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkCommsLog;
+        protected global::System.Web.UI.WebControls.Button lnkCommsLog;
 
         /// <summary>
         /// lnkAuditTrail control.
@@ -129,7 +129,25 @@ namespace BasketBallRegistration
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAuditTrail;
+        protected global::System.Web.UI.WebControls.Button lnkAuditTrail;
+
+        /// <summary>
+        /// optLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optLogout;
+
+        /// <summary>
+        /// lnkLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
 
         /// <summary>
         /// optManage control.
@@ -184,15 +202,6 @@ namespace BasketBallRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkLogin;
-
-        /// <summary>
-        /// optLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optLogout;
 
         /// <summary>
         /// MainContent control.
