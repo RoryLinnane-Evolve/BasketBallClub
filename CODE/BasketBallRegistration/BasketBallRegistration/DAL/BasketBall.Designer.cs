@@ -4789,7 +4789,7 @@ namespace BasketBallRegistration.DAL.BasketBallTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        PlayerId, BI_PIN, Name, DateOfBirth, Gender, Address, Email, PhoneNumber, MedicalConditions, EmergencyContactNumber, EmergencyContactRelationship, Allergies, MedicalNotes, CountryOfBirth, ParentName, ParentEmail, 
@@ -4803,7 +4803,8 @@ WHERE        (PlayerId = @PK)";
             this._commandCollection[1].CommandText = @"SELECT        PlayerId, BI_PIN, Name, DateOfBirth, Gender, Address, Email, PhoneNumber, MedicalConditions, EmergencyContactNumber, EmergencyContactRelationship, Allergies, MedicalNotes, CountryOfBirth, ParentName, ParentEmail, 
                          ParentPhoneNumber, RoleId, RegistrarEmail, DateRegistered, Payed
 FROM            Players
-WHERE        (RegistrarEmail = @RegistrarEmail) AND (Payed = 0);";
+WHERE        (RegistrarEmail = @RegistrarEmail) AND (Payed = 0)
+ORDER BY DateOfBirth ASC;";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrarEmail", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrarEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -4843,12 +4844,6 @@ END";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SearchKey", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RoleId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RoleId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "dbo.PRICE_CALC";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrarEmail", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5373,40 +5368,6 @@ END";
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object PRICE_CALC(string RegistrarEmail) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
-            if ((RegistrarEmail == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((string)(RegistrarEmail));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
             }
         }
     }

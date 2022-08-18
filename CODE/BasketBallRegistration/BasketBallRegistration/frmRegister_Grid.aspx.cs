@@ -53,49 +53,99 @@ namespace BasketBallRegistration
             var taPlayers = new PlayersTableAdapter();
 
 
-            decimal amount = (decimal)taPlayers.PRICE_CALC(Context.User.Identity.Name);
 
-            amount = PRICE_CALC();
+            decimal amount = PRICE_CALC();
                        
 
             Response.Redirect($"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=G2TDTBCFJJVM4&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=1&no_shipping=1&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
         }
 
-
+        /// <summary>
+        /// Calculates price of players in cart (includes discounts)
+        /// </summary>
+        /// <returns>decimal of price</returns>
         decimal PRICE_CALC()
         {
-            decimal a = 0;
+            decimal total = 0;
             var taPlayers = new PlayersTableAdapter();
             var taAT = new AuditTrailTableAdapter();
             var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
-            cart.DefaultView.Sort = "DateOfBirth ASC";
-            List<int> Years = new List<int>();          
+            
+            List<int> cYears = new List<int>();          
 
-            int count = 0;
             foreach (var row in cart)
             {
-                Years.Add(row.DateOfBirth.Year);
+                if(row.DateOfBirth.Year >= DateTime.Now.Year - 17)
+                    cYears.Add(row.DateOfBirth.Year);
+                else
+                    total += 180.0M;
             }
-
-            Years.Sort();
-
-            //foreach(var year in Years)
-            //{
-            //    if (year >= DateTime.Now.Year - 19 && year <= DateTime.Now.Year - 13)
-            //    {
-            //        a += 170M;
-            //    }
-            //    else if (year >= DateTime.Now.Year - 11 && year <= DateTime.Now.Year - 10)
-            //    { 
-                    
-            //    }
-            //    count++;
-            //}
-
-            //TODO
-            return a;
+            decimal cTotal = 0;
+            foreach (int c in cYears)
+            {
+                
+                if (cTotal == 0)
+                {
+                    if (ChildIsUnder10(c))
+                    {
+                        cTotal += 63.0M;
+                    }
+                    else if (ChildIsUnder12(c))
+                    {
+                        cTotal += 115.0M;
+                    }
+                    else if (ChildIsUnder20(c))
+                    {
+                        cTotal += 170.0M;
+                    }
+                }
+                else
+                {
+                    if (ChildIsUnder10(c))
+                    {
+                        cTotal += 53.0M;
+                    }
+                    else if (ChildIsUnder12(c))
+                    {
+                        cTotal += 90.0M;
+                    }
+                    else if (ChildIsUnder20(c))
+                    {
+                        cTotal += 135.0M;
+                    }
+                }
+            }
+            return total + cTotal;
         }
 
+        #region classification methods
+        private static bool ChildIsUnder10(int Year)
+        {
+            int age = DateTime.Now.Year - Year;
+            if (age <= 9)
+                return true;
+            else
+                return false;
+        }
+
+        private static bool ChildIsUnder12(int Year)
+        {
+            int age = DateTime.Now.Year - Year;
+            if (age <= 11)
+                return true;
+            else
+                return false;
+        }
+
+        private static bool ChildIsUnder20(int Year)
+        {
+            int age = DateTime.Now.Year - Year;
+            if (age <= 19)
+                return true;
+            else
+                return false;
+        }
+        #endregion
         protected void cmdClose_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmHome.aspx");

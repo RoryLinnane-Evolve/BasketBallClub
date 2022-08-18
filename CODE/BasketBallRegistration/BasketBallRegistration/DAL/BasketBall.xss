@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:AuditTrail" ZOrder="5" X="165" Y="136" Height="229" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:CommsLog" ZOrder="3" X="436" Y="143" Height="248" Width="209" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
-    <Shape ID="DesignTable:Players" ZOrder="1" X="734" Y="182" Height="647" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="425" />
+    <Shape ID="DesignTable:Players" ZOrder="1" X="734" Y="182" Height="571" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="425" />
     <Shape ID="DesignTable:Payments" ZOrder="4" X="1176" Y="320" Height="229" Width="201" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:Users" ZOrder="2" X="290" Y="455" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
   </Shapes>

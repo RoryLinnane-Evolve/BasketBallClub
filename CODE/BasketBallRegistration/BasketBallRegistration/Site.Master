@@ -38,59 +38,50 @@
                 <div class="container">
             <div class="panel-group">
                 <div class="panel panel-default" style="height:80px">
-                <div class="panel-body">
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <div class="container">
-                            <div id="Menu1" runat="server">
-                                <nav class="navbar ">
-                                    <div class="container-fluid">
-                                        <div class="navbar-header">
-                                            <a class="navbar-brand" href="frmHome.aspx"> <img alt="ClareCascadersLogo" src="images/ClareCascadersLogo.png" style="width: 50px; position:relative; top:-4px"/></a> 
-                                        </div>
-                                        <div>
-                                            <ul class="nav navbar-nav">
-                                                <li ><a href="frmRegister_Grid.aspx">Register Player</a></li>
-                                                <li id="optMyTeam" runat="server"><a href="frmMyTeam_Grid.aspx">My Team</a></li>
+                    <div class="panel-body">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="container">
+                                <div id="Menu1" runat="server">
+                                    <nav class="navbar ">
+                                        <div class="container-fluid">
+                                            <div class="navbar-header">
+                                                <a class="navbar-brand" href="frmHome.aspx"> <asp:Image ID="imgLogo" runat="server" AlternateText="ClareCascaders" ImageUrl="~/images/ClareCascadersLogo.png" style="width: 50px; position:relative; top:-4px"/></a> 
+                                            </div>
+                                            <div>
+                                                <ul class="nav navbar-nav">
+                                                    <li ><asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/frmRegister_Grid.aspx">Register Player</asp:HyperLink></li>
+                                                    <li id="optMyTeam" runat="server"><asp:HyperLink ID="lnkMyTeam" runat="server"  NavigateUrl="~/frmMyTeam_Grid.aspx">My Team</asp:HyperLink></li>
                                                 
-                                                <li id="optPayment" runat="server"><a href="frmPayment_Grid.aspx">Payments</a></li>                                                
-                                                <li id="optPlayers" runat="server"><a href="frmPlayer_Grid.aspx">Players</a></li>
-                                                <li id="ddUtils"  runat="server" class="dropdown">
-                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities
-                                                <span class="caret"></span></a>
-                                                    <ul class="dropdown-menu">
-                                                    <li><a href="frmCommsLog_Grid.aspx">Comms Log</a></li>
-                                                    <li><a href="frmAuditTrail_Grid.aspx">AuditTrail</a></li>
-                                                    </ul>
-                                                </li>
-                                            <li class="dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                Account
-                                                <span class="caret"></span>
-                                            </a>
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <li><a class="dropdown-item" href="/Account/Manage.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/ManageLogins.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/ManagePasswords.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/Forgot.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/Confirm.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/AddPhoneNumber.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/Lockout.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/Register.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/RegisterExternalLogin.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/ResetPassowrd.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/ResetPassowrdConfirmation.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/TwoFactorAuthenticationSignIn.aspx"></a></li>
-                                                    <li><a class="dropdown-item" href="/Account/VerifyPhoneNumber.aspx"></a></li>
+                                                    <li id="optPayment" runat="server"><asp:HyperLink ID="lnkPayments" runat="server" NavigationUrl="~/frmPayment_Grid.aspx">Payments</asp:HyperLink></li>                                                
+                                                    <li id="optPlayers" runat="server"><asp:HyperLink ID="lnkPlayers" runat="server" NavigationUrl="~/frmPlayer_Grid.aspx">Players</asp:HyperLink></li>
+                                                    <li id="ddUtils"  runat="server" class="dropdown">
+                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities
+                                                    <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                        <li><asp:HyperLink ID="lnkCommsLog" runat="server" NavigationUrl="~/frmCommsLog_Grid.aspx">Comms Log</asp:HyperLink></li>
+                                                        <li><asp:HyperLink ID="lnkAuditTrail" runat="server" NavigationUrl="~/frmAuditTrail_Grid.aspx">AuditTrail</asp:HyperLink></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                        Account
+                                                        <span class="caret"></span>
+                                                    </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">                                                    
+                                                            <li id="optManage" runat="server"><asp:HyperLink ID="lnkManage" runat="server" class="dropdown-item" NavigationUrl="~/Account/Manage.aspx">Manage</asp:HyperLink></li>
+                                                            <li id="optRegister" runat="server"><asp:HyperLink ID="lnkAccountRegister" runat="server" class="dropdown-item" NavigationUrl="~/Account/Register.aspx">Register</asp:HyperLink></li>
+                                                            <li id="optLogin" runat="server"><asp:HyperLink ID="lnkLogin" runat="server" class="dropdown-item" NavigationUrl="~/Account/Login.aspx">Login</asp:HyperLink></li>
+                                                            <li id="optLogout" runat="server"><a class="dropdown-item" href="~/Account/Login.aspx">Logout</a></li>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
-                                            </li>
-                                    </ul>
+                                            </div>
+                                        </div>
+                                    </nav>
                                 </div>
                             </div>
-                        </nav>
-                    </div>
-                    </div>
-                </div>
+                        </div>
                     </div>
                     </div>
                     <!--End of navigation-->

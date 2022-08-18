@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BasketBallRegistration.DAL.SetupsTableAdapters;
 using Microsoft.AspNet.Identity;
 
 namespace BasketBallRegistration
@@ -51,6 +52,32 @@ namespace BasketBallRegistration
 
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
+            optPlayers.Visible = false;
+            optMyTeam.Visible = false;
+            optPayment.Visible = false;
+            ddUtils.Visible = false;
+            AspNetUserRolesTableAdapter taUserRoles = new AspNetUserRolesTableAdapter();
+
+            optLogin.Visible = false;
+            optLogout.Visible = false;
+            optManage.Visible = false;
+            optRegister.Visible = false;
+
+            if(Context.User.Identity.IsAuthenticated)
+            {
+                optLogout.Visible = true;
+                optManage.Visible = true;
+            }
+            else
+            {
+                optLogin.Visible = false;
+                optRegister.Visible = false;
+            }
+
+            int? roleId = Convert.ToInt32(taUserRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name));
+
+            
+
             if (!IsPostBack)
             {
                 // Set Anti-XSRF token
@@ -66,24 +93,33 @@ namespace BasketBallRegistration
                     throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
             }
-            //if (Context.User.IsInRole("Admin"))
-            //{
-            //    optPlayers.Visible=true;
-            //    optMyTeam.Visible=true;
-            //    optPayment.Visible=true; 
-            //    ddUtils.Visible=true;
-            //}else if(Context.User.IsInRole("CoachOrCommittee"))
-            //{
-            //    optMyTeam.Visible = true;
-            //}
-            //else
-            //{
-            //    optPlayers.Visible = false;
-            //    optMyTeam.Visible = false;
-            //    optPayment.Visible = false;
-            //    ddUtils.Visible = false;
-            //    optMyTeam.Visible = false;
-            //}
+            if (roleId != null)
+            {
+                if (roleId == 3)
+                {
+                    optPlayers.Visible = true;
+                    optMyTeam.Visible = true;
+                    optPayment.Visible = true;
+                    ddUtils.Visible = true;
+                }
+                else if (roleId == 1)
+                {
+                    optMyTeam.Visible = true;
+                }
+                else if (roleId == 2)
+                {
+                    optPayment.Visible = true;
+                    ddUtils.Visible = true;
+                }
+                else
+                {
+                    optPlayers.Visible = false;
+                    optMyTeam.Visible = false;
+                    optPayment.Visible = false;
+                    ddUtils.Visible = false;
+                    optMyTeam.Visible = false;
+                }
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)

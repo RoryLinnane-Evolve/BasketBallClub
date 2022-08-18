@@ -33,6 +33,24 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Menu1;
 
         /// <summary>
+        /// imgLogo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgLogo;
+
+        /// <summary>
+        /// lnkRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkRegister;
+
+        /// <summary>
         /// optMyTeam control.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace BasketBallRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl optMyTeam;
+
+        /// <summary>
+        /// lnkMyTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkMyTeam;
 
         /// <summary>
         /// optPayment control.
@@ -51,6 +78,15 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl optPayment;
 
         /// <summary>
+        /// lnkPayments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkPayments;
+
+        /// <summary>
         /// optPlayers control.
         /// </summary>
         /// <remarks>
@@ -60,6 +96,15 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl optPlayers;
 
         /// <summary>
+        /// lnkPlayers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkPlayers;
+
+        /// <summary>
         /// ddUtils control.
         /// </summary>
         /// <remarks>
@@ -67,6 +112,87 @@ namespace BasketBallRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddUtils;
+
+        /// <summary>
+        /// lnkCommsLog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkCommsLog;
+
+        /// <summary>
+        /// lnkAuditTrail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkAuditTrail;
+
+        /// <summary>
+        /// optManage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optManage;
+
+        /// <summary>
+        /// lnkManage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkManage;
+
+        /// <summary>
+        /// optRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optRegister;
+
+        /// <summary>
+        /// lnkAccountRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkAccountRegister;
+
+        /// <summary>
+        /// optLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optLogin;
+
+        /// <summary>
+        /// lnkLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkLogin;
+
+        /// <summary>
+        /// optLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optLogout;
 
         /// <summary>
         /// MainContent control.

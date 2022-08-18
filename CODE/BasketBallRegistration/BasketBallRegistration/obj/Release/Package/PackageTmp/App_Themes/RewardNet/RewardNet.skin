@@ -1,0 +1,101 @@
+<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<asp:Label Runat="server" ForeColor="Black" Font-Names="Lucida Sans Unicode" 
+            Font-Size="small" />
+            
+<asp:Label Runat="server" SkinId="Title" ForeColor="#363E99" 
+Font-Size="Large" Font-Bold="True"  />
+
+<asp:Label Runat="server" SkinId="LabelHighlight" ForeColor="#363E99"  
+Font-Size="Medium" Font-Bold="True"  />
+
+<asp:Label Runat="server" SkinId="LabelHighlight2" ForeColor="#363E99"  
+Font-Size="Large" Font-Bold="True"  />
+
+<asp:Label Runat="server" SkinId="SubTitle_Reports" ForeColor="#c54b25" 
+Font-Size="Medium" Font-Bold="True"  />
+
+<asp:Label Runat="server" SkinId="SubTitle" ForeColor="Black" 
+Font-Size="Small" Font-Bold="True"  />
+
+<asp:Label Runat="server" SkinId="MainHeader" ForeColor="#c54b2" 
+Font-Size="XX-Large" Font-Bold="False" />
+
+<asp:Label Runat="server" SkinId="SubHeader" ForeColor="Black" 
+Font-Size="Medium" Font-Bold="True" />
+
+<asp:Label Runat="server" SkinId="NormalLabel" ForeColor="Black"  
+Font-Size="small" Font-Bold="False" />
+
+<asp:Label Runat="server" SkinId="LogInLabel" ForeColor="White" 
+Font-Bold="True" />
+
+<asp:Textbox Runat="server" Font-Names="Lucida Sans Unicode" SkinId="Textbox"
+            Font-Size="small"  Font-Bold="False"  width="200px" />
+            
+<asp:RadioButtonList Runat="server" Font-Names="Lucida Sans Unicode" SkinId="RadioButtonList"
+  Font-Size="small"  Font-Bold="False" ForeColor="WhiteSmoke" width="200px" />
+                        
+<asp:Button Runat="server" Font-Names="Lucida Sans Unicode" SkinId="Button"
+            Font-Size="small"  Font-Bold="False" ForeColor="Black" BorderWidth="2px" BorderColor="silver" BorderStyle="outset" Height="25px"/>
+
+<asp:DropDownList Runat="server" Font-Names="Lucida Sans Unicode"  SkinId="DropDownList"
+            Font-Size="small" Font-Bold="False" width="200px" />
+            
+<asp:ListBox Runat="server" Font-Names="Lucida Sans Unicode" SkinId="ListBox"
+            Font-Size="small" Font-Bold="False" Rows="4"/>
+           
+<asp:GridView Runat="server" ForeColor="Black" 
+            Font-Size="small" BorderStyle="Solid" BorderWidth="1px" 
+            BorderColor="Black" Font-Bold="False" BackColor="ButtonFace" 
+            PageSize="1000" PageIndex="0"
+            HeaderStyle-BackColor="#c9dcdd"
+            HeaderStyle-ForeColor="Black"
+            PagerStyle-BackColor="LightGrey" PagerStyle-ForeColor="Black"
+            PagerSettings-Position="Top"
+            PagerSettings-Visibe="True"
+            PagerSettings-Mode="NextPreviousFirstLast"
+            PagerStyle-HorizontalAlign="Center"
+            GridLines="Both"
+            AllowPaging = "True"
+            AllowSorting = "True"
+            GridDefaultSize="10"
+            AlternatingRowStyle-BackColor="#c9dcdd" SkinId="Grid"
+            SelectedRowStyle-BackColor="#FF8080" />
+
+<asp:GridView Runat="server" ForeColor="Black" Font-Names="Lucida Sans Unicode"
+            Font-Size="small" BorderStyle="Solid" BorderWidth="1px" 
+            BorderColor="Black" Font-Bold="False" BackColor="ButtonFace" 
+            PageSize="1000" PageIndex="0"
+            HeaderStyle-BackColor="#c9dcdd"
+            HeaderStyle-ForeColor="Black"
+            PagerStyle-BackColor="LightGrey" PagerStyle-ForeColor="Black"
+            PagerSettings-Position="Top"
+            PagerSettings-Visibe="True"
+            PagerSettings-Mode="NextPreviousFirstLast"
+            PagerStyle-HorizontalAlign="Center"
+            GridLines="Both"
+            AllowPaging = "True"
+            AllowSorting = "True"
+            GridDefaultSize="100"
+            AlternatingRowStyle-BackColor="#c9dcdd" SkinId="Grid_User"
+            SelectedRowStyle-BackColor="#FF8080" />
+
+<asp:Label Runat="server" SkinId="NormalLabel_User" ForeColor="Black" Font-Names="Arial" 
+Font-Size="Medium" Font-Bold="False" />
+
+<asp:Menu Runat="server" Font-Names="Lucida Sans Unicode" Font-Size="Small" Font-Bold="True" SkinId="Menu" />

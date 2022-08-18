@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BasketBallRegistration.Models;
+using System.Configuration;
 
 namespace BasketBallRegistration.Models
 {
@@ -30,7 +31,7 @@ namespace BasketBallRegistration.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("CascadersRegDB", throwIfV1Schema: false)
+            : base(ConfigurationManager.ConnectionStrings["CascadersRegDbConnectionString"].ToString(), throwIfV1Schema: false)
         {
         }
 
