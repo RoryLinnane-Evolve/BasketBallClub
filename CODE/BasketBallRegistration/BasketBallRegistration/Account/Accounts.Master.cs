@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BasketBallRegistration.Account
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Accounts : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

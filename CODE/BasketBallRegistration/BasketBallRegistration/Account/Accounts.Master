@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Accounts.master.cs" Inherits="BasketBallRegistration.Account.Accounts" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Clare Cascaders</title>
+    <link href="../App_Themes/Generic.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/menu.css"/>
+    <link rel="stylesheet" href=" https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+    <link rel="stylesheet" href="../css/vanilla-zoom.min.css">
+
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/dataTables.bootstrap.min.js"></script>
+
+	 <script type="text/javascript" src="../js/moment.js"></script>
+	 <script type="text/javascript" src="../js/datetime-moment.js"></script>
+	 <script type="text/javascript" src="../js/date-uk.js"></script>
+
+	
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+    <script src="../js/vanilla-zoom.js"></script>
+    <script src="../js/theme.js"></script>
+    <script type="text/javascript">
+        $('a[href="' + this.location.pathname + '"]').parents('li,ul').addClass('active');
+    </script>
+    <style type="text/css">
+        li :hover {
+            color: #337AB7 !important;
+        }
+    </style>
+    </head>
+<body>
+    <form id="form1" runat="server">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            
+    </form>
+</body>
+</html>

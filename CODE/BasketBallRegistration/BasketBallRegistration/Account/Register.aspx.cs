@@ -1,15 +1,16 @@
-﻿using System;
+﻿using BasketBallRegistration.Models;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Owin;
-using BasketBallRegistration.Models;
+using System.Web.UI.WebControls;
 
 namespace BasketBallRegistration.Account
 {
-    public partial class Register : Page
+    public partial class Register1 : System.Web.UI.Page
     {
         protected void CreateUser_Click(object sender, EventArgs e)
         {
@@ -24,10 +25,10 @@ namespace BasketBallRegistration.Account
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
-            else 
+            else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }

@@ -211,6 +211,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\AddPhoneNumber.aspx" />
+    <Content Include="Account\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Account\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Account\assets\css\vanilla-zoom.min.css" />
+    <Content Include="Account\assets\js\theme.js" />
+    <Content Include="Account\assets\js\vanilla-zoom.js" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
@@ -224,7 +229,6 @@
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
-    <Content Include="Account\WebForm1.aspx" />
     <Content Include="App_Themes\Generic.css" />
     <Content Include="App_Themes\Images\1pixel.png" />
     <Content Include="App_Themes\Images\bordnamona.gif" />
@@ -281,6 +285,7 @@
     <Content Include="css\menu.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style2.css" />
+    <Content Include="css\vanilla-zoom.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="frmAuditTrail_Grid.aspx" />
@@ -312,7 +317,7 @@
     <Content Include="App_Themes\RewardNet\RewardNet.skin" />
     <Content Include="frmCommsLog_Grid.aspx" />
     <Content Include="Account\Web.config" />
-    <Content Include="Account\AccountSite.master" />
+    <Content Include="Account\Accounts.Master" />
     <None Include="DAL\BasketBall.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -354,7 +359,8 @@
     <Content Include="js\notify.js" />
     <Content Include="js\prototype.js" />
     <Content Include="js\scriptaculous.js" />
-    <Content Include="Login.aspx" />
+    <Content Include="js\theme.js" />
+    <Content Include="js\vanilla-zoom.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -390,12 +396,12 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\AccountSite.master.cs">
-      <DependentUpon>AccountSite.master</DependentUpon>
+    <Compile Include="Account\Accounts.Master.cs">
+      <DependentUpon>Accounts.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\AccountSite.master.designer.cs">
-      <DependentUpon>AccountSite.master</DependentUpon>
+    <Compile Include="Account\Accounts.Master.designer.cs">
+      <DependentUpon>Accounts.Master</DependentUpon>
     </Compile>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
@@ -495,17 +501,22 @@
     <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.designer.cs">
       <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="AdminPage.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AuthPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoachPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CommitteePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="DAL\BasketBall.cs">
       <DependentUpon>BasketBall.xsd</DependentUpon>
     </Compile>
@@ -619,13 +630,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

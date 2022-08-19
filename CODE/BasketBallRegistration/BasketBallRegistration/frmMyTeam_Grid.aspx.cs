@@ -11,7 +11,7 @@ using static BasketBallRegistration.DAL.BasketBall;
 
 namespace BasketBallRegistration
 {
-    public partial class frmMyTeam_Grid : System.Web.UI.Page
+    public partial class frmMyTeam_Grid : CoachPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

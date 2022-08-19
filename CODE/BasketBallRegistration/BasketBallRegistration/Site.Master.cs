@@ -58,21 +58,21 @@ namespace BasketBallRegistration
             ddUtils.Visible = false;
             AspNetUserRolesTableAdapter taUserRoles = new AspNetUserRolesTableAdapter();
 
-            //optLogin.Visible = false;
-            //optLogout.Visible = false;
-            //optManage.Visible = false;
-            //optRegister.Visible = false;
+            optLogin.Visible = false;
+            optLogout.Visible = false;
+            optManage.Visible = false;
+            optRegister.Visible = false;
 
-            //if(Context.User.Identity.IsAuthenticated)
-            //{
-            //    optLogout.Visible = true;
-            //    optManage.Visible = true;
-            //}
-            //else
-            //{
-            //    optLogin.Visible = false;
-            //    optRegister.Visible = false;
-            //}
+            if (Context.User.Identity.IsAuthenticated)
+            {
+                optLogout.Visible = true;
+                optManage.Visible = true;
+            }
+            else
+            {
+                optLogin.Visible = false;
+                optRegister.Visible = false;
+            }
 
             int? roleId = Convert.ToInt32(taUserRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name));
 

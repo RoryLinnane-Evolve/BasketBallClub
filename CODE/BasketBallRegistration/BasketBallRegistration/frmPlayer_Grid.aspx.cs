@@ -6,7 +6,7 @@ using static BasketBallRegistration.DAL.BasketBall;
 
 namespace BasketBallRegistration
 {
-    public partial class frmPlayer_Grid : System.Web.UI.Page
+    public partial class frmPlayer_Grid : AdminPage
     {
         PlayersTableAdapter taPlayers = new PlayersTableAdapter();
         PlayersDataTable src = new PlayersDataTable();
@@ -14,6 +14,7 @@ namespace BasketBallRegistration
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            base.Page_Load();
             if (Page.IsPostBack == false)
                 ddRole.SelectedValue = "1";
 
