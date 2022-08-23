@@ -46,10 +46,10 @@
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
                     <asp:BoundField DataField="PlayerId" HeaderText="PlayerId" InsertVisible="False" ReadOnly="True" SortExpression="PlayerId" />
+                    <asp:BoundField DataField="BI_PIN" HeaderText="BI Pin" ReadOnly="True" SortExpression="BI_PIN" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                     <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
                     <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
-                    <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -64,11 +64,10 @@
             </asp:GridView>
     <asp:Button ID="cmdContinue" runat="server" CausesValidation="False" Text="Continue" width="100px" class="btn btn-primary" OnClick="cmdContinue_Click" />
             <br />
-            <asp:SqlDataSource ID="Cart" runat="server" ConnectionString="<%$ ConnectionStrings:CascadersRegDBConnectionString %>" SelectCommand="SELECT PlayerId, Name, DateOfBirth, Gender, RoleId
-FROM Players
-WHERE RegistrarEmail=@RegistrarEmail AND Payed = 0;">
+            <asp:SqlDataSource ID="Cart" runat="server" ConnectionString="<%$ ConnectionStrings:CascadersRegDBConnectionString %>" SelectCommand="SELECT [PlayerId], [BI_PIN], [Name], [DateOfBirth], [Gender] FROM [Players] WHERE (([Payed] = @Payed) AND ([RegistrarEmail] = @RegistrarEmail))">
                 <SelectParameters>
-                    <asp:Parameter Name="RegistrarEmail" />
+                    <asp:Parameter Name="Payed" DefaultValue="0" Type="Boolean" />
+                    <asp:Parameter Name="RegistrarEmail" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>

@@ -71,24 +71,66 @@ namespace BasketBallRegistration
             }
         }
 
-        string Name;
-        DateTime DateOfBirth;
-        string Gender;
-        string Address;
-        string PhoneNumber;
-        string Email;
-        string MedicalConditions;
-        string EmergencyContactNumber;
-        string EmergencyContectRel;
-        string Allergies;
-        string MedicalNotes;
-        string CountryOfBirth;
-        string ParentName;
-        string ParentEmail;
-        string ParentPhoneNumber;
-        int RoleId;
 
         protected void cmdSave_Click(object sender, EventArgs e)
+        {
+            mode = Request.QueryString["mode"];
+
+            Fields.Visible = false;
+            BIPinInstruction.Visible = true;
+            BIPinRow.Visible = true;
+            cmdSave.Visible = false;
+            cmdFinish.Visible = true;
+            
+        }
+        private void Edit()
+        {
+            int RoleId;
+            if (DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null).Year >= DateTime.Now.Year - 17)
+                RoleId = 2;
+            else
+                RoleId = 1;
+            var taPlayers = new PlayersTableAdapter();
+
+            var taAT = new AuditTrailTableAdapter();
+
+            PK = Convert.ToInt32(Request.QueryString["PK"]);
+            
+
+            try
+            {
+                taPlayers.Update(txtBIPin.Text,
+                        txtName.Text,
+                        DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null),
+                        ddGender.SelectedValue,
+                        txtAddress.Text,
+                        txtEmail.Text,
+                        txtPhoneNumber.Text,
+                        txtMedicalConditions.Text,
+                        txtEmergencyContactNumber.Text,
+                        txtEmergencyContactRel.Text,
+                        txtAllergies.Text,
+                        txtMedicalNotes.Text,
+                        txtCountryOfBirth.Text,
+                        txtParentName.Text,
+                        txtParentEmail.Text,
+                        txtParentPhoneNumber.Text,
+                        RoleId,
+                        Context.User.Identity.Name,
+                        DateTime.Now,
+                        false,
+                        PK);
+                taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, "Player Edited In Cart");
+                Response.Redirect("frmRegister_Grid.aspx");
+            }
+            catch (Exception ex)
+            {
+                taAT.Insert(0, 0, Context.User.Identity.Name, DateTime.Now, 15, ex.Message);
+                throw ex;
+            }
+        }
+
+        private void Add()
         {
             int RoleId;
             if (DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null).Year >= DateTime.Now.Year - 17)
@@ -101,78 +143,36 @@ namespace BasketBallRegistration
             var taAT = new AuditTrailTableAdapter();
 
             mode = Request.QueryString["mode"];
-            PK = Convert.ToInt32(Request.QueryString["PK"]);
-
-            if (mode == "add")
+            
+            try
             {
-                try
-                {
-                    
-
-                    taPlayers.Insert(null,
-                            Name = txtName.Text,
-                            DateOfBirth=DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null),
-                            Gender=ddGender.SelectedValue,
-                            Address=txtAddress.Text,
-                            Email = txtEmail.Text,
-                            PhoneNumber = txtPhoneNumber.Text,
-                            MedicalConditions=txtMedicalConditions.Text,
-                            EmergencyContactNumber=txtEmergencyContactNumber.Text,
-                            EmergencyContectRel=txtEmergencyContactRel.Text,
-                            Allergies=txtAllergies.Text,
-                            MedicalNotes=txtMedicalNotes.Text,
-                            CountryOfBirth=txtCountryOfBirth.Text,
-                            ParentName=txtParentName.Text,
-                            ParentEmail=txtParentEmail.Text,
-                            ParentPhoneNumber=txtParentPhoneNumber.Text,
-                            RoleId,
-                            Context.User.Identity.Name,
-                            DateTime.Now,
-                            false);
-                    taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, "Player Added To Cart");
-                    //Cant get PK??
-                    Session["RegisterForm"] = this;
-                    Response.Redirect("frmInputBIPin.aspx");
-                }
-                catch (Exception ex)
-                {
-                    taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, ex.Message);
-                }
+                taPlayers.Insert(txtBIPin.Text,
+                        txtName.Text,
+                        DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null),
+                        ddGender.SelectedValue,
+                        txtAddress.Text,
+                        txtEmail.Text,
+                        txtPhoneNumber.Text,
+                        txtMedicalConditions.Text,
+                        txtEmergencyContactNumber.Text,
+                        txtEmergencyContactRel.Text,
+                        txtAllergies.Text,
+                        txtMedicalNotes.Text,
+                        txtCountryOfBirth.Text,
+                        txtParentName.Text,
+                        txtParentEmail.Text,
+                        txtParentPhoneNumber.Text,
+                        RoleId,
+                        Context.User.Identity.Name,
+                        DateTime.Now,
+                        false);
+                taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, "Player Added To Cart");
             }
-            else if (mode == "edit")
+            catch (Exception ex)
             {
-                try
-                {
-                    taPlayers.Update(String.Empty,
-                            txtName.Text,
-                            DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null),
-                            ddGender.SelectedValue,
-                            txtAddress.Text,
-                            txtEmail.Text,
-                            txtPhoneNumber.Text,
-                            txtMedicalConditions.Text,
-                            txtEmergencyContactNumber.Text,
-                            txtEmergencyContactRel.Text,
-                            txtAllergies.Text,
-                            txtMedicalNotes.Text,
-                            txtCountryOfBirth.Text,
-                            txtParentName.Text,
-                            txtParentEmail.Text,
-                            txtParentPhoneNumber.Text,
-                            RoleId,
-                            Context.User.Identity.Name,
-                            DateTime.Now,
-                            false,
-                            PK);
-                    taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, "Player Edited In Cart");
-                    Response.Redirect("frmRegister_Grid.aspx");
-                }
-                catch (Exception ex)
-                {
-                    taAT.Insert(0, 0, Context.User.Identity.Name, DateTime.Now, 15, ex.Message);
-                    throw ex;
-                }
+                taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, ex.Message);
             }
+            
         }
 
         protected void cmdClose_Click(object sender, EventArgs e)
@@ -226,6 +226,19 @@ namespace BasketBallRegistration
         public void RaisePostBackEvent()
         {
             dteOfBirth_TextChanged(sender: new object(), e: new EventArgs());
+        }
+
+        protected void cmdFinish_Click(object sender, EventArgs e)
+        {
+            if (mode == "add")
+            {
+                Add();
+            }
+            else if (mode == "edit")
+            {
+                Edit();
+            }
+            Response.Redirect("Register_Grid.aspx");
         }
     }
 }

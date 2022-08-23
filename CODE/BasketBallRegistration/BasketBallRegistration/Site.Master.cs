@@ -70,8 +70,8 @@ namespace BasketBallRegistration
             }
             else
             {
-                optLogin.Visible = false;
-                optRegister.Visible = false;
+                optLogin.Visible = true;
+                optRegister.Visible = true;
             }
 
             int? roleId = Convert.ToInt32(taUserRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name));

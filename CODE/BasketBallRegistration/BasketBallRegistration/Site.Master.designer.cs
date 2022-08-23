@@ -120,7 +120,7 @@ namespace BasketBallRegistration
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button lnkCommsLog;
+        protected global::System.Web.UI.WebControls.HyperLink lnkCommsLog;
 
         /// <summary>
         /// lnkAuditTrail control.
@@ -129,7 +129,7 @@ namespace BasketBallRegistration
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button lnkAuditTrail;
+        protected global::System.Web.UI.WebControls.HyperLink lnkAuditTrail;
 
         /// <summary>
         /// optLogout control.

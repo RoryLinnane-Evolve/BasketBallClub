@@ -59,8 +59,8 @@
                                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilities
                                                     <span class="caret"></span></a>
                                                         <ul class="dropdown-menu">
-                                                        <li><asp:Button ID="lnkCommsLog" runat="server" OnClick="lnkCommsLog_Click" Text="CommsLog"/></li>
-                                                        <li><asp:Button ID="lnkAuditTrail" runat="server" OnClick="lnkAuditTrail_Click" Text="Audit Trail"/></li>
+                                                        <li><asp:HyperLink ID="lnkCommsLog" runat="server" NavigateUrl="~/frmCommsLog_Grid.aspx">Comms Log</asp:HyperLink></li>
+                                                        <li><asp:HyperLink ID="lnkAuditTrail" runat="server" NavigateUrl="~/frmAuditTrail_Grid.aspx">Audit Trail</asp:HyperLink></li>
                                                         </ul>
                                                     </li>
                                                     <li class="dropdown">

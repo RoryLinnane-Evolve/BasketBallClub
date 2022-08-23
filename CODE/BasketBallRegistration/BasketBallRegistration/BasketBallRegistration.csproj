@@ -291,7 +291,6 @@
     <Content Include="frmAuditTrail_Grid.aspx" />
     <Content Include="frmError.aspx" />
     <Content Include="frmHome.aspx" />
-    <Content Include="frmInputBIPin.aspx" />
     <Content Include="frmMyTeam_Grid.aspx" />
     <Content Include="frmPayment.aspx" />
     <Content Include="frmPaymentFailed.aspx" />
@@ -551,13 +550,6 @@
     </Compile>
     <Compile Include="frmHome.aspx.designer.cs">
       <DependentUpon>frmHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmInputBIPin.aspx.cs">
-      <DependentUpon>frmInputBIPin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmInputBIPin.aspx.designer.cs">
-      <DependentUpon>frmInputBIPin.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmMyTeam_Grid.aspx.cs">
       <DependentUpon>frmMyTeam_Grid.aspx</DependentUpon>

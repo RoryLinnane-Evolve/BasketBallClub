@@ -53,10 +53,7 @@ namespace BasketBallRegistration
         {
             var taPlayers = new PlayersTableAdapter();
 
-
-
             decimal amount = PRICE_CALC();
-                       
 
             Response.Redirect($"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=G2TDTBCFJJVM4&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=1&no_shipping=1&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
         }
@@ -116,7 +113,11 @@ namespace BasketBallRegistration
                     }
                 }
             }
-            return total + cTotal;
+
+            decimal x= total + cTotal;
+
+            x = ((x / 98)*100)+0.35M;
+            return x;
         }
 
         #region classification methods

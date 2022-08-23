@@ -25,6 +25,9 @@
                 </div>
                 <div class="panel-body">
   
+    <p id="BIPinInstruction" runat="server" visible="false">
+        To get your BI pin go to <a href="https://membership.mygameday.app/regoform.cgi?aID=28209&pKey=e2899b7cb9f8185f55a6c21866bef27a&formID=95139">Baskeball Ireland registration</a> and fill out the form.
+    </p>
     <table class="table table-striped">
         <%--<tr>
             <td style="width: 115px; height: 26px">
@@ -32,7 +35,8 @@
             <td style="width: 118px; height: 26px">
                 <asp:TextBox ID="txtBI_PIN" runat="server" Width="160px" />
             </td>
-        </tr>--%>        <%--<tr>
+        </tr>
+        <tr>
             <td style="width: 115px; height: 20px">
                 <asp:Label ID="Label14" runat="server" Font-Bold="True" Text="Role"></asp:Label>
             </td>
@@ -43,11 +47,12 @@
             </td>
             
         </tr>--%>
+        <div id="Fields" runat="server">
         <tr>
             <td style="width: 115px; height: 25px">
                 Name</td>
             <td style="width: 118px; height: 25px">
-                <asp:TextBox ID="txtName" AutoCompleteType="FirstName" runat="server" Width="264px" class="form-control"></asp:TextBox></td>
+                <asp:TextBox ID="txtName" AutoCompleteType="FirstName" runat="server" Width="264px" class="form-control" ></asp:TextBox></td>
         </tr>
         <tr>
             <td style="width: 115px; height: 26px">
@@ -154,6 +159,14 @@
             <td style="width: 118px; height: 26px">
                 <asp:TextBox ID="txtParentPhoneNumber" runat="server" Width="208px" Enabled="True" /></td>
         </tr>
+        </div>
+        
+        <tr id="BIPinRow" runat="server" visible="false">
+            <td style="width: 115px; height: 26px">
+                <asp:Label ID="Labela" runat="server" Text="BI Pin" Font-Bold="True"></asp:Label></td>
+            <td style="width: 118px; height: 26px">
+                <asp:TextBox ID="txtBIPin" runat="server" Width="208px" Enabled="True" MaxLength="7" /></td>
+        </tr>
         
         <%--<tr>
             <td style="width: 115px; height: 26px">
@@ -180,6 +193,7 @@
     </table>
     &nbsp;
     <asp:Button ID="cmdSave" runat="server" Text="Save" width="100px" class="btn btn-primary" OnClick="cmdSave_Click" />
+    <asp:Button ID="cmdFinish" Visible="false" runat="server" Text="Save" width="100px" class="btn btn-primary" OnClick="cmdFinish_Click" />
     <asp:Button ID="cmdClose" runat="server" CausesValidation="False" Text="Close" width="100px" class="btn btn-primary" OnClick="cmdClose_Click" />
         <asp:ObjectDataSource ID="Players_PK" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData_PK" TypeName="BasketBallRegistration.DAL.BasketBallTableAdapters.PlayersTableAdapter">
             <SelectParameters>
@@ -187,8 +201,7 @@
             </SelectParameters>
         </asp:ObjectDataSource>
 
-    <asp:RequiredFieldValidator ID="manName" runat="server" ControlToValidate="txtName"
-        Display="None" ErrorMessage="Scheme Name is required "></asp:RequiredFieldValidator>
+    
     &nbsp;
     &nbsp;&nbsp;<br />
     &nbsp;
@@ -199,6 +212,9 @@
                     ControlToValidate="dteOfBirth"
                     Operator="DataTypeCheck"
                     Type="Date"
-                    ForeColor="#FF3300">Date invalid, please check format. 
- </asp:CompareValidator>
+                    ForeColor="#FF3300">Date invalid, please check format.</asp:CompareValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txtName" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAddress" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddGender" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtBIPin" ErrorMessage="BI Pin is in incorrect format." ForeColor="Red"></asp:RequiredFieldValidator>
 </asp:Content>
