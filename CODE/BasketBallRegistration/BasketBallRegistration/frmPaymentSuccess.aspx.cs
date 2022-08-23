@@ -22,8 +22,11 @@ namespace BasketBallRegistration
         PaymentsTableAdapter taPayments = new PaymentsTableAdapter();
         AuditTrailTableAdapter taAT = new AuditTrailTableAdapter();
         CommsLogTableAdapter taCommsLog = new CommsLogTableAdapter();
+        PlayersTableAdapter taPlayers = new PlayersTableAdapter();
         protected void Page_Load(object sender, EventArgs e)
         {
+            int PK = Convert.ToInt32(Request.QueryString["PK"]);
+
             decimal amount = Convert.ToDecimal(Request.QueryString["amount"]);
             string adultAmount = Request.QueryString["adultAmount"];
             string childAmount = Request.QueryString["childAmount"];
@@ -32,9 +35,9 @@ namespace BasketBallRegistration
             taPayments.Insert(null, null, null, DateTime.Now, amount, Context.User.Identity.Name);
             
             string Subject = "Thank you!";
-            string Body = $@"Your payment of €{amount} amount was successful!\nYou paid for {adultAmount} Adults and {childAmount}";
+            string Body = $@"Your payment of €{amount} amount was successful!\nYou paid for {adultAmount} Adult/s and {childAmount} child/ren";
             SendSimpleMessage(Subject, Body, Context.User.Identity.Name);
-            
+
             // You can see a record of this email in your logs: https://app.mailgun.com/app/logs.
 
             // You can send up to 300 emails/day from this sandbox server.
@@ -42,7 +45,8 @@ namespace BasketBallRegistration
 
             //E.G https://localhost:44351/frmPaymentSuccess.aspx?amount=485.00&adultAmount=1&childAmount=2
 
-
+            //Update Player.Payed
+            taPlayers.UpdatePayedStatus(true, Context.User.Identity.Name);
             
             taAT.Insert(null, null, Context.User.Identity.Name, DateTime.Now, 8, "Payment made");
             

@@ -42,15 +42,6 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl BIPinInstruction;
 
         /// <summary>
-        /// Fields control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Fields;
-
-        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,33 @@ namespace BasketBallRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtName;
+
+        /// <summary>
+        /// BIPinRow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow BIPinRow;
+
+        /// <summary>
+        /// Labela control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labela;
+
+        /// <summary>
+        /// txtBIPin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBIPin;
 
         /// <summary>
         /// dteOfBirth control.
@@ -121,24 +139,6 @@ namespace BasketBallRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMedicalConditions;
-
-        /// <summary>
-        /// Label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label;
-
-        /// <summary>
-        /// txtMedicalNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMedicalNotes;
 
         /// <summary>
         /// Label1 control.
@@ -375,31 +375,22 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.WebControls.TextBox txtParentPhoneNumber;
 
         /// <summary>
-        /// BIPinRow control.
+        /// Label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow BIPinRow;
+        protected global::System.Web.UI.WebControls.Label Label;
 
         /// <summary>
-        /// Labela control.
+        /// txtMedicalNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labela;
-
-        /// <summary>
-        /// txtBIPin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBIPin;
+        protected global::System.Web.UI.WebControls.TextBox txtMedicalNotes;
 
         /// <summary>
         /// cmdSave control.
@@ -409,15 +400,6 @@ namespace BasketBallRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cmdSave;
-
-        /// <summary>
-        /// cmdFinish control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cmdFinish;
 
         /// <summary>
         /// cmdClose control.

@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace BasketBallRegistration.Account
 {
@@ -38,7 +34,8 @@ namespace BasketBallRegistration.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        Response.Redirect("~/frmRegister_Grid.aspx");
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");

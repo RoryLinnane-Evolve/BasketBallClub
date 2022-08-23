@@ -60,13 +60,13 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.WebControls.Button cmdDelete;
 
         /// <summary>
-        /// cmdClose control.
+        /// cmdContinue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cmdClose;
+        protected global::System.Web.UI.WebControls.Button cmdContinue;
 
         /// <summary>
         /// grdPlayers control.
@@ -76,15 +76,6 @@ namespace BasketBallRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdPlayers;
-
-        /// <summary>
-        /// cmdContinue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cmdContinue;
 
         /// <summary>
         /// Cart control.

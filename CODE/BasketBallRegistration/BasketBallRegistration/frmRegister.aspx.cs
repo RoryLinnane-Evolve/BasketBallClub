@@ -75,13 +75,16 @@ namespace BasketBallRegistration
         protected void cmdSave_Click(object sender, EventArgs e)
         {
             mode = Request.QueryString["mode"];
+            if (mode == "add")
+            {
+                Add();
+            }
+            else if (mode == "edit")
+            {
+                Edit();
+            }
+            Response.Redirect("frmRegister_Grid.aspx");
 
-            Fields.Visible = false;
-            BIPinInstruction.Visible = true;
-            BIPinRow.Visible = true;
-            cmdSave.Visible = false;
-            cmdFinish.Visible = true;
-            
         }
         private void Edit()
         {
@@ -226,19 +229,6 @@ namespace BasketBallRegistration
         public void RaisePostBackEvent()
         {
             dteOfBirth_TextChanged(sender: new object(), e: new EventArgs());
-        }
-
-        protected void cmdFinish_Click(object sender, EventArgs e)
-        {
-            if (mode == "add")
-            {
-                Add();
-            }
-            else if (mode == "edit")
-            {
-                Edit();
-            }
-            Response.Redirect("Register_Grid.aspx");
         }
     }
 }

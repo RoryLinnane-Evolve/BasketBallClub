@@ -1,9 +1,10 @@
 ﻿using BasketBallRegistration.DAL.BasketBallTableAdapters;
+using BasketBallRegistration.DAL.SetupsTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using static BasketBallRegistration.DAL.BasketBall;
-
+using static BasketBallRegistration.DAL.Setups;
 
 namespace BasketBallRegistration
 {
@@ -55,6 +56,8 @@ namespace BasketBallRegistration
 
             decimal amount = PRICE_CALC();
 
+            Session["amount"] = amount;
+
             Response.Redirect($"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=G2TDTBCFJJVM4&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=1&no_shipping=1&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
         }
 
@@ -68,12 +71,17 @@ namespace BasketBallRegistration
             var taPlayers = new PlayersTableAdapter();
             var taAT = new AuditTrailTableAdapter();
             var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
-            
-            List<int> cYears = new List<int>();          
+
+            Setup_RatesTableAdapter taRates = new Setup_RatesTableAdapter();
+            Setup_RatesDataTable RatesTable = new Setup_RatesDataTable();
+
+            taRates.FillBy_Grid(RatesTable);
+
+            List<int> cYears = new List<int>();
 
             foreach (var row in cart)
             {
-                if(row.DateOfBirth.Year >= DateTime.Now.Year - 17)
+                if (row.DateOfBirth.Year >= DateTime.Now.Year - 17)
                     cYears.Add(row.DateOfBirth.Year);
                 else
                     total += 180.0M;
@@ -81,14 +89,30 @@ namespace BasketBallRegistration
             decimal cTotal = 0;
             foreach (int c in cYears)
             {
-                
+
                 if (cTotal == 0)
                 {
-                    if (ChildIsUnder10(c))
+                    if (ChildIsUnder8(c))
+                    {
+                        cTotal += 63.0M;
+                    }
+                    else if (ChildIsUnder10(c))
                     {
                         cTotal += 63.0M;
                     }
                     else if (ChildIsUnder12(c))
+                    {
+                        cTotal += 115.0M;
+                    }
+                    else if (ChildIsUnder14(c))
+                    {
+                        cTotal += 115.0M;
+                    }
+                    else if (ChildIsUnder16(c))
+                    {
+                        cTotal += 115.0M;
+                    }
+                    else if (ChildIsUnder18(c))
                     {
                         cTotal += 115.0M;
                     }
@@ -99,28 +123,52 @@ namespace BasketBallRegistration
                 }
                 else
                 {
-                    if (ChildIsUnder10(c))
+                    if (ChildIsUnder8(c))
                     {
-                        cTotal += 53.0M;
+                        cTotal += 63.0M;
+                    }
+                    else if (ChildIsUnder10(c))
+                    {
+                        cTotal += 63.0M;
                     }
                     else if (ChildIsUnder12(c))
                     {
-                        cTotal += 90.0M;
+                        cTotal += 115.0M;
+                    }
+                    else if (ChildIsUnder14(c))
+                    {
+                        cTotal += 115.0M;
+                    }
+                    else if (ChildIsUnder16(c))
+                    {
+                        cTotal += 115.0M;
+                    }
+                    else if (ChildIsUnder18(c))
+                    {
+                        cTotal += 115.0M;
                     }
                     else if (ChildIsUnder20(c))
                     {
-                        cTotal += 135.0M;
+                        cTotal += 170.0M;
                     }
                 }
             }
 
-            decimal x= total + cTotal;
+            decimal x = total + cTotal;
 
-            x = ((x / 98)*100)+0.35M;
+            x = ((x / 98) * 100) + 0.35M;
             return x;
         }
 
         #region classification methods
+        private static bool ChildIsUnder8(int Year)
+        {
+            int age = DateTime.Now.Year - Year;
+            if (age <= 7)
+                return true;
+            else
+                return false;
+        }
         private static bool ChildIsUnder10(int Year)
         {
             int age = DateTime.Now.Year - Year;
@@ -138,6 +186,30 @@ namespace BasketBallRegistration
             else
                 return false;
         }
+        private static bool ChildIsUnder14(int Year)
+        {
+            int age = DateTime.Now.Year - Year;
+            if (age <= 13)
+                return true;
+            else
+                return false;
+        }
+        private static bool ChildIsUnder16(int Year)
+        {
+            int age = DateTime.Now.Year - Year;
+            if (age <= 15)
+                return true;
+            else
+                return false;
+        }
+        private static bool ChildIsUnder18(int Year)
+        {
+            int age = DateTime.Now.Year - Year;
+            if (age <= 17)
+                return true;
+            else
+                return false;
+        }
 
         private static bool ChildIsUnder20(int Year)
         {
@@ -148,9 +220,6 @@ namespace BasketBallRegistration
                 return false;
         }
         #endregion
-        protected void cmdClose_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("frmHome.aspx");
-        }
+
     }
 }

@@ -55,7 +55,8 @@ namespace BasketBallRegistration
             optPlayers.Visible = false;
             optMyTeam.Visible = false;
             optPayment.Visible = false;
-            ddUtils.Visible = false;
+            optCommsLog.Visible = false;
+            optAuditTrail.Visible = false;
             AspNetUserRolesTableAdapter taUserRoles = new AspNetUserRolesTableAdapter();
 
             optLogin.Visible = false;
@@ -100,23 +101,18 @@ namespace BasketBallRegistration
                     optPlayers.Visible = true;
                     optMyTeam.Visible = true;
                     optPayment.Visible = true;
-                    ddUtils.Visible = true;
+                    optCommsLog.Visible = true;
+                    optAuditTrail.Visible = true;
                 }
                 else if (roleId == 1)
                 {
                     optMyTeam.Visible = true;
-                }
-                else if (roleId == 2)
-                {
-                    optPayment.Visible = true;
-                    ddUtils.Visible = true;
                 }
                 else
                 {
                     optPlayers.Visible = false;
                     optMyTeam.Visible = false;
                     optPayment.Visible = false;
-                    ddUtils.Visible = false;
                     optMyTeam.Visible = false;
                 }
             }
