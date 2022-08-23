@@ -11,7 +11,7 @@ namespace BasketBallRegistration
 {
 
 
-    public partial class frmRegister1
+    public partial class frmRegister
     {
 
         /// <summary>

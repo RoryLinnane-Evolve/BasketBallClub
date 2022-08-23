@@ -9,13 +9,13 @@ using BasketBallRegistration.DAL;
 
 namespace BasketBallRegistration
 {
-    public partial class frmPlayer : System.Web.UI.Page
+    public partial class frmPlayer : AdminPage
     {
         int PK;
         string mode;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            base.Page_Load();
             mode = Request.QueryString["mode"];
 
             var dtPlayers = new BasketBall.PlayersDataTable();

@@ -13,7 +13,7 @@ namespace BasketBallRegistration
         protected virtual void Page_Load()
         {
             if (!Context.User.Identity.IsAuthenticated)
-                Response.Redirect("~/frmHome");
+                Response.Redirect("~/Account/Login.aspx");
         }
     }
 }

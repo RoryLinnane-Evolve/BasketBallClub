@@ -10,11 +10,11 @@ using static BasketBallRegistration.DAL.BasketBall;
 
 namespace BasketBallRegistration
 {
-    public partial class frmPayment_Grid : System.Web.UI.Page
+    public partial class frmPayment_Grid : AdminPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            base.Page_Load();
         }
 
         protected void cmdAdd_Click(object sender, EventArgs e)

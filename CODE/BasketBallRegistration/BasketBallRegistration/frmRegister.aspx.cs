@@ -1,11 +1,14 @@
 ﻿using BasketBallRegistration.DAL;
 using BasketBallRegistration.DAL.BasketBallTableAdapters;
 using System;
+using System.Collections.Generic;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BasketBallRegistration
 {
-    public partial class frmRegister1 : System.Web.UI.Page
+    public partial class frmRegister : AuthPage
     {
         int PK;
         string mode;
@@ -13,6 +16,7 @@ namespace BasketBallRegistration
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            base.Page_Load();
             mode = Request.QueryString["mode"];
 
             var dtPlayers = new BasketBall.PlayersDataTable();
@@ -67,6 +71,23 @@ namespace BasketBallRegistration
             }
         }
 
+        string Name;
+        DateTime DateOfBirth;
+        string Gender;
+        string Address;
+        string PhoneNumber;
+        string Email;
+        string MedicalConditions;
+        string EmergencyContactNumber;
+        string EmergencyContectRel;
+        string Allergies;
+        string MedicalNotes;
+        string CountryOfBirth;
+        string ParentName;
+        string ParentEmail;
+        string ParentPhoneNumber;
+        int RoleId;
+
         protected void cmdSave_Click(object sender, EventArgs e)
         {
             int RoleId;
@@ -86,28 +107,32 @@ namespace BasketBallRegistration
             {
                 try
                 {
+                    
+
                     taPlayers.Insert(null,
-                            txtName.Text,
-                            DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null),
-                            ddGender.SelectedValue,
-                            txtAddress.Text,
-                            txtEmail.Text,
-                            txtPhoneNumber.Text,
-                            txtMedicalConditions.Text,
-                            txtEmergencyContactNumber.Text,
-                            txtEmergencyContactRel.Text,
-                            txtAllergies.Text,
-                            txtMedicalNotes.Text,
-                            txtCountryOfBirth.Text,
-                            txtParentName.Text,
-                            txtParentEmail.Text,
-                            txtParentPhoneNumber.Text,
+                            Name = txtName.Text,
+                            DateOfBirth=DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null),
+                            Gender=ddGender.SelectedValue,
+                            Address=txtAddress.Text,
+                            Email = txtEmail.Text,
+                            PhoneNumber = txtPhoneNumber.Text,
+                            MedicalConditions=txtMedicalConditions.Text,
+                            EmergencyContactNumber=txtEmergencyContactNumber.Text,
+                            EmergencyContectRel=txtEmergencyContactRel.Text,
+                            Allergies=txtAllergies.Text,
+                            MedicalNotes=txtMedicalNotes.Text,
+                            CountryOfBirth=txtCountryOfBirth.Text,
+                            ParentName=txtParentName.Text,
+                            ParentEmail=txtParentEmail.Text,
+                            ParentPhoneNumber=txtParentPhoneNumber.Text,
                             RoleId,
                             Context.User.Identity.Name,
                             DateTime.Now,
                             false);
                     taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, "Player Added To Cart");
-                    Response.Redirect("frmRegister_Grid.aspx");
+                    //Cant get PK??
+                    Session["RegisterForm"] = this;
+                    Response.Redirect("frmInputBIPin.aspx");
                 }
                 catch (Exception ex)
                 {

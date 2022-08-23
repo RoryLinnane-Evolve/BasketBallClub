@@ -11,7 +11,7 @@ namespace BasketBallRegistration
 {
 
 
-    public partial class frmRegister
+    public partial class frmRegister_Grid
     {
 
         /// <summary>

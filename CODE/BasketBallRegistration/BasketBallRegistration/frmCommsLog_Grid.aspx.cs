@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace BasketBallRegistration
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm1 : AdminPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            base.Page_Load();
         }
 
         protected void cmdClose_Click(object sender, EventArgs e)

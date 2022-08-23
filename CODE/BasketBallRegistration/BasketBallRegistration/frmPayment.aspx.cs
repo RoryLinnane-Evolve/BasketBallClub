@@ -9,7 +9,7 @@ using BasketBallRegistration.DAL.BasketBallTableAdapters;
 
 namespace BasketBallRegistration
 {
-    public partial class frmPayment : System.Web.UI.Page
+    public partial class frmPayment : AdminPage
     {
         int PK;
         string mode;
@@ -18,6 +18,7 @@ namespace BasketBallRegistration
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            base.Page_Load();
             mode = Request.QueryString["mode"];
 
             BasketBall.PaymentsDataTable dtPayments = new BasketBall.PaymentsDataTable();

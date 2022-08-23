@@ -7,10 +7,11 @@ using static BasketBallRegistration.DAL.BasketBall;
 
 namespace BasketBallRegistration
 {
-    public partial class frmRegister : System.Web.UI.Page
+    public partial class frmRegister_Grid : AuthPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            base.Page_Load();
             var taPlayers = new PlayersTableAdapter();
             var dtPlayers = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
             grdPlayers.DataSourceID = null;

@@ -11,25 +11,25 @@ namespace BasketBallRegistration
 {
 
 
-    public partial class frmHome
+    public partial class frmInputBIPin
     {
 
         /// <summary>
-        /// loggedout control.
+        /// txtBI_PIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loggedout;
+        protected global::System.Web.UI.WebControls.TextBox txtBI_PIN;
 
         /// <summary>
-        /// loggedin control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loggedin;
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }
