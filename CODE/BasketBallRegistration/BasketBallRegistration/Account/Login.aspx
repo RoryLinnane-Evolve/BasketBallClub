@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
 </head>
 
-<body>
+<body style="background-color:#f6f6f6">
     
-    <main class="page login-page">
+    <main class="page login-page" style="height:100%">
         <section class="clean-block clean-form dark">
             <div class="container">
                 

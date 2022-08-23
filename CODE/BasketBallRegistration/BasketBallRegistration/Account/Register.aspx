@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
 </head>
 
-<body>
-
+<body style="background-color:#f6f6f6">
     <main class="page registration-page">
         <section class="clean-block clean-form dark">
             <div class="container">
@@ -44,7 +43,7 @@
                             <asp:Literal runat="server" ID="ErrorMessage" />
                         </p>
                     </div>
-                    <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-primary" />
+                    <asp:Button runat="server" ID="CreateUser" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-primary"/>
                 </form>
             </div>
         </section>

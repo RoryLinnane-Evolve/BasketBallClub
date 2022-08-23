@@ -45,7 +45,7 @@
                                         <nav class="navbar ">
                                             <div class="container-fluid">
                                                 <div class="navbar-header">
-                                                    <a class="navbar-brand" href="frmHome.aspx">
+                                                    <a class="navbar-brand" href="frmRegister_Grid.aspx">
                                                         <asp:Image ID="imgLogo" runat="server" AlternateText="ClareCascaders" ImageUrl="~/images/ClareCascadersLogo.png" Style="width: 50px; position: relative; top: -4px" /></a>
                                                 </div>
                                                 <div>

@@ -67,16 +67,12 @@ namespace BasketBallRegistration
 
         protected void cmdClose_Click(object sender, EventArgs e)
         {
-            Response.Redirect("frmHome.aspx");
+            Response.Redirect("frmRegister_Grid.aspx");
         }
 
 
         protected void cmdGo_Click(object sender, EventArgs e)
         {
-            //TODO: Search works once and doesnt after
-
-            //Refresh_Grid();
-
             var pt = new PlayersTableAdapter();
             var table = pt.GetDataBy_Search(txtSearch.Text, Convert.ToInt32(ddRole.SelectedValue));
             grdPlayers.DataSourceID = null;

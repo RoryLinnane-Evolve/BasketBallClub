@@ -43,7 +43,7 @@ namespace BasketBallRegistration.Account
             switch (result)
             {
                 case SignInStatus.Success:
-                    Response.Redirect("../frmHome.aspx");
+                    Response.Redirect("../frmRegister_Grid.aspx");
                     break;
                 case SignInStatus.LockedOut:
                     Response.Redirect("/Account/Lockout");

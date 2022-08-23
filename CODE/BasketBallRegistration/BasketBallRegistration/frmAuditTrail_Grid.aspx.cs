@@ -16,7 +16,7 @@ namespace BasketBallRegistration
 
         protected void cmdClose_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/frmHome.aspx");
+            Response.Redirect("/frmRegister_Grid.aspx");
         }
     }
 }

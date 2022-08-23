@@ -52,5 +52,10 @@ namespace BasketBallRegistration
             this.grdPayments.DataSource = dv;
             this.grdPayments.DataBind();
         }
+
+        protected void grdPayments_Sorting(object sender, GridViewSortEventArgs e)
+        {
+
+        }
     }
 }

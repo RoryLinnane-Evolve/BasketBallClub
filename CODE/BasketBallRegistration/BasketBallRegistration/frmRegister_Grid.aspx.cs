@@ -79,6 +79,17 @@ namespace BasketBallRegistration
 
             List<int> cYears = new List<int>();
 
+            Dictionary<string, decimal> first_rates = new Dictionary<string, decimal>();
+            Dictionary<string, decimal> second_rates = new Dictionary<string, decimal>();
+
+            //Putting rates into dictionary
+
+            foreach (var row in RatesTable)
+            {
+                first_rates.Add(row.RateName, row.FirstChild);
+                second_rates.Add(row.RateName, row.SecondChild);
+            }            
+
             foreach (var row in cart)
             {
                 if (row.DateOfBirth.Year >= DateTime.Now.Year - 17)
@@ -89,67 +100,66 @@ namespace BasketBallRegistration
             decimal cTotal = 0;
             foreach (int c in cYears)
             {
-
                 if (cTotal == 0)
                 {
                     if (ChildIsUnder8(c))
                     {
-                        cTotal += 63.0M;
+                        cTotal += first_rates["U8"];
                     }
                     else if (ChildIsUnder10(c))
                     {
-                        cTotal += 63.0M;
+                        cTotal += first_rates["U10"];
                     }
                     else if (ChildIsUnder12(c))
                     {
-                        cTotal += 115.0M;
+                        cTotal += first_rates["U12"];
                     }
                     else if (ChildIsUnder14(c))
                     {
-                        cTotal += 115.0M;
+                        cTotal += first_rates["U14"];
                     }
                     else if (ChildIsUnder16(c))
                     {
-                        cTotal += 115.0M;
+                        cTotal += first_rates["U16"];
                     }
                     else if (ChildIsUnder18(c))
                     {
-                        cTotal += 115.0M;
+                        cTotal += first_rates["U18"];
                     }
                     else if (ChildIsUnder20(c))
                     {
-                        cTotal += 170.0M;
+                        cTotal += first_rates["U20"];
                     }
                 }
                 else
                 {
                     if (ChildIsUnder8(c))
                     {
-                        cTotal += 63.0M;
+                        cTotal += second_rates["U8"];
                     }
                     else if (ChildIsUnder10(c))
                     {
-                        cTotal += 63.0M;
+                        cTotal += second_rates["U10"];
                     }
                     else if (ChildIsUnder12(c))
                     {
-                        cTotal += 115.0M;
+                        cTotal += second_rates["U12"];
                     }
                     else if (ChildIsUnder14(c))
                     {
-                        cTotal += 115.0M;
+                        cTotal += second_rates["U14"];
                     }
                     else if (ChildIsUnder16(c))
                     {
-                        cTotal += 115.0M;
+                        cTotal += second_rates["U16"];
                     }
                     else if (ChildIsUnder18(c))
                     {
-                        cTotal += 115.0M;
+                        cTotal += second_rates["U18"];
                     }
                     else if (ChildIsUnder20(c))
                     {
-                        cTotal += 170.0M;
+                        cTotal += second_rates["U20"];
                     }
                 }
             }
