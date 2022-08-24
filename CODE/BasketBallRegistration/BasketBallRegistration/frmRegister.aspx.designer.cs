@@ -33,15 +33,6 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// BIPinInstruction control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BIPinInstruction;
-
-        /// <summary>
         /// txtName control.
         /// </summary>
         /// <remarks>
@@ -391,6 +382,15 @@ namespace BasketBallRegistration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMedicalNotes;
+
+        /// <summary>
+        /// ErrorLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ErrorLabel;
 
         /// <summary>
         /// cmdSave control.

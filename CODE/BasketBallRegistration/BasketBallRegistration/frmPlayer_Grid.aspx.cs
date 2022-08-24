@@ -1,7 +1,8 @@
 ﻿using BasketBallRegistration.DAL.BasketBallTableAdapters;
 using System;
 using System.Data;
-using System.Web.UI;
+using System.Text.RegularExpressions;
+using System.Web.UI.WebControls;
 using static BasketBallRegistration.DAL.BasketBall;
 
 namespace BasketBallRegistration
@@ -15,15 +16,15 @@ namespace BasketBallRegistration
         protected void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load();
-            if (Page.IsPostBack == false)
-                ddRole.SelectedValue = "1";
+            //if (Page.IsPostBack == false)
+            //    ddRole.SelectedValue = "1";
 
 
-            grdPlayers.DataSourceID = null;
-            src = taPlayers.GetDataBy_Grid();
-            src = taPlayers.GetDataBy_Search(txtSearch.Text, 1);
-            grdPlayers.DataSource = src;
-            grdPlayers.DataBind();
+            //grdPlayers.DataSourceID = null;
+            //src = taPlayers.GetDataBy_Grid();
+            //src = taPlayers.GetDataBy_Search(txtSearch.Text, 1);
+            //grdPlayers.DataSource = src;
+            //grdPlayers.DataBind();
         }
 
         protected void cmdAdd_Click1(object sender, EventArgs e)
@@ -79,5 +80,37 @@ namespace BasketBallRegistration
             grdPlayers.DataSource = table;
             grdPlayers.DataBind();
         }
+
+
+        //protected void grdPlayers_Sorting(object sender, System.Web.UI.WebControls.GridViewSortEventArgs e)
+        //{
+        //    var taPlayers = new PlayersTableAdapter();
+        //    src = taPlayers.GetDataBy_Search(txtSearch.Text, Convert.ToInt32(ddRole.SelectedValue));
+        //    grdPlayers.DataSource = src;
+
+
+        //    src.DefaultView.Sort = e.SortExpression + " " + ConvertSortDirectionToSql(e.SortDirection);
+        //    grdPlayers.DataSource = src.DefaultView;
+        //    grdPlayers.DataBind();
+
+        //}
+        private string ConvertSortDirectionToSql(SortDirection sortDireciton)
+        {
+            string m_SortDirection = String.Empty;
+
+            switch (sortDireciton)
+            {
+                case SortDirection.Ascending:
+                    m_SortDirection = "ASC";
+                    break;
+
+                case SortDirection.Descending:
+                    m_SortDirection = "DESC";
+                    break;
+            }
+
+            return m_SortDirection;
+        }
+
     }
 }

@@ -134,3 +134,7 @@ C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBall
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\System.Text.Json.xml
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\System.Threading.Tasks.Extensions.xml
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\System.ValueTuple.xml
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\FluentEmail.Core.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\FluentEmail.Mailgun.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml

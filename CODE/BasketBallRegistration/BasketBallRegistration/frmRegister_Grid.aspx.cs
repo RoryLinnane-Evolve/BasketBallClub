@@ -95,7 +95,7 @@ namespace BasketBallRegistration
                 if (row.DateOfBirth.Year >= DateTime.Now.Year - 17)
                     cYears.Add(row.DateOfBirth.Year);
                 else
-                    total += 180.0M;
+                    total +=first_rates["Adult"];
             }
             decimal cTotal = 0;
             foreach (int c in cYears)
@@ -167,6 +167,9 @@ namespace BasketBallRegistration
             decimal x = total + cTotal;
 
             x = ((x / 98) * 100) + 0.35M;
+            Session["Price"]=x;
+            Session["ChildAmount"] = cYears.Count;
+            Session["AdultAmount"] = (int)(total / first_rates["Adult"]);
             return x;
         }
 

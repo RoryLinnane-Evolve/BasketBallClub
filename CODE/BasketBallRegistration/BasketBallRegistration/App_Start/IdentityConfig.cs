@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentEmail.Mailgun;
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -7,15 +8,37 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using BasketBallRegistration.Models;
+using System.Web.Mail;
+using FluentEmail.Core;
+using RestSharp;
+using RestSharp.Authenticators;
+using BasketBallRegistration.DAL.BasketBallTableAdapters;
 
 namespace BasketBallRegistration
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
+            RestClient client = new RestClient();
+            client.Options.BaseUrl = new Uri("https://api.mailgun.net/v3");
+            client.Authenticator =
+            new HttpBasicAuthenticator("api",
+                                        "72eeaed369cddb89be3abd9c8c193aac-4dd50799-b51673a6");
+            RestRequest request = new RestRequest();
+            request.AddParameter("domain", "sandbox3b3511d760304093b6c580da58d9128a.mailgun.org", ParameterType.UrlSegment);
+            request.Resource = "{domain}/messages";
+            request.AddParameter("from", "Clare Cascaders <postmaster@sandbox3b3511d760304093b6c580da58d9128a.mailgun.org>");
+            request.AddParameter("to", message.Destination);
+            request.AddParameter("subject", message.Subject);
+            request.AddParameter("text", message.Body);
+            request.Method = Method.Post;
+
+            var taCommsLog = new CommsLogTableAdapter();
+            taCommsLog.Insert(null, DateTime.Now, 1, 1, message.Destination, "", message.Body);
+            client.Execute(request);
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            return;
         }
     }
 

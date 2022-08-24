@@ -1,10 +1,7 @@
 ﻿using BasketBallRegistration.DAL;
 using BasketBallRegistration.DAL.BasketBallTableAdapters;
 using System;
-using System.Collections.Generic;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BasketBallRegistration
 {
@@ -12,7 +9,7 @@ namespace BasketBallRegistration
     {
         int PK;
         string mode;
-
+        int RoleId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -75,16 +72,21 @@ namespace BasketBallRegistration
         protected void cmdSave_Click(object sender, EventArgs e)
         {
             mode = Request.QueryString["mode"];
-            if (mode == "add")
+            if (Valid())
             {
-                Add();
+                ErrorLabel.Visible = false;
+                if (mode == "add")
+                {
+                    Add();
+                }
+                else if (mode == "edit")
+                {
+                    Edit();
+                }
+                Response.Redirect("frmRegister_Grid.aspx");
             }
-            else if (mode == "edit")
-            {
-                Edit();
-            }
-            Response.Redirect("frmRegister_Grid.aspx");
-
+            else
+                ErrorLabel.Visible=true;
         }
         private void Edit()
         {
@@ -98,7 +100,7 @@ namespace BasketBallRegistration
             var taAT = new AuditTrailTableAdapter();
 
             PK = Convert.ToInt32(Request.QueryString["PK"]);
-            
+
 
             try
             {
@@ -135,7 +137,7 @@ namespace BasketBallRegistration
 
         private void Add()
         {
-            int RoleId;
+
             if (DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null).Year >= DateTime.Now.Year - 17)
                 RoleId = 2;
             else
@@ -146,7 +148,7 @@ namespace BasketBallRegistration
             var taAT = new AuditTrailTableAdapter();
 
             mode = Request.QueryString["mode"];
-            
+
             try
             {
                 taPlayers.Insert(txtBIPin.Text,
@@ -175,7 +177,7 @@ namespace BasketBallRegistration
             {
                 taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, ex.Message);
             }
-            
+
         }
 
         protected void cmdClose_Click(object sender, EventArgs e)
@@ -229,6 +231,35 @@ namespace BasketBallRegistration
         public void RaisePostBackEvent()
         {
             dteOfBirth_TextChanged(sender: new object(), e: new EventArgs());
+        }
+
+        public bool Valid()
+        {
+            if (RoleId == 1)
+            {
+                if (!string.IsNullOrEmpty(txtEmail.Text) &&
+                    !string.IsNullOrEmpty(txtPhoneNumber.Text) &&
+                    !string.IsNullOrEmpty(txtEmergencyContactNumber.Text) &&
+                    !string.IsNullOrEmpty(txtEmergencyContactRel.Text))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(txtCountryOfBirth.Text) &&
+                    !string.IsNullOrEmpty(txtParentName.Text) &&
+                    !string.IsNullOrEmpty(txtParentEmail.Text) &&
+                    !string.IsNullOrEmpty(txtParentPhoneNumber.Text))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            return false;
         }
     }
 }

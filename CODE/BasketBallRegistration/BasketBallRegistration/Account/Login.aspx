@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
 </head>
 
-<body style="background-color:#f6f6f6">
-    
-    <main class="page login-page" style="height:100%">
-        <section class="clean-block clean-form dark">
+<body style="background-color:white">
+    <asp:Image ID="Image1" runat="server" Height="138px" ImageUrl="~/images/ClareCascadersLogo.png" Width="162px" />
+    <main class="page login-page" >
+        <section class="clean-block clean-form dark" style="background-color:white;height:100%">
             <div class="container">
                 
                 <div class="block-heading">
@@ -45,11 +45,18 @@
                     </asp:PlaceHolder>
                     <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-primary" />
                     <br />
+                    <br />
+                    <asp:Button runat="server" ID="ResendConfirm"  OnClick="SendEmailConfirmationToken" Text="Resend confirmation" Visible="false" CssClass="btn btn-default" />
+                    <br />
                     <div class="mb-3">
                         <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
                     </div>
                 </form>
             </div>
+            <p>
+                    <%-- Enable this once you have account confirmation enabled for password reset functionality --%>
+                    <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
+                </p>
         </section>
     </main>
     

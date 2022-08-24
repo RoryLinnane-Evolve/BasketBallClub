@@ -25,10 +25,6 @@
                 Text="Edit, Add, View  an entry - Close or Save to exit." Width="328px"></asp:Label>
         </div>
         <div class="panel-body">
-
-            <p id="BIPinInstruction" runat="server">
-                To get your BI pin go to <a href="https://membership.mygameday.app/regoform.cgi?aID=28209&pKey=e2899b7cb9f8185f55a6c21866bef27a&formID=95139">Baskeball Ireland registration</a> and fill out the form.
-            </p>
             <table class="table table-striped">
                 <%--<tr>
             <td style="width: 115px; height: 26px">
@@ -118,7 +114,7 @@
                         <td style="width: 115px; height: 26px">
                             <asp:Label ID="Label16" runat="server" Text="Phone Number" Font-Bold="True"></asp:Label></td>
                         <td style="width: 118px; height: 26px">
-                            <asp:TextBox ID="txtPhoneNumber" AutoCompleteType="BusinessPhone" runat="server" Width="160px" /></td>
+                            <asp:TextBox ID="txtPhoneNumber" MaxLength="10" AutoCompleteType="BusinessPhone" runat="server" Width="160px" /></td>
                     </tr>
                     <tr id="EmContactRow" runat="server">
                         <td style="width: 115px; height: 26px">
@@ -156,16 +152,14 @@
                         <td style="width: 115px; height: 26px">
                             <asp:Label ID="Label9" runat="server" Text="Parent Phone Number" Font-Bold="True"></asp:Label></td>
                         <td style="width: 118px; height: 26px">
-                            <asp:TextBox ID="txtParentPhoneNumber" runat="server" Width="208px" Enabled="True" /></td>
+                            <asp:TextBox ID="txtParentPhoneNumber" MaxLength="10" runat="server" Width="208px" Enabled="True" /></td>
                     </tr>
-                
-
-                <tr>
-                    <td style="width: 115px; height: 26px">
-                        <asp:Label ID="Label" runat="server" Text="Medical Notes" Font-Bold="true" /></td>
-                    <td style="width: 118px; height: 26px">
-                        <asp:TextBox ID="txtMedicalNotes" runat="server" Width="282px" Enabled="True" Height="91px" TextMode="MultiLine" /></td>
-                </tr>
+                    <tr>
+                        <td style="width: 115px; height: 26px">
+                            <asp:Label ID="Label" runat="server" Text="Medical Notes" Font-Bold="true" /></td>
+                        <td style="width: 118px; height: 26px">
+                            <asp:TextBox ID="txtMedicalNotes" runat="server" Width="282px" Enabled="True" Height="91px" TextMode="MultiLine" /></td>
+                    </tr>                
 
                 <%--<tr>
             <td style="width: 115px; height: 26px">
@@ -191,7 +185,11 @@
         </tr>--%>
             </table>
             &nbsp;
+            <label style="color:red;" id="ErrorLabel" runat="server">Please fill in all required fields.</label>
+            <br />
+            <br />
     <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-primary" OnClick="cmdSave_Click" />
+            
             <asp:Button ID="cmdClose" runat="server" CausesValidation="False" Text="Close" Width="100px" class="btn btn-primary" OnClick="cmdClose_Click" />
             <asp:ObjectDataSource ID="Players_PK" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData_PK" TypeName="BasketBallRegistration.DAL.BasketBallTableAdapters.PlayersTableAdapter">
                 <SelectParameters>

@@ -25,12 +25,13 @@ namespace BasketBallRegistration
         PlayersTableAdapter taPlayers = new PlayersTableAdapter();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             int PK = Convert.ToInt32(Request.QueryString["PK"]);
 
-            decimal amount = Convert.ToDecimal(Request.QueryString["amount"]);
             string adultAmount = Request.QueryString["adultAmount"];
             string childAmount = Request.QueryString["childAmount"];
 
+            decimal amount = decimal.Round(Convert.ToDecimal(Session["Price"]), 2);
             success_header.InnerText = $"Payment of €{amount} was successful!";
             taPayments.Insert(null, null, null, DateTime.Now, amount, Context.User.Identity.Name);
             
@@ -51,6 +52,8 @@ namespace BasketBallRegistration
             taAT.Insert(null, null, Context.User.Identity.Name, DateTime.Now, 8, "Payment made");
             
         }
+
+
         public RestResponse SendSimpleMessage(string Subject, string Body, string to)
         {
             try

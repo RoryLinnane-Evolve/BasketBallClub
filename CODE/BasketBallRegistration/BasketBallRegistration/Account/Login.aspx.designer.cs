@@ -15,6 +15,15 @@ namespace BasketBallRegistration.Account
     {
 
         /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+
+        /// <summary>
         /// Email control.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,15 @@ namespace BasketBallRegistration.Account
         protected global::System.Web.UI.WebControls.Literal FailureText;
 
         /// <summary>
+        /// ResendConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ResendConfirm;
+
+        /// <summary>
         /// RegisterHyperLink control.
         /// </summary>
         /// <remarks>
@@ -67,5 +85,14 @@ namespace BasketBallRegistration.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+
+        /// <summary>
+        /// ForgotPasswordHyperLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ForgotPasswordHyperLink;
     }
 }

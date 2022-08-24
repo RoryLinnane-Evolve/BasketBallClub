@@ -27,7 +27,8 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="Red"
-                SkinID="Title">Players List: Please ensure you have Baskball Ireland PIN nrs of all players <a href="https://membership.mygameday.app/regoform.cgi?aID=28209&pKey=e2899b7cb9f8185f55a6c21866bef27a&formID=95139">BI Registration</a></asp:Label><br />
+                SkinID="Title">Players List: Please ensure you have Baskball Ireland PIN numbers of all players.</asp:Label><br /><br />
+            <a href="https://membership.mygameday.app/regoform.cgi?aID=28209&pKey=e2899b7cb9f8185f55a6c21866bef27a&formID=95139" target="_blank">Basketball Ireland Registration</a>
             <asp:Label ID="Label5" runat="server" Font-Size="Smaller" ForeColor="Black" SkinID="SubTitle"
                 Text="Please add the players you want to register."></asp:Label>
         </div>
@@ -37,7 +38,7 @@
                     <asp:Button ID="cmdAdd" runat="server" Text="Add" Width="120px" class="btn btn-primary" OnClick="cmdAdd_Click1" />
                     <asp:Button ID="cmdEdit" runat="server" Text="Edit" Width="120px" class="btn btn-primary" OnClick="cmdEdit_Click" />
                     <asp:Button ID="cmdDelete" runat="server" Text="Delete" Width="120px" class="btn btn-primary" OnClick="cmdDelete_Click" />
-                    <asp:Button ID="cmdContinue" runat="server" CausesValidation="False" Text="Continue" width="100px" class="btn red" BackColor="Gray" ForeColor="Red" OnClick="cmdContinue_Click" />
+                    <asp:Button ID="cmdContinue" runat="server" OnClientClick="target ='_blank';" CausesValidation="False" Text="Continue to payment" width="160px" class="btn btn-success" OnClick="cmdContinue_Click" />
                 </div>
             </div>
 

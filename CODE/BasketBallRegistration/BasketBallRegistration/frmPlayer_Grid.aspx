@@ -75,13 +75,14 @@
             </table>
             
             <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" 
-                CssClass="table table-hover table-striped" DataSourceID="PlayersData" AllowPaging="True" 
-                CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId">
+                CssClass="table table-hover table-striped" DataSourceID="SqlDataSource1" AllowPaging="True" 
+                CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId" AllowSorting="True">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="PlayerId" HeaderText="PlayerId" InsertVisible="False" ReadOnly="True" SortExpression="PlayerId" />
-                    <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
+                    <asp:BoundField DataField="BI_PIN" HeaderText="BI_PIN" SortExpression="BI_PIN" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
                     <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
                     <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
@@ -94,11 +95,10 @@
                     <asp:BoundField DataField="CountryOfBirth" HeaderText="CountryOfBirth" SortExpression="CountryOfBirth" />
                     <asp:BoundField DataField="ParentName" HeaderText="ParentName" SortExpression="ParentName" />
                     <asp:BoundField DataField="ParentEmail" HeaderText="ParentEmail" SortExpression="ParentEmail" />
-                    <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
                     <asp:BoundField DataField="ParentPhoneNumber" HeaderText="ParentPhoneNumber" SortExpression="ParentPhoneNumber" />
+                    <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
                     <asp:BoundField DataField="RegistrarEmail" HeaderText="RegistrarEmail" SortExpression="RegistrarEmail" />
                     <asp:BoundField DataField="DateRegistered" HeaderText="DateRegistered" SortExpression="DateRegistered" />
-                    <asp:BoundField DataField="BI_PIN" HeaderText="BI_PIN" SortExpression="BI_PIN" />
                     <asp:CheckBoxField DataField="Payed" HeaderText="Payed" SortExpression="Payed" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
@@ -114,7 +114,12 @@
             </asp:GridView>
         </div>
     </div>
-    &nbsp;<asp:ObjectDataSource
+    &nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CascadersRegDBConnectionString %>" SelectCommand="SELECT * FROM [Players] WHERE ([Name] LIKE '%' + @Name + '%')">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="txtSearch" Name="Name" PropertyName="Text" Type="String" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:ObjectDataSource
         ID="PlayersData" runat="server" OldValuesParameterFormatString="original_{0}"
         SelectMethod="GetDataBy_Grid" TypeName="BasketBallRegistration.DAL.BasketBallTableAdapters.PlayersTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
         <DeleteParameters>

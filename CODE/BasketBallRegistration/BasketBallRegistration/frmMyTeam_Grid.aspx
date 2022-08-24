@@ -37,19 +37,7 @@
                 </div>
             </div>
 
-            <table class="table">
-                <tr>
-                    <td>
-                        Team</td>
-                    <td>
-                        <asp:DropDownList ID="cmbCustomer" runat="server" Width="200px" AutoPostBack="True" class="form-control" DataSourceID="TeamsData" DataTextField="TeamName" DataValueField="TeamId" OnSelectedIndexChanged="cmbCustomer_SelectedIndexChanged">
-                        </asp:DropDownList>
-                        <asp:SqlDataSource ID="TeamsData" runat="server" ConnectionString="<%$ ConnectionStrings:CascadersRegDBConnectionString %>" SelectCommand="SELECT [TeamId], [TeamName], [PlayerAge] FROM [Setup_PlayerTeams]"></asp:SqlDataSource>
-                    </td>
-                </tr>
-            </table>
-
-            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PlayerId" CssClass="table table-hover table-striped" DataSourceID="PlayersData" AllowPaging="True" AllowSorting="true" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PlayerId" CssClass="table table-hover table-striped" DataSourceID="PlayersData" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="BI_PIN" HeaderText="BI_PIN" SortExpression="BI_PIN" />
@@ -67,7 +55,6 @@
                     <asp:BoundField DataField="CountryOfBirth" HeaderText="CountryOfBirth" SortExpression="CountryOfBirth" />
                     <asp:BoundField DataField="ParentName" HeaderText="ParentName" SortExpression="ParentName" />
                     <asp:BoundField DataField="ParentPhoneNumber" HeaderText="ParentPhoneNumber" SortExpression="ParentPhoneNumber" />
-                    <asp:BoundField DataField="DateRegistered" HeaderText="DateRegistered" SortExpression="DateRegistered" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -84,10 +71,55 @@
     </div>
     &nbsp;<asp:ObjectDataSource
         ID="PlayersData" runat="server" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetDataBy_Grid" TypeName="BasketBallRegistration.DAL.BasketBallTableAdapters.PlayersTableAdapter" DeleteMethod="Delete">
+        SelectMethod="GetDataBy_Grid" TypeName="BasketBallRegistration.DAL.BasketBallTableAdapters.PlayersTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
         <DeleteParameters>
             <asp:Parameter Name="Original_PlayerId" Type="Int32" />
         </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="BI_PIN" Type="String" />
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="Gender" Type="String" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="String" />
+            <asp:Parameter Name="MedicalConditions" Type="String" />
+            <asp:Parameter Name="EmergencyContactNumber" Type="String" />
+            <asp:Parameter Name="EmergencyContactRelationship" Type="String" />
+            <asp:Parameter Name="Allergies" Type="String" />
+            <asp:Parameter Name="MedicalNotes" Type="String" />
+            <asp:Parameter Name="CountryOfBirth" Type="String" />
+            <asp:Parameter Name="ParentName" Type="String" />
+            <asp:Parameter Name="ParentEmail" Type="String" />
+            <asp:Parameter Name="ParentPhoneNumber" Type="String" />
+            <asp:Parameter Name="RoleId" Type="Int32" />
+            <asp:Parameter Name="RegistrarEmail" Type="String" />
+            <asp:Parameter Name="DateRegistered" Type="DateTime" />
+            <asp:Parameter Name="Payed" Type="Boolean" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="BI_PIN" Type="String" />
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="DateOfBirth" Type="DateTime" />
+            <asp:Parameter Name="Gender" Type="String" />
+            <asp:Parameter Name="Address" Type="String" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="String" />
+            <asp:Parameter Name="MedicalConditions" Type="String" />
+            <asp:Parameter Name="EmergencyContactNumber" Type="String" />
+            <asp:Parameter Name="EmergencyContactRelationship" Type="String" />
+            <asp:Parameter Name="Allergies" Type="String" />
+            <asp:Parameter Name="MedicalNotes" Type="String" />
+            <asp:Parameter Name="CountryOfBirth" Type="String" />
+            <asp:Parameter Name="ParentName" Type="String" />
+            <asp:Parameter Name="ParentEmail" Type="String" />
+            <asp:Parameter Name="ParentPhoneNumber" Type="String" />
+            <asp:Parameter Name="RoleId" Type="Int32" />
+            <asp:Parameter Name="RegistrarEmail" Type="String" />
+            <asp:Parameter Name="DateRegistered" Type="DateTime" />
+            <asp:Parameter Name="Payed" Type="Boolean" />
+            <asp:Parameter Name="Original_PlayerId" Type="Int32" />
+        </UpdateParameters>
 </asp:ObjectDataSource>
 </asp:Content>
 
