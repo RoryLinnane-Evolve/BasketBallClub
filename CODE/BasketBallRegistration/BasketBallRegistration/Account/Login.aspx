@@ -50,12 +50,13 @@
                     <br />
                     <div class="mb-3">
                         <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
+                        <br />
+                        <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
                     </div>
                 </form>
             </div>
             <p>
                     <%-- Enable this once you have account confirmation enabled for password reset functionality --%>
-                    <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
                 </p>
         </section>
     </main>

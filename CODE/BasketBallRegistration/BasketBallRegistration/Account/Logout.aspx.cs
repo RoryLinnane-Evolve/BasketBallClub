@@ -10,12 +10,15 @@ using System.Web.UI.WebControls;
 
 namespace BasketBallRegistration.Account
 {
-    public partial class Logout : System.Web.UI.Page
+    public partial class Logout : AuthPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            base.Page_Load();
             //FormsAuthentication.SignOut();
-            
+
+            Session.Abandon();
+            FormsAuthentication.SignOut();
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             FormsAuthentication.RedirectToLoginPage();
         }

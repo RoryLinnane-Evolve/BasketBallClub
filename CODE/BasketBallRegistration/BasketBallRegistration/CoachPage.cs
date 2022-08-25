@@ -17,9 +17,9 @@ namespace BasketBallRegistration
                 if (Convert.ToInt32(taRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name)) == 1 || Convert.ToInt32(taRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name)) == 3)
                     return;
                 else
-                    Response.Redirect("~/frm_Register_Grid.aspx");
+                    Response.Redirect("~/frmRegister_Grid.aspx");
             }else
-                Response.Redirect("~/frm_Register_Grid.aspx");
+                Response.Redirect("~/frmRegister_Grid.aspx");
         }
     }
 }

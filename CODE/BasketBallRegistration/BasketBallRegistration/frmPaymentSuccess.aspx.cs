@@ -1,10 +1,12 @@
 ﻿using BasketBallRegistration.DAL.BasketBallTableAdapters;
+using Microsoft.AspNet.Identity.Owin;
 using MimeKit;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,6 +16,7 @@ using System.Web.UI.WebControls;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
+using static BasketBallRegistration.DAL.BasketBall;
 
 namespace BasketBallRegistration
 {
@@ -45,6 +48,13 @@ namespace BasketBallRegistration
             // Next, you should add your own domain so you can send 10000 emails/month for free.
 
             //E.G https://localhost:44351/frmPaymentSuccess.aspx?amount=485.00&adultAmount=1&childAmount=2
+
+            //Notify Coaches
+            var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
+            foreach (var player in cart)
+            {
+                NotifyCoach(player);
+            }
 
             //Update Player.Payed
             taPlayers.UpdatePayedStatus(true, Context.User.Identity.Name);
@@ -78,6 +88,17 @@ namespace BasketBallRegistration
                 taAT.Insert(null, null, Context.User.Identity.Name, DateTime.Now, 8, ex.Message);
                 return null;
             }
+        }
+
+        public void NotifyCoach(DataRow player)
+        {
+            WhatsappService client = new WhatsappService();
+            QueriesTableAdapter taQueries = new QueriesTableAdapter();
+            client.SendAsync(new Microsoft.AspNet.Identity.IdentityMessage() 
+            { 
+                Body=$"{player["Name"]} has registered with your team.",
+                Destination=$"{taQueries.CoachPhoneFromPlrId(PlayerId: (int)player["PlayerId"])}"
+            });
         }
     }
 }

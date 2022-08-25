@@ -10,6 +10,7 @@ namespace BasketBallRegistration
 {
     public class AuthPage : Page
     {
+
         protected virtual void Page_Load()
         {
             if (!Context.User.Identity.IsAuthenticated)

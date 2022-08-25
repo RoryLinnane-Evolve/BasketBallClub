@@ -21,7 +21,7 @@
                     <h2 class="text-info">Register</h2>
                 </div>
                 <form runat="server">
-                    <asp:ValidationSummary runat="server" CssClass="text-danger" />
+                    
                     <div class="mb-3">            
                         <asp:Label runat="server" AssociatedControlID="Email" CssClass="form-label">Email</asp:Label>
                         <asp:TextBox runat="server" ID="Email" CssClass="form-control item" TextMode="Email" />
@@ -39,10 +39,12 @@
                         <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
                     </div>
                     <div class="mb-3">
-                        <p class="text-danger">
-                            <asp:Literal runat="server" ID="ErrorMessage" />
+                        <p class="text-info">
+                            <asp:Literal runat="server" ID="InfoMessage" />
                         </p>
                     </div>
+                    <br />
+                    <%--<asp:ValidationSummary runat="server" CssClass="text-danger" />--%>
                     <asp:Button runat="server" ID="CreateUser" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-primary"/>
                 </form>
             </div>

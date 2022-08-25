@@ -185,12 +185,24 @@
         </tr>--%>
             </table>
             &nbsp;
-            <label style="color:red;" id="ErrorLabel" runat="server">Please fill in all required fields.</label>
+            <label style="color:red;" id="ErrorLabel" runat="server" visible="false">Please fill in all required fields.</label>
             <br />
             <br />
     <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-primary" OnClick="cmdSave_Click" />
             
             <asp:Button ID="cmdClose" runat="server" CausesValidation="False" Text="Close" Width="100px" class="btn btn-primary" OnClick="cmdClose_Click" />
+            <br />
+            <br />
+            <asp:CompareValidator ID="CompareValidator1" 
+                runat="server"
+                ControlToValidate="dteOfBirth"
+                Operator="DataTypeCheck"
+                Type="Date"
+                ForeColor="#FF3300">Date invalid, please check format.</asp:CompareValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txtName" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAddress" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddGender" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtBIPin" ErrorMessage="BI Pin is in incorrect format." ForeColor="Red"></asp:RequiredFieldValidator>
             <asp:ObjectDataSource ID="Players_PK" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData_PK" TypeName="BasketBallRegistration.DAL.BasketBallTableAdapters.PlayersTableAdapter">
                 <SelectParameters>
                     <asp:RouteParameter DefaultValue="10" Name="PK" RouteKey="ID" Type="Int32" />
@@ -203,14 +215,5 @@
             &nbsp;
         </div>
     </div>
-    <asp:CompareValidator ID="CompareValidator1"
-        runat="server"
-        ControlToValidate="dteOfBirth"
-        Operator="DataTypeCheck"
-        Type="Date"
-        ForeColor="#FF3300">Date invalid, please check format.</asp:CompareValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txtName" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtAddress" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddGender" ErrorMessage="Please fill in all required fields." ForeColor="Red"></asp:RequiredFieldValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtBIPin" ErrorMessage="BI Pin is in incorrect format." ForeColor="Red"></asp:RequiredFieldValidator>
+    
 </asp:Content>

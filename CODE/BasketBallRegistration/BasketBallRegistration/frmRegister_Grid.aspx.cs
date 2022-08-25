@@ -13,10 +13,7 @@ namespace BasketBallRegistration
         protected void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load();
-            var taPlayers = new PlayersTableAdapter();
-            var dtPlayers = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
-            grdPlayers.DataSourceID = null;
-            grdPlayers.DataSource = dtPlayers;
+            Refresh_Grid();
         }
 
         protected void cmdAdd_Click1(object sender, EventArgs e)
@@ -26,18 +23,27 @@ namespace BasketBallRegistration
 
         protected void cmdEdit_Click(object sender, EventArgs e)
         {
-            Response.Redirect($"frmRegister?mode=edit&PK={grdPlayers.SelectedValue}");
+            if(grdPlayers.SelectedValue != null)
+                Response.Redirect($"frmRegister?mode=edit&PK={grdPlayers.SelectedValue}");
         }
 
         protected void cmdDelete_Click(object sender, EventArgs e)
         {
-            var taPlayers = new PlayersTableAdapter();
-            taPlayers.Delete((int)grdPlayers.SelectedValue);
-            //Log
-            var taAT = new AuditTrailTableAdapter();
-            taAT.Insert(0, 0, Context.User.Identity.Name, DateTime.Now, 10, "Player Deleted");
-            Refresh_Grid();
+            if (grdPlayers.SelectedValue != null)
+            {
+                var taPlayers = new PlayersTableAdapter();
+
+                taPlayers.Delete((int)grdPlayers.SelectedValue);
+                //Log
+                var taAT = new AuditTrailTableAdapter();
+                taAT.Insert(0, 0, Context.User.Identity.Name, DateTime.Now, 10, "Player Deleted");
+                Refresh_Grid();
+            }            
         }
+
+        /// <summary>
+        /// Updates the grdPlayers with new information from the database
+        /// </summary>
         public void Refresh_Grid()
         {
             PlayersTableAdapter taPlayers = new PlayersTableAdapter();
@@ -45,9 +51,11 @@ namespace BasketBallRegistration
             DataView dv;
             taPlayers.FillBy_Cart(dtPlayers, Context.User.Identity.Name);
             dv = dtPlayers.DefaultView;
-            this.grdPlayers.DataSourceID = "";
+            this.grdPlayers.DataSourceID = null;
             this.grdPlayers.DataSource = dv;
             this.grdPlayers.DataBind();
+            if (grdPlayers.Rows.Count == 0)
+                cmdContinue.Visible = false;
         }
 
         protected void cmdContinue_Click(object sender, EventArgs e)
@@ -57,8 +65,8 @@ namespace BasketBallRegistration
             decimal amount = PRICE_CALC();
 
             Session["amount"] = amount;
-
-            Response.Redirect($"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=G2TDTBCFJJVM4&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=1&no_shipping=1&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
+            
+            Response.Redirect($"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=DKRSXRN4CYXF2&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=1&no_shipping=1&rm=1&return=https%3a%2f%2flocalhost%3a44351%2ffrmPaymentSuccess%2easpx&cancel_return=https%3a%2f%2flocalhost%3a44351%2ffrmPaymentFailed%2easpx&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
         }
 
         /// <summary>

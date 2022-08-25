@@ -52,6 +52,9 @@ namespace BasketBallRegistration
 
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
+            Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
             optPlayers.Visible = false;
             optMyTeam.Visible = false;
             optPayment.Visible = false;

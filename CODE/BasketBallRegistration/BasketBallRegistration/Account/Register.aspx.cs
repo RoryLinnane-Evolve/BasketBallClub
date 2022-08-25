@@ -12,7 +12,6 @@ namespace BasketBallRegistration.Account
         bool submitted = false;
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            CreateUser.Enabled = false;
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             if (submitted == false)
@@ -33,12 +32,12 @@ namespace BasketBallRegistration.Account
                     }
                     else
                     {
-                        ErrorMessage.Text = "An email has been sent to your account. Please view the email and confirm your account to complete the registration process.";
+                        InfoMessage.Text = "An email has been sent to your account. Please view the email and confirm your account to complete the registration process.";
                     }
                 }
                 else
                 {
-                    ErrorMessage.Text = result.Errors.FirstOrDefault();
+                    InfoMessage.Text = result.Errors.FirstOrDefault();
                 }
             }
         }

@@ -27,8 +27,8 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="Red"
-                SkinID="Title">Players List: Please ensure you have Baskball Ireland PIN numbers of all players.</asp:Label><br /><br />
-            <a href="https://membership.mygameday.app/regoform.cgi?aID=28209&pKey=e2899b7cb9f8185f55a6c21866bef27a&formID=95139" target="_blank">Basketball Ireland Registration</a>
+                SkinID="Title">Players List: Please ensure you have Baskball Ireland PIN numbers of all players.</asp:Label><br />
+            <%--<a href="https://membership.mygameday.app/regoform.cgi?aID=28209&pKey=e2899b7cb9f8185f55a6c21866bef27a&formID=95139" target="_blank">Basketball Ireland Registration</a>--%>
             <asp:Label ID="Label5" runat="server" Font-Size="Smaller" ForeColor="Black" SkinID="SubTitle"
                 Text="Please add the players you want to register."></asp:Label>
         </div>

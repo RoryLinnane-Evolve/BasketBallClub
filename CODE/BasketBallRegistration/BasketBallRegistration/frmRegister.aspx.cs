@@ -21,14 +21,8 @@ namespace BasketBallRegistration
 
             if (Page.IsPostBack == false)
             {
-                try
-                {
-                    PK = Convert.ToInt32(Request.QueryString["PK"]);
-                }
-                catch (Exception)
-                {
-                    Response.Redirect("frmPlayer_Grid.aspx");
-                }
+                PK = Convert.ToInt32(Request.QueryString["PK"]);
+                
                 dtPlayers = taPlayers.GetData_PK(PK);
 
                 if (mode == "edit")
@@ -36,6 +30,7 @@ namespace BasketBallRegistration
                     foreach (var playerRow in dtPlayers)
                     {
                         this.txtName.Text = playerRow.Name;
+                        this.txtBIPin.Text = playerRow.BI_PIN;
                         this.dteOfBirth.Text = playerRow.DateOfBirth.ToShortDateString();
                         this.ddGender.SelectedValue = playerRow.Gender.ToCharArray()[0].ToString();
                         this.txtAddress.Text = playerRow.Address;
