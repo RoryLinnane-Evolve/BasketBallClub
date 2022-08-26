@@ -13,27 +13,37 @@ namespace BasketBallRegistration
 {
     public partial class frmMyTeam_Grid : CoachPage
     {
+        protected override void OnPreLoad(EventArgs e)
+        {
+            base.OnPreLoad(e);
+            PlayersTableAdapter taPlayers = new PlayersTableAdapter();
+            Setup_PlayerTeamsTableAdapter taPlayerTeams = new Setup_PlayerTeamsTableAdapter();
+            Setup_CoachTeamsTableAdapter taCoachTeams = new Setup_CoachTeamsTableAdapter();
+            AspNetUsersTableAdapter taUsers = new AspNetUsersTableAdapter();
+
+            if ((int)taPlayers.TeamAgeFromCoachEmail((string)Session["Email"]) <= 17)
+            {
+                grdPlayers.Columns[6].Visible=false;
+                grdPlayers.Columns[7].Visible=false;
+                grdPlayers.Columns[9].Visible=false;
+                grdPlayers.Columns[10].Visible=false;
+                grdPlayers.Columns[15].Visible=false;
+            }
+            else
+            {
+                grdPlayers.Columns[13].Visible = false;
+                grdPlayers.Columns[14].Visible = false;
+                grdPlayers.Columns[15].Visible = false;
+                grdPlayers.Columns[16].Visible = false;
+                grdPlayers.Columns[].Visible = false;
+            }
+
+            
+            grdPlayers.DataBind();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load();
-            //PlayersTableAdapter taPlayers = new PlayersTableAdapter();
-            //Setup_PlayerTeamsTableAdapter taPlayerTeams = new Setup_PlayerTeamsTableAdapter();
-            //Setup_CoachTeamsTableAdapter taCoachTeams = new Setup_CoachTeamsTableAdapter();
-            //AspNetUsersTableAdapter taUsers = new AspNetUsersTableAdapter();
-
-            //string CoachId = taUsers.Get_Id_From_Email(Context.User.Identity.Name);
-            //int? age = taPlayerTeams.GetAgeFromId((int)taCoachTeams.FillBy_Coach(taUsers.Get_Id_From_Email(Context.User.Identity.Name)));
-            //DataView dv = new DataView();
-            //if (age.HasValue)
-            //{
-            //    var dtPlayers = new PlayersDataTable();
-            //    taPlayers.FillBy_DOB(dtPlayers, new DateTime(DateTime.Now.Year - (int)age, 1, 1), new DateTime(DateTime.Now.Year - ((int)age - 2), 1, 1), "M");
-
-            //    dv = dtPlayers.DefaultView;
-            //}
-            //grdPlayers.DataSourceID = "";
-            //grdPlayers.DataSource = dv;
-            //grdPlayers.DataBind();
         }
 
         protected void cmdClose_Click(object sender, EventArgs e)

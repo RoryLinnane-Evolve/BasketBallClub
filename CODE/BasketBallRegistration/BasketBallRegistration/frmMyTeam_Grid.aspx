@@ -1,12 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmMyTeam_Grid.aspx.cs" Inherits="BasketBallRegistration.frmMyTeam_Grid" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
-    <script>
-        $(document).ready(function () {
-            $('#<% = grdPlayers.ClientID %>').DataTable({
-                "paging": false
-            });
-        });
-    </script>
+    
     <style type="text/css">
         .dataTables_wrapper .dataTables_filter {
             float: right;
@@ -37,12 +31,13 @@
                 </div>
             </div>
 
-            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PlayerId" CssClass="table table-hover table-striped" DataSourceID="PlayersData" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PlayerId" CssClass="table table-hover table-striped" DataSourceID="PlayersData" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" AllowCustomPaging="True">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                    <asp:BoundField DataField="PlayerId" HeaderText="PlayerId" InsertVisible="False" ReadOnly="True" SortExpression="PlayerId" />
                     <asp:BoundField DataField="BI_PIN" HeaderText="BI_PIN" SortExpression="BI_PIN" />
-                    <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
                     <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
                     <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
@@ -54,6 +49,7 @@
                     <asp:BoundField DataField="MedicalNotes" HeaderText="MedicalNotes" SortExpression="MedicalNotes" />
                     <asp:BoundField DataField="CountryOfBirth" HeaderText="CountryOfBirth" SortExpression="CountryOfBirth" />
                     <asp:BoundField DataField="ParentName" HeaderText="ParentName" SortExpression="ParentName" />
+                    <asp:BoundField DataField="ParentEmail" HeaderText="ParentEmail" SortExpression="ParentEmail" />
                     <asp:BoundField DataField="ParentPhoneNumber" HeaderText="ParentPhoneNumber" SortExpression="ParentPhoneNumber" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
@@ -71,7 +67,7 @@
     </div>
     &nbsp;<asp:ObjectDataSource
         ID="PlayersData" runat="server" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetDataBy_Grid" TypeName="BasketBallRegistration.DAL.BasketBallTableAdapters.PlayersTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+        SelectMethod="GetData_TeamFromCoachEmail" TypeName="BasketBallRegistration.DAL.BasketBallTableAdapters.PlayersTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
         <DeleteParameters>
             <asp:Parameter Name="Original_PlayerId" Type="Int32" />
         </DeleteParameters>
@@ -97,6 +93,9 @@
             <asp:Parameter Name="DateRegistered" Type="DateTime" />
             <asp:Parameter Name="Payed" Type="Boolean" />
         </InsertParameters>
+        <SelectParameters>
+            <asp:SessionParameter Name="Email" SessionField="Email" Type="String" />
+        </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="BI_PIN" Type="String" />
             <asp:Parameter Name="Name" Type="String" />

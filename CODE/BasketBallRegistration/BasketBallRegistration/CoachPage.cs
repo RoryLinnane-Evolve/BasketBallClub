@@ -1,8 +1,5 @@
 ﻿using BasketBallRegistration.DAL.SetupsTableAdapters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 
 namespace BasketBallRegistration
@@ -14,11 +11,16 @@ namespace BasketBallRegistration
             if (Context.User.Identity.IsAuthenticated)
             {
                 AspNetUserRolesTableAdapter taRoles = new AspNetUserRolesTableAdapter();
-                if (Convert.ToInt32(taRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name)) == 1 || Convert.ToInt32(taRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name)) == 3)
+                if (Convert.ToInt32(taRoles.ROLE_FROM_EMAIL(Context.User.Identity.Name)) == 1)
+                {
+                    Session["Email"] = Context.User.Identity.Name;
                     return;
+                }
+
                 else
                     Response.Redirect("~/frmRegister_Grid.aspx");
-            }else
+            }
+            else
                 Response.Redirect("~/frmRegister_Grid.aspx");
         }
     }
