@@ -63,10 +63,13 @@ namespace BasketBallRegistration
             }
         }
 
-
         protected void cmdSave_Click(object sender, EventArgs e)
         {
             mode = Request.QueryString["mode"];
+            if (DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null).Year >= DateTime.Now.Year - 17)
+                RoleId = 2;
+            else
+                RoleId = 1;
             if (Valid())
             {
                 ErrorLabel.Visible = false;
@@ -83,6 +86,7 @@ namespace BasketBallRegistration
             else
                 ErrorLabel.Visible=true;
         }
+
         private void Edit()
         {
             int RoleId;
@@ -132,12 +136,6 @@ namespace BasketBallRegistration
 
         private void Add()
         {
-
-            if (DateTime.ParseExact(dteOfBirth.Text, "dd/MM/yyyy", null).Year >= DateTime.Now.Year - 17)
-                RoleId = 2;
-            else
-                RoleId = 1;
-
             var taPlayers = new PlayersTableAdapter();
 
             var taAT = new AuditTrailTableAdapter();
@@ -223,6 +221,7 @@ namespace BasketBallRegistration
                 Console.WriteLine(dteOfBirth.Text);
             }
         }
+
         public void RaisePostBackEvent()
         {
             dteOfBirth_TextChanged(sender: new object(), e: new EventArgs());

@@ -1717,17 +1717,17 @@ namespace BasketBallRegistration.DAL {
             
             private global::System.Data.DataColumn columnPaymentId;
             
-            private global::System.Data.DataColumn columnCustomerId;
-            
             private global::System.Data.DataColumn columnPaymentTypeId;
-            
-            private global::System.Data.DataColumn columnClient;
             
             private global::System.Data.DataColumn columnPaymentDate;
             
             private global::System.Data.DataColumn columnAmount;
             
-            private global::System.Data.DataColumn columnPaymentReference;
+            private global::System.Data.DataColumn columnPlayerNames;
+            
+            private global::System.Data.DataColumn columnUserId;
+            
+            private global::System.Data.DataColumn columnEmail;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -1772,25 +1772,9 @@ namespace BasketBallRegistration.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CustomerIdColumn {
-                get {
-                    return this.columnCustomerId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn PaymentTypeIdColumn {
                 get {
                     return this.columnPaymentTypeId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ClientColumn {
-                get {
-                    return this.columnClient;
                 }
             }
             
@@ -1812,9 +1796,25 @@ namespace BasketBallRegistration.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn PaymentReferenceColumn {
+            public global::System.Data.DataColumn PlayerNamesColumn {
                 get {
-                    return this.columnPaymentReference;
+                    return this.columnPlayerNames;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn UserIdColumn {
+                get {
+                    return this.columnUserId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EmailColumn {
+                get {
+                    return this.columnEmail;
                 }
             }
             
@@ -1855,16 +1855,16 @@ namespace BasketBallRegistration.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PaymentsRow AddPaymentsRow(int PaymentId, int CustomerId, int PaymentTypeId, int Client, System.DateTime PaymentDate, decimal Amount, string PaymentReference) {
+            public PaymentsRow AddPaymentsRow(int PaymentId, int PaymentTypeId, System.DateTime PaymentDate, decimal Amount, string PlayerNames, string UserId, string Email) {
                 PaymentsRow rowPaymentsRow = ((PaymentsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PaymentId,
-                        CustomerId,
                         PaymentTypeId,
-                        Client,
                         PaymentDate,
                         Amount,
-                        PaymentReference};
+                        PlayerNames,
+                        UserId,
+                        Email};
                 rowPaymentsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPaymentsRow);
                 return rowPaymentsRow;
@@ -1895,12 +1895,12 @@ namespace BasketBallRegistration.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnPaymentId = base.Columns["PaymentId"];
-                this.columnCustomerId = base.Columns["CustomerId"];
                 this.columnPaymentTypeId = base.Columns["PaymentTypeId"];
-                this.columnClient = base.Columns["Client"];
                 this.columnPaymentDate = base.Columns["PaymentDate"];
                 this.columnAmount = base.Columns["Amount"];
-                this.columnPaymentReference = base.Columns["PaymentReference"];
+                this.columnPlayerNames = base.Columns["PlayerNames"];
+                this.columnUserId = base.Columns["UserId"];
+                this.columnEmail = base.Columns["Email"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1908,23 +1908,25 @@ namespace BasketBallRegistration.DAL {
             private void InitClass() {
                 this.columnPaymentId = new global::System.Data.DataColumn("PaymentId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentId);
-                this.columnCustomerId = new global::System.Data.DataColumn("CustomerId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerId);
                 this.columnPaymentTypeId = new global::System.Data.DataColumn("PaymentTypeId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentTypeId);
-                this.columnClient = new global::System.Data.DataColumn("Client", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnClient);
                 this.columnPaymentDate = new global::System.Data.DataColumn("PaymentDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentDate);
                 this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmount);
-                this.columnPaymentReference = new global::System.Data.DataColumn("PaymentReference", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentReference);
+                this.columnPlayerNames = new global::System.Data.DataColumn("PlayerNames", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPlayerNames);
+                this.columnUserId = new global::System.Data.DataColumn("UserId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserId);
+                this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmail);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPaymentId}, true));
                 this.columnPaymentId.AllowDBNull = false;
                 this.columnPaymentId.Unique = true;
-                this.columnPaymentReference.MaxLength = 500;
+                this.columnPlayerNames.MaxLength = 4000;
+                this.columnUserId.MaxLength = 128;
+                this.columnEmail.MaxLength = 256;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3283,22 +3285,6 @@ namespace BasketBallRegistration.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int CustomerId {
-                get {
-                    try {
-                        return ((int)(this[this.tablePayments.CustomerIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerId\' in table \'Payments\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePayments.CustomerIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int PaymentTypeId {
                 get {
                     try {
@@ -3310,22 +3296,6 @@ namespace BasketBallRegistration.DAL {
                 }
                 set {
                     this[this.tablePayments.PaymentTypeIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int Client {
-                get {
-                    try {
-                        return ((int)(this[this.tablePayments.ClientColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Client\' in table \'Payments\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePayments.ClientColumn] = value;
                 }
             }
             
@@ -3363,30 +3333,50 @@ namespace BasketBallRegistration.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string PaymentReference {
+            public string PlayerNames {
                 get {
                     try {
-                        return ((string)(this[this.tablePayments.PaymentReferenceColumn]));
+                        return ((string)(this[this.tablePayments.PlayerNamesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentReference\' in table \'Payments\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PlayerNames\' in table \'Payments\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePayments.PaymentReferenceColumn] = value;
+                    this[this.tablePayments.PlayerNamesColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCustomerIdNull() {
-                return this.IsNull(this.tablePayments.CustomerIdColumn);
+            public string UserId {
+                get {
+                    try {
+                        return ((string)(this[this.tablePayments.UserIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserId\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.UserIdColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCustomerIdNull() {
-                this[this.tablePayments.CustomerIdColumn] = global::System.Convert.DBNull;
+            public string Email {
+                get {
+                    try {
+                        return ((string)(this[this.tablePayments.EmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePayments.EmailColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3399,18 +3389,6 @@ namespace BasketBallRegistration.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPaymentTypeIdNull() {
                 this[this.tablePayments.PaymentTypeIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsClientNull() {
-                return this.IsNull(this.tablePayments.ClientColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetClientNull() {
-                this[this.tablePayments.ClientColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3439,14 +3417,38 @@ namespace BasketBallRegistration.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPaymentReferenceNull() {
-                return this.IsNull(this.tablePayments.PaymentReferenceColumn);
+            public bool IsPlayerNamesNull() {
+                return this.IsNull(this.tablePayments.PlayerNamesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPaymentReferenceNull() {
-                this[this.tablePayments.PaymentReferenceColumn] = global::System.Convert.DBNull;
+            public void SetPlayerNamesNull() {
+                this[this.tablePayments.PlayerNamesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsUserIdNull() {
+                return this.IsNull(this.tablePayments.UserIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetUserIdNull() {
+                this[this.tablePayments.UserIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmailNull() {
+                return this.IsNull(this.tablePayments.EmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmailNull() {
+                this[this.tablePayments.EmailColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5649,12 +5651,12 @@ END";
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Payments";
             tableMapping.ColumnMappings.Add("PaymentId", "PaymentId");
-            tableMapping.ColumnMappings.Add("CustomerId", "CustomerId");
             tableMapping.ColumnMappings.Add("PaymentTypeId", "PaymentTypeId");
-            tableMapping.ColumnMappings.Add("Client", "Client");
             tableMapping.ColumnMappings.Add("PaymentDate", "PaymentDate");
             tableMapping.ColumnMappings.Add("Amount", "Amount");
-            tableMapping.ColumnMappings.Add("PaymentReference", "PaymentReference");
+            tableMapping.ColumnMappings.Add("PlayerNames", "PlayerNames");
+            tableMapping.ColumnMappings.Add("UserId", "UserId");
+            tableMapping.ColumnMappings.Add("Email", "Email");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -5663,28 +5665,28 @@ END";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Payments] ([CustomerId], [PaymentTypeId], [Client], [PaymentDate], [" +
-                "Amount], [PaymentReference]) VALUES (@CustomerId, @PaymentTypeId, @Client, @Paym" +
-                "entDate, @Amount, @PaymentReference)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Payments] ([PaymentTypeId], [PaymentDate], [Amount], [PlayerNames], " +
+                "[UserId], [Email]) VALUES (@PaymentTypeId, @PaymentDate, @Amount, @PlayerNames, " +
+                "@UserId, @Email)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentTypeId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentTypeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentReference", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentReference", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PlayerNames", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PlayerNames", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [Payments] SET [CustomerId] = @CustomerId, [PaymentTypeId] = @PaymentTypeI" +
-                "d, [Client] = @Client, [PaymentDate] = @PaymentDate, [Amount] = @Amount, [Paymen" +
-                "tReference] = @PaymentReference WHERE (([PaymentId] = @Original_PaymentId))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Payments] SET [PaymentTypeId] = @PaymentTypeId, [PaymentDate] = @PaymentD" +
+                "ate, [Amount] = @Amount, [PlayerNames] = @PlayerNames, [UserId] = @UserId, [Emai" +
+                "l] = @Email WHERE (([PaymentId] = @Original_PaymentId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentTypeId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentTypeId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Client", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentReference", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentReference", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PlayerNames", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PlayerNames", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -5701,14 +5703,14 @@ END";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        PaymentId, CustomerId, PaymentTypeId, Client, PaymentDate, Amount, " +
-                "PaymentReference\r\nFROM            Payments\r\nWHERE        (PaymentId = @PK)";
+            this._commandCollection[0].CommandText = "SELECT        PaymentId, PaymentTypeId, PaymentDate, Amount, PlayerNames, UserId," +
+                " Email\r\nFROM            Payments\r\nWHERE        (PaymentId = @PK)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PK", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Amount, Client, CustomerId, PaymentDate, PaymentId, PaymentReference, Paym" +
-                "entTypeId FROM Payments";
+            this._commandCollection[1].CommandText = "SELECT Amount, Email, PaymentDate, PaymentId, PaymentTypeId, PlayerNames, UserId " +
+                "FROM Payments";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5817,42 +5819,42 @@ END";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> CustomerId, global::System.Nullable<int> PaymentTypeId, global::System.Nullable<int> Client, global::System.Nullable<global::System.DateTime> PaymentDate, global::System.Nullable<decimal> Amount, string PaymentReference) {
-            if ((CustomerId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CustomerId.Value));
+        public virtual int Insert(global::System.Nullable<int> PaymentTypeId, global::System.Nullable<global::System.DateTime> PaymentDate, global::System.Nullable<decimal> Amount, string PlayerNames, string UserId, string Email) {
+            if ((PaymentTypeId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PaymentTypeId.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((PaymentTypeId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PaymentTypeId.Value));
+            if ((PaymentDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(PaymentDate.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Client.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Client.Value));
+            if ((Amount.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Amount.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((PaymentDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(PaymentDate.Value));
-            }
-            else {
+            if ((PlayerNames == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Amount.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Amount.Value));
-            }
             else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(PlayerNames));
+            }
+            if ((UserId == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((PaymentReference == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(UserId));
+            }
+            if ((Email == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(PaymentReference));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Email));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5874,42 +5876,42 @@ END";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> CustomerId, global::System.Nullable<int> PaymentTypeId, global::System.Nullable<int> Client, global::System.Nullable<global::System.DateTime> PaymentDate, global::System.Nullable<decimal> Amount, string PaymentReference, int Original_PaymentId) {
-            if ((CustomerId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CustomerId.Value));
+        public virtual int Update(global::System.Nullable<int> PaymentTypeId, global::System.Nullable<global::System.DateTime> PaymentDate, global::System.Nullable<decimal> Amount, string PlayerNames, string UserId, string Email, int Original_PaymentId) {
+            if ((PaymentTypeId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(PaymentTypeId.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((PaymentTypeId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PaymentTypeId.Value));
+            if ((PaymentDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(PaymentDate.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Client.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Client.Value));
+            if ((Amount.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Amount.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((PaymentDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(PaymentDate.Value));
-            }
-            else {
+            if ((PlayerNames == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Amount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Amount.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(PlayerNames));
+            }
+            if ((UserId == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((PaymentReference == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(UserId));
+            }
+            if ((Email == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(PaymentReference));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Email));
             }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_PaymentId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;

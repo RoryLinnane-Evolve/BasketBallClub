@@ -159,24 +159,6 @@ namespace BasketBallRegistration
         protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
 
         /// <summary>
-        /// optManage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optManage;
-
-        /// <summary>
-        /// lnkManage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkManage;
-
-        /// <summary>
         /// optRegister control.
         /// </summary>
         /// <remarks>

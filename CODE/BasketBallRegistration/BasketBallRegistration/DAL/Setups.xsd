@@ -103,7 +103,7 @@ FROM            Setup_CoachTeams</CommandText>
               <Mapping SourceColumn="TeamId" DataSetColumn="TeamId" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="CascadersRegDBConnectionString (Web.config)" DbObjectName="CascadersRegDB.dbo.Setup_CoachTeams" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="FillBy_Coach" Modifier="Public" Name="FillBy_Coach" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_Coach" UserSourceName="FillBy_Coach">
+              <DbSource ConnectionRef="CascadersRegDBConnectionString (Web.config)" DbObjectName="CascadersRegDB.dbo.Setup_CoachTeams" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="FillBy_Coach" Modifier="Public" Name="FillBy_Coach" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy_Coach">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT       TeamId
@@ -538,26 +538,26 @@ FROM            Setup_Rates
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Setup_Rates" msprop:Generator_RowClassName="Setup_RatesRow" msprop:Generator_RowEvHandlerName="Setup_RatesRowChangeEventHandler" msprop:Generator_RowDeletedName="Setup_RatesRowDeleted" msprop:Generator_RowDeletingName="Setup_RatesRowDeleting" msprop:Generator_RowEvArgName="Setup_RatesRowChangeEvent" msprop:Generator_TablePropName="Setup_Rates" msprop:Generator_RowChangedName="Setup_RatesRowChanged" msprop:Generator_UserTableName="Setup_Rates" msprop:Generator_RowChangingName="Setup_RatesRowChanging" msprop:Generator_TableClassName="Setup_RatesDataTable" msprop:Generator_TableVarName="tableSetup_Rates">
+        <xs:element name="Setup_Rates" msprop:Generator_RowEvHandlerName="Setup_RatesRowChangeEventHandler" msprop:Generator_RowDeletedName="Setup_RatesRowDeleted" msprop:Generator_RowDeletingName="Setup_RatesRowDeleting" msprop:Generator_RowEvArgName="Setup_RatesRowChangeEvent" msprop:Generator_TablePropName="Setup_Rates" msprop:Generator_RowChangedName="Setup_RatesRowChanged" msprop:Generator_UserTableName="Setup_Rates" msprop:Generator_RowChangingName="Setup_RatesRowChanging" msprop:Generator_RowClassName="Setup_RatesRow" msprop:Generator_TableClassName="Setup_RatesDataTable" msprop:Generator_TableVarName="tableSetup_Rates">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="RateId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="RateId" msprop:Generator_ColumnPropNameInTable="RateIdColumn" msprop:Generator_ColumnPropNameInRow="RateId" msprop:Generator_ColumnVarNameInTable="columnRateId" type="xs:int" />
-              <xs:element name="RateName" msprop:Generator_UserColumnName="RateName" msprop:Generator_ColumnPropNameInTable="RateNameColumn" msprop:Generator_ColumnPropNameInRow="RateName" msprop:Generator_ColumnVarNameInTable="columnRateName" minOccurs="0">
+              <xs:element name="RateId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="RateIdColumn" msprop:Generator_ColumnPropNameInRow="RateId" msprop:Generator_UserColumnName="RateId" msprop:Generator_ColumnVarNameInTable="columnRateId" type="xs:int" />
+              <xs:element name="RateName" msprop:Generator_ColumnPropNameInTable="RateNameColumn" msprop:Generator_ColumnPropNameInRow="RateName" msprop:Generator_UserColumnName="RateName" msprop:Generator_ColumnVarNameInTable="columnRateName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="RateDescription" msprop:Generator_UserColumnName="RateDescription" msprop:Generator_ColumnPropNameInTable="RateDescriptionColumn" msprop:Generator_ColumnPropNameInRow="RateDescription" msprop:Generator_ColumnVarNameInTable="columnRateDescription" minOccurs="0">
+              <xs:element name="RateDescription" msprop:Generator_ColumnPropNameInTable="RateDescriptionColumn" msprop:Generator_ColumnPropNameInRow="RateDescription" msprop:Generator_UserColumnName="RateDescription" msprop:Generator_ColumnVarNameInTable="columnRateDescription" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FirstChild" msprop:Generator_UserColumnName="FirstChild" msprop:Generator_ColumnPropNameInTable="FirstChildColumn" msprop:Generator_ColumnPropNameInRow="FirstChild" msprop:Generator_ColumnVarNameInTable="columnFirstChild" type="xs:decimal" minOccurs="0" />
-              <xs:element name="SecondChild" msprop:Generator_UserColumnName="SecondChild" msprop:Generator_ColumnPropNameInTable="SecondChildColumn" msprop:Generator_ColumnPropNameInRow="SecondChild" msprop:Generator_ColumnVarNameInTable="columnSecondChild" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FirstChild" msprop:Generator_ColumnPropNameInTable="FirstChildColumn" msprop:Generator_ColumnPropNameInRow="FirstChild" msprop:Generator_UserColumnName="FirstChild" msprop:Generator_ColumnVarNameInTable="columnFirstChild" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SecondChild" msprop:Generator_ColumnPropNameInTable="SecondChildColumn" msprop:Generator_ColumnPropNameInRow="SecondChild" msprop:Generator_UserColumnName="SecondChild" msprop:Generator_ColumnVarNameInTable="columnSecondChild" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -587,9 +587,9 @@ FROM            Setup_Rates
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Setup_CoachTeams_Setup_PlayerTeams" msdata:parent="Setup_PlayerTeams" msdata:child="Setup_CoachTeams" msdata:parentkey="TeamId" msdata:childkey="TeamId" msprop:Generator_UserParentTable="Setup_PlayerTeams" msprop:Generator_UserChildTable="Setup_CoachTeams" msprop:Generator_RelationVarName="relationFK_Setup_CoachTeams_Setup_PlayerTeams" msprop:Generator_ChildPropName="GetSetup_CoachTeamsRows" msprop:Generator_UserRelationName="FK_Setup_CoachTeams_Setup_PlayerTeams" msprop:Generator_ParentPropName="Setup_PlayerTeamsRow" />
-      <msdata:Relationship name="FK_Setup_CoachTeams_AspNetUsers" msdata:parent="AspNetUsers" msdata:child="Setup_CoachTeams" msdata:parentkey="Id" msdata:childkey="CoachId" msprop:Generator_UserParentTable="AspNetUsers" msprop:Generator_UserChildTable="Setup_CoachTeams" msprop:Generator_RelationVarName="relationFK_Setup_CoachTeams_AspNetUsers" msprop:Generator_ChildPropName="GetSetup_CoachTeamsRows" msprop:Generator_ParentPropName="AspNetUsersRow" msprop:Generator_UserRelationName="FK_Setup_CoachTeams_AspNetUsers" />
-      <msdata:Relationship name="FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId" msdata:parent="AspNetUsers" msdata:child="AspNetUserRoles" msdata:parentkey="Id" msdata:childkey="UserId" msprop:Generator_UserParentTable="AspNetUsers" msprop:Generator_UserChildTable="AspNetUserRoles" msprop:Generator_RelationVarName="_relationFK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" msprop:Generator_ChildPropName="GetAspNetUserRolesRows" msprop:Generator_UserRelationName="FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId" msprop:Generator_ParentPropName="AspNetUsersRow" />
+      <msdata:Relationship name="FK_Setup_CoachTeams_Setup_PlayerTeams" msdata:parent="Setup_PlayerTeams" msdata:child="Setup_CoachTeams" msdata:parentkey="TeamId" msdata:childkey="TeamId" msprop:Generator_UserParentTable="Setup_PlayerTeams" msprop:Generator_UserChildTable="Setup_CoachTeams" msprop:Generator_RelationVarName="relationFK_Setup_CoachTeams_Setup_PlayerTeams" msprop:Generator_ChildPropName="GetSetup_CoachTeamsRows" msprop:Generator_ParentPropName="Setup_PlayerTeamsRow" msprop:Generator_UserRelationName="FK_Setup_CoachTeams_Setup_PlayerTeams" />
+      <msdata:Relationship name="FK_Setup_CoachTeams_AspNetUsers" msdata:parent="AspNetUsers" msdata:child="Setup_CoachTeams" msdata:parentkey="Id" msdata:childkey="CoachId" msprop:Generator_UserParentTable="AspNetUsers" msprop:Generator_UserChildTable="Setup_CoachTeams" msprop:Generator_RelationVarName="relationFK_Setup_CoachTeams_AspNetUsers" msprop:Generator_ChildPropName="GetSetup_CoachTeamsRows" msprop:Generator_UserRelationName="FK_Setup_CoachTeams_AspNetUsers" msprop:Generator_ParentPropName="AspNetUsersRow" />
+      <msdata:Relationship name="FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId" msdata:parent="AspNetUsers" msdata:child="AspNetUserRoles" msdata:parentkey="Id" msdata:childkey="UserId" msprop:Generator_UserParentTable="AspNetUsers" msprop:Generator_UserChildTable="AspNetUserRoles" msprop:Generator_RelationVarName="_relationFK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" msprop:Generator_ChildPropName="GetAspNetUserRolesRows" msprop:Generator_ParentPropName="AspNetUsersRow" msprop:Generator_UserRelationName="FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

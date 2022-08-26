@@ -16,34 +16,31 @@ namespace BasketBallRegistration
         protected override void OnPreLoad(EventArgs e)
         {
             base.OnPreLoad(e);
-            PlayersTableAdapter taPlayers = new PlayersTableAdapter();
             Setup_PlayerTeamsTableAdapter taPlayerTeams = new Setup_PlayerTeamsTableAdapter();
             Setup_CoachTeamsTableAdapter taCoachTeams = new Setup_CoachTeamsTableAdapter();
             AspNetUsersTableAdapter taUsers = new AspNetUsersTableAdapter();
-
-            if ((int)taPlayers.TeamAgeFromCoachEmail((string)Session["Email"]) <= 17)
-            {
-                grdPlayers.Columns[6].Visible=false;
-                grdPlayers.Columns[7].Visible=false;
-                grdPlayers.Columns[9].Visible=false;
-                grdPlayers.Columns[10].Visible=false;
-                grdPlayers.Columns[15].Visible=false;
-            }
-            else
-            {
-                grdPlayers.Columns[13].Visible = false;
-                grdPlayers.Columns[14].Visible = false;
-                grdPlayers.Columns[15].Visible = false;
-                grdPlayers.Columns[16].Visible = false;
-                grdPlayers.Columns[].Visible = false;
-            }
-
             
-            grdPlayers.DataBind();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            PlayersTableAdapter taPlayers = new PlayersTableAdapter();
             base.Page_Load();
+            var temp = (int)taPlayers.TeamAgeFromCoachEmail((string)Session["Email"]);
+            if (temp <= 17 && temp != 0)
+            {
+                grdPlayers.Columns[6].Visible = false;
+                grdPlayers.Columns[8].Visible = false;
+                grdPlayers.Columns[9].Visible = false;
+            }
+            else if (temp == 0)
+            {
+                grdPlayers.Columns[12].Visible = false;
+                grdPlayers.Columns[13].Visible = false;
+                grdPlayers.Columns[14].Visible = false;
+            }
+
+
+            grdPlayers.DataBind();
         }
 
         protected void cmdClose_Click(object sender, EventArgs e)

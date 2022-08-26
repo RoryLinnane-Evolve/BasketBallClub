@@ -64,13 +64,11 @@ namespace BasketBallRegistration
 
             optLogin.Visible = false;
             optLogout.Visible = false;
-            optManage.Visible = false;
             optRegister.Visible = false;
 
             if (Context.User.Identity.IsAuthenticated)
             {
                 optLogout.Visible = true;
-                optManage.Visible = true;
             }
             else
             {

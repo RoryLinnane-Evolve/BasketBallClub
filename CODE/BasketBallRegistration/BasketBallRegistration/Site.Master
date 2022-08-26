@@ -73,8 +73,8 @@
                                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                                     <li id="optLogout" runat="server">
                                                                         <asp:HyperLink ID="lnkLogout" NavigateUrl="~/Account/Logout.aspx" runat="server" class="dropdown-item">Logout</asp:HyperLink></li>
-                                                                    <li id="optManage" runat="server">
-                                                                        <asp:HyperLink ID="lnkManage" runat="server" class="dropdown-item" NavigateUrl="~/Account/Manage.aspx">Manage</asp:HyperLink></li>
+                                                                    <%--<li id="optManage" runat="server">
+                                                                        <asp:HyperLink ID="lnkManage" runat="server" class="dropdown-item" NavigateUrl="~/Account/Manage.aspx">Manage</asp:HyperLink></li>--%>
                                                                     <li id="optRegister" runat="server">
                                                                         <asp:HyperLink ID="lnkAccountRegister" runat="server" class="dropdown-item" NavigateUrl="~/Account/Register.aspx">Register</asp:HyperLink></li>
                                                                     <li id="optLogin" runat="server">

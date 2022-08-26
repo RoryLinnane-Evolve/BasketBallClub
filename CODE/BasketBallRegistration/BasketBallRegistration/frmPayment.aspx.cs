@@ -40,12 +40,12 @@ namespace BasketBallRegistration
                 {
                     foreach (var paymentRow in dtPayments)
                     {
-                        this.txtAmount.Text = paymentRow.Amount.ToString();
-                        this.txtClient.Text = paymentRow.Client.ToString();
-                        this.txtCustomerId.Text = paymentRow.CustomerId.ToString();
-                        this.dtePaymentDate.Date = paymentRow.PaymentDate;
-                        this.txtPaymentReference.Text = paymentRow.PaymentReference;
-                        this.txtPaymentTypeId.Text = paymentRow.PaymentTypeId.ToString();
+                        //this.txtAmount.Text = paymentRow.Amount.ToString();
+                        //this.txtClient.Text = paymentRow.Client.ToString();
+                        //this.txtCustomerId.Text = paymentRow.CustomerId.ToString();
+                        //this.dtePaymentDate.Date = paymentRow.PaymentDate;
+                        //this.txtPaymentReference.Text = paymentRow.PaymentReference;
+                        //this.txtPaymentTypeId.Text = paymentRow.PaymentTypeId.ToString();
                     }
                 }
             }
@@ -63,7 +63,7 @@ namespace BasketBallRegistration
             {
                 try
                 {
-                    taPayments.Update(Convert.ToInt32(txtCustomerId.Text), Convert.ToInt32(txtPaymentTypeId.Text), Convert.ToInt32(txtClient.Text), dtePaymentDate.Date, Convert.ToDecimal(txtAmount.Text), txtPaymentReference.Text, PK);
+                    //taPayments.Update(Convert.ToInt32(txtCustomerId.Text), Convert.ToInt32(txtPaymentTypeId.Text), Convert.ToInt32(txtClient.Text), dtePaymentDate.Date, Convert.ToDecimal(txtAmount.Text), txtPaymentReference.Text, PK);
                 }catch (Exception ex)
                 {
                     //Log it \/
@@ -71,7 +71,7 @@ namespace BasketBallRegistration
                 }
             }else if(mode == "add")
             {
-                taPayments.Insert(Convert.ToInt32(txtCustomerId.Text), Convert.ToInt32(txtPaymentTypeId.Text), Convert.ToInt32(txtClient.Text), dtePaymentDate.Date, Convert.ToInt32(txtAmount.Text), txtPaymentReference.Text);
+                //taPayments.Insert(Convert.ToInt32(txtCustomerId.Text), Convert.ToInt32(txtPaymentTypeId.Text), Convert.ToInt32(txtClient.Text), dtePaymentDate.Date, Convert.ToInt32(txtAmount.Text), txtPaymentReference.Text);
                 taAT.Insert(0, 0, Context.Profile.UserName, DateTime.Now, 15, "Payment Made");
             }
             Response.Redirect("/frmPayment_Grid.aspx");

@@ -1,4 +1,5 @@
 ﻿using BasketBallRegistration.DAL.BasketBallTableAdapters;
+using BasketBallRegistration.DAL.SetupsTableAdapters;
 using Microsoft.AspNet.Identity.Owin;
 using MimeKit;
 using RestSharp;
@@ -26,41 +27,50 @@ namespace BasketBallRegistration
         AuditTrailTableAdapter taAT = new AuditTrailTableAdapter();
         CommsLogTableAdapter taCommsLog = new CommsLogTableAdapter();
         PlayersTableAdapter taPlayers = new PlayersTableAdapter();
+        AspNetUsersTableAdapter taUsers = new AspNetUsersTableAdapter();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
             int PK = Convert.ToInt32(Request.QueryString["PK"]);
-
-            string adultAmount = Request.QueryString["adultAmount"];
-            string childAmount = Request.QueryString["childAmount"];
-
-            decimal amount = decimal.Round(Convert.ToDecimal(Session["Price"]), 2);
-            success_header.InnerText = $"Payment of €{amount} was successful!";
-            taPayments.Insert(null, null, null, DateTime.Now, amount, Context.User.Identity.Name);
             
-            string Subject = "Thank you!";
-            string Body = $@"Your payment of €{amount} amount was successful!\nYou paid for {adultAmount} Adult/s and {childAmount} child/ren";
-            SendSimpleMessage(Subject, Body, Context.User.Identity.Name);
+            string Names = "";
 
-            // You can see a record of this email in your logs: https://app.mailgun.com/app/logs.
-
-            // You can send up to 300 emails/day from this sandbox server.
-            // Next, you should add your own domain so you can send 10000 emails/month for free.
-
-            //E.G https://localhost:44351/frmPaymentSuccess.aspx?amount=485.00&adultAmount=1&childAmount=2
+            var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
 
             //Notify Coaches
-            var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
             foreach (var player in cart)
             {
+                Names += $"{player.Name}, ";
                 NotifyCoach(player);
             }
 
+            //Names.Remove(Names.Length - 2, Names.Length);
+
             //Update Player.Payed
             taPlayers.UpdatePayedStatus(true, Context.User.Identity.Name);
+
+            //Display price
+            decimal amount = decimal.Round(Convert.ToDecimal(Session["Price"]), 2);
+            success_header.InnerText = $"Payment of €{amount} was successful!";
+
+            //Log Payment
+            var UserId = (string)taUsers.Get_Id_From_Email(Context.User.Identity.Name);
+            taPayments.Insert(1, DateTime.Now, amount, Names, UserId ,Context.User.Identity.Name);
             
+            //Email Receipt
+            string Subject = "Thank you!";
+            //FIX
+            string Body = $@"Your payment of €{amount} amount was successful!\nYou paid for Adult/s and  child/ren";
+            SendSimpleMessage(Subject, Body, Context.User.Identity.Name);
+
+            //E.G https://localhost:44351/frmPaymentSuccess.aspx?amount=485.00&adultAmount=1&childAmount=2
+
+            //Log the action....
             taAT.Insert(null, null, Context.User.Identity.Name, DateTime.Now, 8, "Payment made");
-            
+
+            //Log the Communication...
+            taCommsLog.Insert(null, DateTime.Now, 1, 1, Context.User.Identity.Name, "", Body);
         }
 
 
@@ -81,7 +91,7 @@ namespace BasketBallRegistration
                 request.AddParameter("subject", Subject);
                 request.AddParameter("text", Body);
                 request.Method = Method.Post;
-                taCommsLog.Insert(null, DateTime.Now, 1, 1, Context.User.Identity.Name, "", Body);
+                
                 return client.Execute(request);
             }catch (Exception ex)
             {
