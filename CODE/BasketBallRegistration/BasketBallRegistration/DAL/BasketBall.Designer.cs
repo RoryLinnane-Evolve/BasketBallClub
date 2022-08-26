@@ -4808,27 +4808,19 @@ WHERE        (PlayerId = @PK)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        PlayerId, BI_PIN, Name, DateOfBirth, Gender, Address, Email, PhoneNumber, MedicalConditions, EmergencyContactNumber, EmergencyContactRelationship, Allergies, MedicalNotes, CountryOfBirth, ParentName, ParentEmail, 
-                         ParentPhoneNumber, RoleId, RegistrarEmail, DateRegistered, Payed
-FROM            Players
-WHERE        (RegistrarEmail = @RegistrarEmail) AND (Payed = 0)
-ORDER BY DateOfBirth ASC;";
+            this._commandCollection[2].CommandText = @"SELECT Address, Allergies, BI_PIN, CountryOfBirth, DateOfBirth, DateRegistered, Email, EmergencyContactNumber, EmergencyContactRelationship, Gender, MedicalConditions, MedicalNotes, Name, ParentEmail, ParentName, ParentPhoneNumber, Payed, PhoneNumber, PlayerId, RegistrarEmail, RoleId FROM Players WHERE (RegistrarEmail = @RegistrarEmail) AND (Payed = 0) ORDER BY DateOfBirth";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RegistrarEmail", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "RegistrarEmail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT        PlayerId, BI_PIN, Name, DateOfBirth, Gender, Address, Email, PhoneNumber, MedicalConditions, EmergencyContactNumber, EmergencyContactRelationship, Allergies, MedicalNotes, CountryOfBirth, ParentName, ParentEmail, 
-                         ParentPhoneNumber, RoleId, RegistrarEmail, DateRegistered, Payed
-FROM            Players
-WHERE        (DateOfBirth >= @MIN) AND (DateOfBirth <= @MAX) AND (Gender =@Gender)";
+            this._commandCollection[3].CommandText = @"SELECT Address, Allergies, BI_PIN, CountryOfBirth, DateOfBirth, DateRegistered, Email, EmergencyContactNumber, EmergencyContactRelationship, Gender, MedicalConditions, MedicalNotes, Name, ParentEmail, ParentName, ParentPhoneNumber, Payed, PhoneNumber, PlayerId, RegistrarEmail, RoleId FROM Players WHERE (DateOfBirth >= @MIN) AND (DateOfBirth <= @MAX) AND (Gender = @Gender)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MIN", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MAX", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT Address, Allergies, BI_PIN, CountryOfBirth, DateOfBirth, DateRegistered, Email, EmergencyContactNumber, EmergencyContactRelationship, Gender, MedicalConditions, MedicalNotes, Name, ParentEmail, ParentName, ParentPhoneNumber, Payed, PhoneNumber, PlayerId, RegistrarEmail, RoleId 
-FROM Players";
+            this._commandCollection[4].CommandText = @"SELECT Address, Allergies, BI_PIN, CountryOfBirth, DateOfBirth, DateRegistered, Email, EmergencyContactNumber, EmergencyContactRelationship, Gender, MedicalConditions, MedicalNotes, Name, ParentEmail, ParentName, ParentPhoneNumber, Payed, PhoneNumber, PlayerId, RegistrarEmail, RoleId FROM Players";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;

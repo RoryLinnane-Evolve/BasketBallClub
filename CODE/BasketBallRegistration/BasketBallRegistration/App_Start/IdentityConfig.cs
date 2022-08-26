@@ -57,8 +57,7 @@ namespace BasketBallRegistration
     {
         public Task SendAsync(IdentityMessage Message)
         {
-            string accountSid = "ACda6d1fd27f903506acd5a572495263f4";
-            string authToken = "e1cd9de3f8f86fbb964a36c175f92056";
+            
 
             //TwilioClient.Init(accountSid, authToken);
 
@@ -68,11 +67,13 @@ namespace BasketBallRegistration
             //    to: new Twilio.Types.PhoneNumber($"whatsapp:{Message.Destination}")
             //);
 
+            var accountSid = "ACda6d1fd27f903506acd5a572495263f4";
+            var authToken = "e1cd9de3f8f86fbb964a36c175f92056";
             TwilioClient.Init(accountSid, authToken);
 
             var messageOptions = new CreateMessageOptions(
-                new PhoneNumber("whatsapp:+353852863224"));
-            messageOptions.From = new PhoneNumber("whatsapp:+14155238886");
+                new PhoneNumber($"whatsapp:{Message.Destination}"));
+            messageOptions.From = new PhoneNumber($"whatsapp:+14155238886");
             messageOptions.Body = Message.Body;
 
             var message = MessageResource.Create(messageOptions);
