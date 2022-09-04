@@ -21,7 +21,9 @@ namespace BasketBallRegistration
 {
     public class EmailService : IIdentityMessageService
     {
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task SendAsync(IdentityMessage message)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             RestClient client = new RestClient();
             client.Options.BaseUrl = new Uri("https://api.mailgun.net/v3");
@@ -57,8 +59,6 @@ namespace BasketBallRegistration
     {
         public Task SendAsync(IdentityMessage Message)
         {
-            
-
             //TwilioClient.Init(accountSid, authToken);
 
             //var message = MessageResource.Create(
@@ -67,17 +67,17 @@ namespace BasketBallRegistration
             //    to: new Twilio.Types.PhoneNumber($"whatsapp:{Message.Destination}")
             //);
 
-            var accountSid = "ACda6d1fd27f903506acd5a572495263f4";
-            var authToken = "e1cd9de3f8f86fbb964a36c175f92056";
-            TwilioClient.Init(accountSid, authToken);
+            //var accountSid = "ACda6d1fd27f903506acd5a572495263f4";
+            //var authToken = "e1cd9de3f8f86fbb964a36c175f92056";
+            //TwilioClient.Init(accountSid, authToken);
 
-            var messageOptions = new CreateMessageOptions(
-                new PhoneNumber($"whatsapp:{Message.Destination}"));
-            messageOptions.From = new PhoneNumber($"whatsapp:+14155238886");
-            messageOptions.Body = Message.Body;
+            //var messageOptions = new CreateMessageOptions(
+            //    new PhoneNumber($"whatsapp:{Message.Destination}"));
+            //messageOptions.From = new PhoneNumber($"whatsapp:+14155238886");
+            //messageOptions.Body = Message.Body;
 
-            var message = MessageResource.Create(messageOptions);
-            Console.WriteLine(message.Body);
+            //var message = MessageResource.Create(messageOptions);
+            //Console.WriteLine(message.Body);
             return Task.FromResult(0);
         }
     }

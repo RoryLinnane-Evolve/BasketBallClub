@@ -3,6 +3,7 @@ using BasketBallRegistration.DAL.SetupsTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using static BasketBallRegistration.DAL.BasketBall;
 using static BasketBallRegistration.DAL.Setups;
 
@@ -10,6 +11,15 @@ namespace BasketBallRegistration
 {
     public partial class frmRegister_Grid : AuthPage
     {
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load();
@@ -64,16 +74,20 @@ namespace BasketBallRegistration
 
             decimal amount = PRICE_CALC();
 
+            string CODE = RandomString(random.Next(35));
+
+            Session["CODE"] = CODE;
             Session["amount"] = amount;
-            
-            Response.Redirect($"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=DKRSXRN4CYXF2&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=1&no_shipping=1&rm=1&return=https%3a%2f%2flocalhost%3a44351%2ffrmPaymentSuccess%2easpx&cancel_return=https%3a%2f%2flocalhost%3a44351%2ffrmPaymentFailed%2easpx&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
+
+            //Response.Redirect($"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=DKRSXRN4CYXF2&lc=IE&item_name=Registration%20Fee&amount={amount.ToString().Split('.')[0]}%2e{amount.ToString().Split('.')[1]}&currency_code=EUR&button_subtype=services&no_note=1&no_shipping=1&rm=1&return=https%3a%2f%2flocalhost%3a44351%2ffrmPaymentSuccess%2easpx&cancel_return=https%3a%2f%2flocalhost%3a44351%2ffrmPaymentFailed%2easpx&bn=PP%2dBuyNowBF%3abtn_buynowCC_LG%2egif%3aNonHosted");
+            Response.Redirect($"~/frmPaymentScreen.aspx?CODE={CODE}");
         }
 
         /// <summary>
         /// Calculates price of players in cart (includes discounts)
         /// </summary>
         /// <returns>decimal of price</returns>
-        decimal PRICE_CALC()
+        public decimal PRICE_CALC()
         {
             decimal total = 0;
             var taPlayers = new PlayersTableAdapter();
@@ -175,10 +189,10 @@ namespace BasketBallRegistration
             decimal x = total + cTotal;
 
             x = ((x / 98) * 100) + 0.35M;
-            Session["Price"]=x;
+            Session["Price"]=Decimal.Round(x, 2);
             Session["ChildAmount"] = cYears.Count;
             Session["AdultAmount"] = (int)(total / first_rates["Adult"]);
-            return x;
+            return Decimal.Round(x, 2);
         }
 
         #region classification methods

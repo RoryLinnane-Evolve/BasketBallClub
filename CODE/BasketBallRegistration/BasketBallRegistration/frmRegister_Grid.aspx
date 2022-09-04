@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRegister_Grid.aspx.cs" Inherits="BasketBallRegistration.frmRegister_Grid" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
@@ -38,7 +39,7 @@
                     <asp:Button ID="cmdAdd" runat="server" Text="Add" Width="120px" class="btn btn-primary" OnClick="cmdAdd_Click1" />
                     <asp:Button ID="cmdEdit" runat="server" Text="Edit" Width="120px" class="btn btn-primary" OnClick="cmdEdit_Click" />
                     <asp:Button ID="cmdDelete" runat="server" Text="Delete" Width="120px" class="btn btn-primary" OnClick="cmdDelete_Click" />
-                    <asp:Button ID="cmdContinue" runat="server" OnClientClick="target ='_blank';" CausesValidation="False" Text="Continue to payment" width="160px" class="btn btn-success" OnClick="cmdContinue_Click" />
+                    <asp:Button ID="cmdContinue" runat="server" CausesValidation="False" Text="Continue to payment" width="160px" class="btn btn-success" OnClick="cmdContinue_Click" />
                 </div>
             </div>
 
@@ -65,6 +66,7 @@
             </asp:GridView>
     
             <br />
+            
             <asp:SqlDataSource ID="Cart" runat="server" ConnectionString="<%$ ConnectionStrings:CascadersRegDBConnectionString %>" SelectCommand="SELECT [PlayerId], [BI_PIN], [Name], [DateOfBirth], [Gender] FROM [Players] WHERE (([Payed] = @Payed) AND ([RegistrarEmail] = @RegistrarEmail))">
                 <SelectParameters>
                     <asp:Parameter Name="Payed" DefaultValue="0" Type="Boolean" />

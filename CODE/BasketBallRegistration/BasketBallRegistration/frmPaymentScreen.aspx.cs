@@ -1,39 +1,52 @@
 ﻿using BasketBallRegistration.DAL.BasketBallTableAdapters;
 using BasketBallRegistration.DAL.SetupsTableAdapters;
-using Microsoft.AspNet.Identity.Owin;
-using MimeKit;
-using RestSharp;
 using RestSharp.Authenticators;
+using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
-using static BasketBallRegistration.DAL.BasketBall;
+using System.Web.Services;
 
 namespace BasketBallRegistration
 {
-    public partial class frmPaymentSuccess : System.Web.UI.Page
+    public partial class frmPaymentScreen : AuthPage
     {
+        public decimal Price;
+        int ChildAmount;
+        int AdultAmount;
+
         PaymentsTableAdapter taPayments = new PaymentsTableAdapter();
         AuditTrailTableAdapter taAT = new AuditTrailTableAdapter();
         CommsLogTableAdapter taCommsLog = new CommsLogTableAdapter();
         PlayersTableAdapter taPlayers = new PlayersTableAdapter();
         AspNetUsersTableAdapter taUsers = new AspNetUsersTableAdapter();
 
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
+            Price = (decimal)Session["Price"];
+            ChildAmount = (int)Session["ChildAmount"];
+            AdultAmount = (int)Session["AdultAmount"];
+
+            if ((string)Session["CODE"] != Request.QueryString["CODE"])
+                Response.Redirect("~/frmRegister_Grid.aspx");
+            else
+            {
+                return;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
+            base.Page_Load();            
+        }
 
-            int PK = Convert.ToInt32(Request.QueryString["PK"]);
-            
+        [WebMethod]
+        public void UpdatePlayerStatus()
+        {
             string Names = "";
 
             var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
@@ -50,18 +63,14 @@ namespace BasketBallRegistration
             //Update Player.Payed
             taPlayers.UpdatePayedStatus(true, Context.User.Identity.Name);
 
-            //Display price
-            decimal amount = decimal.Round(Convert.ToDecimal(Session["Price"]), 2);
-            success_header.InnerText = $"Payment of €{amount} was successful!";
-
             //Log Payment
             var UserId = (string)taUsers.Get_Id_From_Email(Context.User.Identity.Name);
-            taPayments.Insert(1, DateTime.Now, amount, Names, UserId ,Context.User.Identity.Name);
-            
+            taPayments.Insert(1, DateTime.Now, Price, Names, UserId, Context.User.Identity.Name);
+
             //Email Receipt
             string Subject = "Thank you!";
             //FIX
-            string Body = $@"Your payment of €{amount} amount was successful!\nYou paid for Adult/s and  child/ren";
+            string Body = $@"Your payment of €{Price} amount was successful!\nYou paid for Adult/s and  child/ren";
             SendSimpleMessage(Subject, Body, Context.User.Identity.Name);
 
             //E.G https://localhost:44351/frmPaymentSuccess.aspx?amount=485.00&adultAmount=1&childAmount=2
@@ -72,8 +81,6 @@ namespace BasketBallRegistration
             //Log the Communication...
             taCommsLog.Insert(null, DateTime.Now, 1, 1, Context.User.Identity.Name, "", Body);
         }
-
-
         public RestResponse SendSimpleMessage(string Subject, string Body, string to)
         {
             try
@@ -89,9 +96,11 @@ namespace BasketBallRegistration
                 request.AddParameter("to", to);
                 request.AddParameter("subject", Subject);
                 request.AddParameter("text", Body);
-                request.Method = Method.Post;                
+                request.Method = Method.Post;
+
                 return client.Execute(request);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 taAT.Insert(null, null, Context.User.Identity.Name, DateTime.Now, 8, ex.Message);
                 return null;
@@ -102,10 +111,10 @@ namespace BasketBallRegistration
         {
             WhatsappService client = new WhatsappService();
             QueriesTableAdapter taQueries = new QueriesTableAdapter();
-            client.SendAsync(new Microsoft.AspNet.Identity.IdentityMessage() 
-            { 
-                Body=$"{player["Name"]} has registered with your team.",
-                Destination=$"{taQueries.CoachPhoneFromPlrId(PlayerId: (int)player["PlayerId"])}"
+            client.SendAsync(new Microsoft.AspNet.Identity.IdentityMessage()
+            {
+                Body = $"{player["Name"]} has registered with your team.",
+                Destination = $"{taQueries.CoachPhoneFromPlrId(PlayerId: (int)player["PlayerId"])}"
             });
         }
     }
