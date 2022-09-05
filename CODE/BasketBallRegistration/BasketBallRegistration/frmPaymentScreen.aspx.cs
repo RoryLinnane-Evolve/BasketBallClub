@@ -25,6 +25,11 @@ namespace BasketBallRegistration
         PlayersTableAdapter taPlayers = new PlayersTableAdapter();
         AspNetUsersTableAdapter taUsers = new AspNetUsersTableAdapter();
 
+        /*
+         --Add Controller for players payment status for update on success
+         
+         
+         */
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
@@ -41,7 +46,7 @@ namespace BasketBallRegistration
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            base.Page_Load();            
+            base.Page_Load();
         }
 
         [WebMethod]

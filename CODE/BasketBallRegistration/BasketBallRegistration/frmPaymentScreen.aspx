@@ -11,24 +11,20 @@
   <script type="text/javascript" src="https://www.paypal.com/sdk/js?client-id=ATr_ffVPgBwyN4yhPKrWHQJCSBHL4x3vVbEfaHLjJDmpaYr27M0YBlaS-77GCLyDHp0K-ZXD_7F8VsT2&enable-funding=venmo&currency=EUR" data-sdk-integration-source="button-factory"></script>
   <script type="text/javascript">
       function UpdatePayedStatus() {
-          try {
-              //fix function to call C# method
-              $.ajax({
-                  type: "POST",
-                  url: 'frmPaymentScreen.aspx/UpdatePlayerStatus',
-                  data: "{}",
-                  contentType: "application/json; charset=utf-8",
-                  dataType: "json",
-                  success: function (msg) {
-                      alert(msg);
-                  },
-                  error: function (msg) {
-                      alert("Something Wrong.");
-                  }
-              });
-          } catch (err) {
-              alert(err)
-          }
+        //fix function to call C# method
+        $.ajax({
+            type: "POST",
+            url: 'frmPaymentScreen.aspx/UpdatePlayerStatus',
+            data: "{}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (msg) {
+                alert(msg);
+            },
+            error: function (msg) {
+                alert("Something Wrong.");
+            }
+        });
       }
 
       function initPayPalButton() {          
@@ -53,7 +49,6 @@
 
                       // Full available details
                       console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-
                       // Show a success message within this page, e.g.
                       const element = document.getElementById('paypal-button-container');
                       element.innerHTML = '';
