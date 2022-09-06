@@ -122,5 +122,10 @@ namespace BasketBallRegistration
                 Destination = $"{taQueries.CoachPhoneFromPlrId(PlayerId: (int)player["PlayerId"])}"
             });
         }
+
+        protected void HiddenBtn_Click(object sender, EventArgs e)
+        {
+            UpdatePlayerStatus();
+        }
     }
 }

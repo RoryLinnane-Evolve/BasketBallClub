@@ -1,0 +1,11 @@
+paypal Sandbox accounts
+
+
+Customer \/
+USERNAME:  testcustomer@cascaders.ie PASSWORD:  Evolve-1234
+
+
+Business \/
+USERNAME: testbusiness@cascaders.ie PASSWORD:  Evolve-1234
+
+--Note: Player Payed status does not update on registering (BUG)

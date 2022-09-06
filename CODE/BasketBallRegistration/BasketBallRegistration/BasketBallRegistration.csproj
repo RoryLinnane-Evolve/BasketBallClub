@@ -346,6 +346,7 @@
     <Content Include="DAL\Setups.xss">
       <DependentUpon>Setups.xsd</DependentUpon>
     </Content>
+    <Content Include="js\jquery-3.6.0.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="images\ClareCascadersLogo.png" />
     <Content Include="js\backstretch.min.js" />
