@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="BasketBallRegistration.Account.Manage" %>
+﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="./Accounts.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="BasketBallRegistration.Account.Manage" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 

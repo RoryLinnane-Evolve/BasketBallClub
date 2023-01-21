@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRegister_Grid.aspx.cs" Inherits="BasketBallRegistration.frmRegister" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmRegister_Grid.aspx.cs" Inherits="BasketBallRegistration.frmRegister_Grid" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
@@ -27,9 +28,10 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="X-Large" ForeColor="Red"
-                SkinID="Title" Text="Players List"></asp:Label><br />
+                SkinID="Title">Players List: Please ensure you have Baskball Ireland PIN numbers of all players.</asp:Label><br />
+            <%--<a href="https://membership.mygameday.app/regoform.cgi?aID=28209&pKey=e2899b7cb9f8185f55a6c21866bef27a&formID=95139" target="_blank">Basketball Ireland Registration</a>--%>
             <asp:Label ID="Label5" runat="server" Font-Size="Smaller" ForeColor="Black" SkinID="SubTitle"
-                Text="Select an entry to view by clicking on the hyperlink or clicking the icon & pressing the edit button."></asp:Label>
+                Text="Please add the players you want to register."></asp:Label>
         </div>
         <div class="panel-body">
             <div class="panel panel-default">
@@ -37,19 +39,19 @@
                     <asp:Button ID="cmdAdd" runat="server" Text="Add" Width="120px" class="btn btn-primary" OnClick="cmdAdd_Click1" />
                     <asp:Button ID="cmdEdit" runat="server" Text="Edit" Width="120px" class="btn btn-primary" OnClick="cmdEdit_Click" />
                     <asp:Button ID="cmdDelete" runat="server" Text="Delete" Width="120px" class="btn btn-primary" OnClick="cmdDelete_Click" />
-                    <asp:Button ID="cmdClose" runat="server" Text="Close" Width="120px" class="btn btn-primary" OnClick="cmdClose_Click" />
+                    <asp:Button ID="cmdContinue" runat="server" CausesValidation="False" Text="Continue to payment" width="160px" class="btn btn-success" OnClick="cmdContinue_Click" />
                 </div>
             </div>
 
-            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" CssClass="table table-hover table-striped" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId" DataSourceID="Cart">
+            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" CssClass="table table-hover table-striped" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId" DataSourceID="Cart">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
                     <asp:BoundField DataField="PlayerId" HeaderText="PlayerId" InsertVisible="False" ReadOnly="True" SortExpression="PlayerId" />
+                    <asp:BoundField DataField="BI_PIN" HeaderText="BI Pin" ReadOnly="True" SortExpression="BI_PIN" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                     <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
                     <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
-                    <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -62,13 +64,13 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-    <asp:Button ID="cmdContinue" runat="server" CausesValidation="False" Text="Continue" width="100px" class="btn btn-primary" OnClick="cmdContinue_Click" />
+    
             <br />
-            <asp:SqlDataSource ID="Cart" runat="server" ConnectionString="<%$ ConnectionStrings:CascadersRegDBConnectionString %>" SelectCommand="SELECT PlayerId, Name, DateOfBirth, Gender, RoleId
-FROM Players
-WHERE RegistrarEmail=@RegistrarEmail AND Payed = 0;">
+            
+            <asp:SqlDataSource ID="Cart" runat="server" ConnectionString="<%$ ConnectionStrings:CascadersRegDBConnectionString %>" SelectCommand="SELECT [PlayerId], [BI_PIN], [Name], [DateOfBirth], [Gender] FROM [Players] WHERE (([Payed] = @Payed) AND ([RegistrarEmail] = @RegistrarEmail))">
                 <SelectParameters>
-                    <asp:Parameter Name="RegistrarEmail" />
+                    <asp:Parameter Name="Payed" DefaultValue="0" Type="Boolean" />
+                    <asp:Parameter Name="RegistrarEmail" Type="String" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>

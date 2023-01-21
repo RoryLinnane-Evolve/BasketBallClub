@@ -10,14 +10,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
+using Microsoft.Ajax.Utilities;
+using System.Web.Script.Services;
 
 namespace BasketBallRegistration
 {
     public partial class frmPaymentScreen : AuthPage
     {
-        public decimal Price;
-        int ChildAmount;
-        int AdultAmount;
+        public static decimal Price;
+        static int ChildAmount;
+        static int AdultAmount;
+
+        static HttpContext context;
 
         PaymentsTableAdapter taPayments = new PaymentsTableAdapter();
         AuditTrailTableAdapter taAT = new AuditTrailTableAdapter();
@@ -33,9 +37,11 @@ namespace BasketBallRegistration
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
+            context = Context;
             Price = (decimal)Session["Price"];
             ChildAmount = (int)Session["ChildAmount"];
             AdultAmount = (int)Session["AdultAmount"];
+
 
             if ((string)Session["CODE"] != Request.QueryString["CODE"])
                 Response.Redirect("~/frmRegister_Grid.aspx");
@@ -49,12 +55,18 @@ namespace BasketBallRegistration
             base.Page_Load();
         }
 
-        [WebMethod]
-        public void UpdatePlayerStatus()
+
+        public void Complete()
         {
+            PaymentsTableAdapter taPayments = new PaymentsTableAdapter();
+            AuditTrailTableAdapter taAT = new AuditTrailTableAdapter();
+            CommsLogTableAdapter taCommsLog = new CommsLogTableAdapter();
+            PlayersTableAdapter taPlayers = new PlayersTableAdapter();
+            AspNetUsersTableAdapter taUsers = new AspNetUsersTableAdapter();
+
             string Names = "";
 
-            var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
+            var cart = taPlayers.GetDataBy_Cart(context.User.Identity.Name);
 
             //Notify Coaches
             foreach (var player in cart)
@@ -65,29 +77,37 @@ namespace BasketBallRegistration
 
             //Names.Remove(Names.Length - 2, Names.Length);
 
-            //Update Player.Payed
-            taPlayers.UpdatePayedStatus(true, Context.User.Identity.Name);
-
             //Log Payment
-            var UserId = (string)taUsers.Get_Id_From_Email(Context.User.Identity.Name);
-            taPayments.Insert(1, DateTime.Now, Price, Names, UserId, Context.User.Identity.Name);
+            var UserId = (string)taUsers.Get_Id_From_Email(context.User.Identity.Name);
+            taPayments.Insert(1, DateTime.Now, Price, Names, UserId, context.User.Identity.Name);
 
             //Email Receipt
             string Subject = "Thank you!";
             //FIX
             string Body = $@"Your payment of €{Price} amount was successful!\nYou paid for Adult/s and  child/ren";
-            SendSimpleMessage(Subject, Body, Context.User.Identity.Name);
+            SendSimpleMessage(Subject, Body, context.User.Identity.Name);
 
             //E.G https://localhost:44351/frmPaymentSuccess.aspx?amount=485.00&adultAmount=1&childAmount=2
 
             //Log the action....
-            taAT.Insert(null, null, Context.User.Identity.Name, DateTime.Now, 8, "Payment made");
+            taAT.Insert(null, null, context.User.Identity.Name, DateTime.Now, 8, "Payment made");
 
             //Log the Communication...
-            taCommsLog.Insert(null, DateTime.Now, 1, 1, Context.User.Identity.Name, "", Body);
+            taCommsLog.Insert(null, DateTime.Now, 1, 1, context.User.Identity.Name, "", Body);
+
         }
-        public RestResponse SendSimpleMessage(string Subject, string Body, string to)
+
+        public int UpdatePlayerStatus()
         {
+            //Update Player.Payed
+            taPlayers.UpdatePayedStatus(true, Context.User.Identity.Name);
+            return 1;
+        }
+
+
+        public static RestResponse SendSimpleMessage(string Subject, string Body, string to)
+        {
+            AuditTrailTableAdapter taAT = new AuditTrailTableAdapter();
             try
             {
                 RestClient client = new RestClient();
@@ -107,12 +127,12 @@ namespace BasketBallRegistration
             }
             catch (Exception ex)
             {
-                taAT.Insert(null, null, Context.User.Identity.Name, DateTime.Now, 8, ex.Message);
+                taAT.Insert(null, null, context.User.Identity.Name, DateTime.Now, 8, ex.Message);
                 return null;
             }
         }
 
-        public void NotifyCoach(DataRow player)
+        public static void NotifyCoach(DataRow player)
         {
             WhatsappService client = new WhatsappService();
             QueriesTableAdapter taQueries = new QueriesTableAdapter();
@@ -121,11 +141,6 @@ namespace BasketBallRegistration
                 Body = $"{player["Name"]} has registered with your team.",
                 Destination = $"{taQueries.CoachPhoneFromPlrId(PlayerId: (int)player["PlayerId"])}"
             });
-        }
-
-        protected void HiddenBtn_Click(object sender, EventArgs e)
-        {
-            UpdatePlayerStatus();
         }
     }
 }

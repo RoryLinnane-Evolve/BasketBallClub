@@ -42,7 +42,9 @@
 
             
 
-            <asp:GridView ID="grdPayments" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PaymentId" CssClass="table table-hover table-striped" DataSourceID="Payments" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="grdPayments" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PaymentId" 
+                CssClass="table table-hover table-striped" AllowSorting="True" DataSourceID="Payments" AllowPaging="True" 
+                CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowSelectButton="True" />

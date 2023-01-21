@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-BasketBallRegistration-20220808032752.mdf;Initial Catalog=aspnet-BasketBallRegistration-20220808032752;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\EVOLVETECH\\PROJECT_WORK\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
-  </parameter>
-  <parameter name="CascadersRegDBConnectionString-Web.config Connection String" description="CascadersRegDBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=CAILINNPC\SQLEXPRESS;Initial Catalog=CascadersRegDB;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\EVOLVETECH\\PROJECT_WORK\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CascadersRegDBConnectionString']/@connectionString" />
-  </parameter>
-</parameters>

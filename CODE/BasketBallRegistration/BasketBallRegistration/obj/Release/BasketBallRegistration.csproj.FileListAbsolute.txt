@@ -134,3 +134,7 @@ C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBall
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\obj\Release\BasketBallRegistration.csproj.CopyComplete
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\obj\Release\BasketBallRegistration.dll
 C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\obj\Release\BasketBallRegistration.pdb
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\FluentEmail.Core.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\FluentEmail.Mailgun.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\EVOLVETECH\PROJECT_WORK\BasketBallClub\CODE\BasketBallRegistration\BasketBallRegistration\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
