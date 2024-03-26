@@ -43,14 +43,15 @@
                 </div>
             </div>
 
-            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" CssClass="table table-hover table-striped" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId" DataSourceID="Cart">
+            <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" CssClass="table table-hover table-striped" AllowPaging="True" 
+                CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId" DataSourceID="Cart" Width="100%">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
                     <asp:BoundField DataField="PlayerId" HeaderText="PlayerId" InsertVisible="False" ReadOnly="True" SortExpression="PlayerId" />
                     <asp:BoundField DataField="BI_PIN" HeaderText="BI Pin" ReadOnly="True" SortExpression="BI_PIN" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                    <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth" />
+                    <asp:BoundField DataField="DateOfBirth" HeaderText="DateOfBirth" SortExpression="DateOfBirth"/>
                     <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />

@@ -61,6 +61,10 @@ namespace BasketBallRegistration
             DataView dv;
             taPlayers.FillBy_Cart(dtPlayers, Context.User.Identity.Name);
             dv = dtPlayers.DefaultView;
+            foreach(DataRow Row in dv.Table.Rows)
+            {
+                Row["DateOfBirth"]= Row["DateOfBirth"].ToString().Substring(0,10);
+            }
             this.grdPlayers.DataSourceID = null;
             this.grdPlayers.DataSource = dv;
             this.grdPlayers.DataBind();

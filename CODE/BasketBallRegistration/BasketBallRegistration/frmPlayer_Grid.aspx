@@ -1,5 +1,19 @@
 ﻿<%@ Page Title="Players" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="frmPlayer_Grid.aspx.cs" Inherits="BasketBallRegistration.frmPlayer_Grid" %>
+<style type="text/css">
+    .dataTables_wrapper .dataTables_filter {
+        float: right;
+        text-align: right;
+    }
 
+    #grdSchemes_filter > label > input {
+        margin-left: 5px;
+    }
+
+    span#Label2, #lblStatusMessage {
+        color: black !important;
+    }
+</style>
+    
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <script type="text/javascript">
         $(document).ready(function () {
@@ -8,20 +22,6 @@
             });
         });
     </script>
-    <style type="text/css">
-        .dataTables_wrapper .dataTables_filter {
-            float: right;
-            text-align: right;
-        }
-
-        #grdSchemes_filter > label > input {
-            margin-left: 5px;
-        }
-
-        span#Label2, #lblStatusMessage {
-            color: black !important;
-        }
-    </style>
     
     <!--4. Start of Main Body-->
     <%--<asp:Panel runat="server" DefaultButton="cmdGo">--%>
@@ -76,7 +76,7 @@
             
             <asp:GridView ID="grdPlayers" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" 
                 CssClass="table table-hover table-striped" DataSourceID="SqlDataSource1" AllowPaging="True" 
-                CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId" AllowSorting="True">
+                CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="PlayerId" AllowSorting="True" Width="100%">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="PlayerId" HeaderText="PlayerId" InsertVisible="False" ReadOnly="True" SortExpression="PlayerId" />

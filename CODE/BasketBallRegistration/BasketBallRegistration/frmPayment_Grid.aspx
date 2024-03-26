@@ -42,19 +42,18 @@
 
             
 
-            <asp:GridView ID="grdPayments" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PaymentId" 
-                CssClass="table table-hover table-striped" AllowSorting="True" DataSourceID="Payments" AllowPaging="True" 
-                CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="grdPayments" runat="server" ClientIDMode="Static" AutoGenerateColumns="False" DataKeyNames="PaymentId"
+                CssClass="table table-hover table-striped" AllowSorting="True" DataSourceID="Payments" AllowPaging="True"
+                CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
                     <asp:BoundField DataField="PaymentId" HeaderText="PaymentId" SortExpression="PaymentId" ReadOnly="True" />
-                    <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" />
                     <asp:BoundField DataField="PaymentTypeId" HeaderText="PaymentTypeId" SortExpression="PaymentTypeId" />
-                      <asp:BoundField DataField="Client" HeaderText="Client" SortExpression="Client" />
                       <asp:BoundField DataField="PaymentDate" HeaderText="PaymentDate" SortExpression="PaymentDate" />
                       <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
-                      <asp:BoundField DataField="PaymentReference" HeaderText="PaymentReference" SortExpression="PaymentReference" />
+                    <asp:BoundField DataField="PlayerNames" HeaderText="PlayerNames" SortExpression="PlayerNames"></asp:BoundField>
+                    <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId"></asp:BoundField>
+                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email"></asp:BoundField>
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

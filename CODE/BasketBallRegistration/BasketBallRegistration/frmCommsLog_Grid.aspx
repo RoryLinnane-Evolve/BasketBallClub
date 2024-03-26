@@ -20,20 +20,26 @@
   
 
     <asp:GridView ID="grdCommsLog" runat="server" AutoGenerateColumns="False" DataKeyNames="CommsLogId"
-        DataSourceID="CommsLog"  AllowPaging="True" AllowSorting="True" CssClass="table table-hover table-striped" HeaderStyle-BackColor="#337AB7" HeaderStyle-ForeColor="White">
+        DataSourceID="CommsLog"  AllowPaging="True" AllowSorting="True" CssClass="table table-hover table-striped" HeaderStyle-BackColor="#337AB7" HeaderStyle-ForeColor="White" Width="100%" 
+        ClientIDMode="Static" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="CommsLogId" HeaderText="CommsLogId" InsertVisible="False" ReadOnly="True"
-                SortExpression="CommsLogId" />
-            <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" />
+            <asp:BoundField DataField="CommsLogId" HeaderText="CommsLogId" InsertVisible="False" ReadOnly="True" SortExpression="CommsLogId" />
             <asp:BoundField DataField="CommsDate" HeaderText="CommsDate" SortExpression="CommsDate" />
-            <asp:BoundField DataField="CommsStatusId" HeaderText="CommsStatusId" SortExpression="CommsStatusId" />
             <asp:BoundField DataField="CommsType" HeaderText="CommsType" SortExpression="CommsType" />
             <asp:BoundField DataField="CommsTo" HeaderText="CommsTo" SortExpression="CommsTo" />
-            <asp:BoundField DataField="CommsCopy" HeaderText="CommsCopy" SortExpression="CommsCopy" />
             <asp:BoundField DataField="CommsContent" HeaderText="CommsContent" SortExpression="CommsContent" />
         </Columns>
-
-<HeaderStyle BackColor="#337AB7" ForeColor="White"></HeaderStyle>
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle Font-Bold="true" BackColor="#D1DDF1" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
   
     <asp:ObjectDataSource ID="CommsLog" runat="server" DeleteMethod="Delete"

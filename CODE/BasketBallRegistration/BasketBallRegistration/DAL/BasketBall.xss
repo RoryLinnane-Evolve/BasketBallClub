@@ -8,8 +8,8 @@
   <Shapes>
     <Shape ID="DesignTable:AuditTrail" ZOrder="6" X="165" Y="136" Height="229" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:CommsLog" ZOrder="5" X="436" Y="143" Height="248" Width="209" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
-    <Shape ID="DesignTable:Players" ZOrder="2" X="734" Y="182" Height="381" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:Payments" ZOrder="1" X="1176" Y="320" Height="229" Width="201" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
+    <Shape ID="DesignTable:Players" ZOrder="1" X="734" Y="182" Height="618" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="283" />
+    <Shape ID="DesignTable:Payments" ZOrder="2" X="1176" Y="320" Height="229" Width="201" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:Users" ZOrder="4" X="290" Y="455" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="3" X="50" Y="85" Height="28" Width="158" AdapterExpanded="true" DataTableExpanded="false" OldAdapterHeight="0" OldDataTableHeight="16" SplitterPosition="24" />
   </Shapes>

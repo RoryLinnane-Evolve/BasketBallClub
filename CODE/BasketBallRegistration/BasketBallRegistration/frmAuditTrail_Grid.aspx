@@ -29,13 +29,11 @@
 
 
     <asp:GridView ID="grdAudits" clientIdMode="Static" runat="server" AutoGenerateColumns="False" DataKeyNames="AuditTrailId"
-        DataSourceID="AuditTrail"  CssClass="table table-hover table-striped" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None"  >
+        DataSourceID="AuditTrail"  CssClass="table table-hover table-striped" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="AuditTrailId" HeaderText="AuditTrailId" InsertVisible="False"
                 ReadOnly="True" SortExpression="AuditTrailId" />
-            <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" />
-            <asp:BoundField DataField="ClientId" HeaderText="ClientId" SortExpression="ClientId" />
             <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
             <asp:BoundField DataField="DateTime" HeaderText="DateTime" SortExpression="DateTime" />
             <asp:BoundField DataField="AuditCode" HeaderText="AuditCode" SortExpression="AuditCode" />

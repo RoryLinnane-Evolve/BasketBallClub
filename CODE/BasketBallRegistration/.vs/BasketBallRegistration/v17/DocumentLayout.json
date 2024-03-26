@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F3E60E9B-FE94-4ADF-8937-6BE55AADDD76}|BasketBallRegistration\\BasketBallRegistration.csproj|c:\\users\\roryl\\source\\repos\\basketballclub\\code\\basketballregistration\\basketballregistration\\frmcommslog.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3E60E9B-FE94-4ADF-8937-6BE55AADDD76}|BasketBallRegistration\\BasketBallRegistration.csproj|solutionrelative:basketballregistration\\frmcommslog.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3E60E9B-FE94-4ADF-8937-6BE55AADDD76}|BasketBallRegistration\\BasketBallRegistration.csproj|c:\\users\\roryl\\source\\repos\\basketballclub\\code\\basketballregistration\\basketballregistration\\frmcommslog.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F3E60E9B-FE94-4ADF-8937-6BE55AADDD76}|BasketBallRegistration\\BasketBallRegistration.csproj|solutionrelative:basketballregistration\\frmcommslog.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3E60E9B-FE94-4ADF-8937-6BE55AADDD76}|BasketBallRegistration\\BasketBallRegistration.csproj|c:\\users\\roryl\\source\\repos\\basketballclub\\code\\basketballregistration\\basketballregistration\\frmcommslog_grid.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F3E60E9B-FE94-4ADF-8937-6BE55AADDD76}|BasketBallRegistration\\BasketBallRegistration.csproj|solutionrelative:basketballregistration\\frmcommslog_grid.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3E60E9B-FE94-4ADF-8937-6BE55AADDD76}|BasketBallRegistration\\BasketBallRegistration.csproj|c:\\users\\roryl\\source\\repos\\basketballclub\\code\\basketballregistration\\basketballregistration\\frmpayment_grid.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F3E60E9B-FE94-4ADF-8937-6BE55AADDD76}|BasketBallRegistration\\BasketBallRegistration.csproj|solutionrelative:basketballregistration\\frmpayment_grid.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 239,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmCommsLog.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\frmCommsLog.aspx.cs",
+              "RelativeDocumentMoniker": "BasketBallRegistration\\frmCommsLog.aspx.cs",
+              "ToolTip": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\frmCommsLog.aspx.cs",
+              "RelativeToolTip": "BasketBallRegistration\\frmCommsLog.aspx.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAQwCIAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-26T21:09:21.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmCommsLog.aspx",
+              "DocumentMoniker": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\frmCommsLog.aspx",
+              "RelativeDocumentMoniker": "BasketBallRegistration\\frmCommsLog.aspx",
+              "ToolTip": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\frmCommsLog.aspx",
+              "RelativeToolTip": "BasketBallRegistration\\frmCommsLog.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-26T21:08:13.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmCommsLog_Grid.aspx",
+              "DocumentMoniker": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\frmCommsLog_Grid.aspx",
+              "RelativeDocumentMoniker": "BasketBallRegistration\\frmCommsLog_Grid.aspx",
+              "ToolTip": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\frmCommsLog_Grid.aspx",
+              "RelativeToolTip": "BasketBallRegistration\\frmCommsLog_Grid.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-26T16:17:00.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmPayment_Grid.aspx",
+              "DocumentMoniker": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\frmPayment_Grid.aspx",
+              "RelativeDocumentMoniker": "BasketBallRegistration\\frmPayment_Grid.aspx",
+              "ToolTip": "C:\\Users\\roryl\\source\\repos\\BasketBallClub\\CODE\\BasketBallRegistration\\BasketBallRegistration\\frmPayment_Grid.aspx",
+              "RelativeToolTip": "BasketBallRegistration\\frmPayment_Grid.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-03-26T20:16:48.696Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

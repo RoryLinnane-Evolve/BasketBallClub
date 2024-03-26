@@ -300,6 +300,7 @@
     <Content Include="frmAuditTrail_Grid.aspx" />
     <Content Include="frmError.aspx" />
     <Content Include="frmMyTeam_Grid.aspx" />
+    <Content Include="frmCommsLog.aspx" />
     <Content Include="frmPayment.aspx" />
     <Content Include="frmPaymentFailed.aspx" />
     <Content Include="frmPaymentScreen.aspx" />
@@ -559,6 +560,13 @@
     </Compile>
     <Compile Include="frmMyTeam_Grid.aspx.designer.cs">
       <DependentUpon>frmMyTeam_Grid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmCommsLog.aspx.cs">
+      <DependentUpon>frmCommsLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmCommsLog.aspx.designer.cs">
+      <DependentUpon>frmCommsLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmPayment.aspx.cs">
       <DependentUpon>frmPayment.aspx</DependentUpon>
