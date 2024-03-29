@@ -2,7 +2,6 @@
 
 <asp:Content runat="server" ID="Content1" ContentPlaceHolderID="MainContent">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <Asp:Label runat="server" ID="hdnbtn" OnDataBinding="HiddenBtn_Click" ></Asp:Label>
 
     <div id="smart-button-container">
         <div style="text-align: center;">

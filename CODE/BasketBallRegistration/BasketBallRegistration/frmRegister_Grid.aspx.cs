@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Web.ApplicationServices;
 using static BasketBallRegistration.DAL.BasketBall;
 using static BasketBallRegistration.DAL.Setups;
 
@@ -93,29 +94,36 @@ namespace BasketBallRegistration
         /// <returns>decimal of price</returns>
         public decimal PRICE_CALC()
         {
+            //Initial price total
             decimal total = 0;
+
+            //Creating connection to players table through tableadapter
             var taPlayers = new PlayersTableAdapter();
             var taAT = new AuditTrailTableAdapter();
+
+            //Filling the cart with players in DB currently unpaid and registered by current email
             var cart = taPlayers.GetDataBy_Cart(Context.User.Identity.Name);
 
+            //Creating connection to rates table
             Setup_RatesTableAdapter taRates = new Setup_RatesTableAdapter();
             Setup_RatesDataTable RatesTable = new Setup_RatesDataTable();
-
             taRates.FillBy_Grid(RatesTable);
 
+            //Creating list of years of childrens ages in the cart
             List<int> cYears = new List<int>();
 
+            //Creating structure to store the Rate for each team in the RatesTable
             Dictionary<string, decimal> first_rates = new Dictionary<string, decimal>();
             Dictionary<string, decimal> second_rates = new Dictionary<string, decimal>();
 
             //Putting rates into dictionary
-
             foreach (var row in RatesTable)
             {
                 first_rates.Add(row.RateName, row.FirstChild);
                 second_rates.Add(row.RateName, row.SecondChild);
             }            
 
+            //Charging for adults as there is no second rate
             foreach (var row in cart)
             {
                 if (row.DateOfBirth.Year >= DateTime.Now.Year - 17)
@@ -123,9 +131,16 @@ namespace BasketBallRegistration
                 else
                     total +=first_rates["Adult"];
             }
+
+            //Creating total price for the children 
             decimal cTotal = 0;
+
+            //Go through each of the children
             foreach (int c in cYears)
             {
+
+                //if it is the first child then apply the first rate to the age and
+                //add it to the total cost of the children
                 if (cTotal == 0)
                 {
                     if (ChildIsUnder8(c))
@@ -157,6 +172,8 @@ namespace BasketBallRegistration
                         cTotal += first_rates["U20"];
                     }
                 }
+                //if it isnt the first child then apply the second rate to the age and
+                //add it to the total cost of the children
                 else
                 {
                     if (ChildIsUnder8(c))
@@ -190,12 +207,20 @@ namespace BasketBallRegistration
                 }
             }
 
+            //Getting the whole total of the cart
             decimal x = total + cTotal;
 
+            //This charges the exact amount of the PayPal transaction fee
             x = ((x / 98) * 100) + 0.35M;
             Session["Price"]=Decimal.Round(x, 2);
+
+            //Amount of children
             Session["ChildAmount"] = cYears.Count;
+            
+            //Amount of adults
             Session["AdultAmount"] = (int)(total / first_rates["Adult"]);
+
+            //return the total value to be passed on to the payment system
             return Decimal.Round(x, 2);
         }
 

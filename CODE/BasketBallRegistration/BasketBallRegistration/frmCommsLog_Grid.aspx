@@ -14,21 +14,23 @@
                     <div class="panel panel-default">
                 <div class="panel-body">
                     <asp:Button ID="cmdClose" runat="server" Text="Close" Width="120px" class="btn btn-primary" OnClick="cmdClose_Click" />
+                    
+                    <asp:Button ID="cmdView" runat="server" Text="View" Width="120px" class="btn btn-primary" OnClick="cmdView_Click"/>
                 </div>
             </div>
   
   
 
-    <asp:GridView ID="grdCommsLog" runat="server" AutoGenerateColumns="False" DataKeyNames="CommsLogId"
-        DataSourceID="CommsLog"  AllowPaging="True" AllowSorting="True" CssClass="table table-hover table-striped" HeaderStyle-BackColor="#337AB7" HeaderStyle-ForeColor="White" Width="100%" 
-        ClientIDMode="Static" CellPadding="4" ForeColor="#333333" GridLines="None">
+                    <asp:GridView ID="grdCommsLog" runat="server" AutoGenerateColumns="False" DataKeyNames="CommsLogId"
+                        DataSourceID="CommsLog" AllowPaging="True" AllowSorting="True" CssClass="table table-hover table-striped" HeaderStyle-BackColor="#337AB7" HeaderStyle-ForeColor="White" Width="100%"
+                        ClientIDMode="Static" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
+            <asp:CommandField ShowSelectButton="True" ButtonType="Button" ControlStyle-CssClass="btn btn-primary"></asp:CommandField>
             <asp:BoundField DataField="CommsLogId" HeaderText="CommsLogId" InsertVisible="False" ReadOnly="True" SortExpression="CommsLogId" />
             <asp:BoundField DataField="CommsDate" HeaderText="CommsDate" SortExpression="CommsDate" />
             <asp:BoundField DataField="CommsType" HeaderText="CommsType" SortExpression="CommsType" />
             <asp:BoundField DataField="CommsTo" HeaderText="CommsTo" SortExpression="CommsTo" />
-            <asp:BoundField DataField="CommsContent" HeaderText="CommsContent" SortExpression="CommsContent" />
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

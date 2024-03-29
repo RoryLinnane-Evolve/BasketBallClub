@@ -18,5 +18,10 @@ namespace BasketBallRegistration
         {
             Response.Redirect("frmRegister_Grid.aspx");
         }
+
+        protected void cmdView_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmCommsLog.aspx?mode=view&PK=" + grdCommsLog.SelectedValue);
+        }
     }
 }

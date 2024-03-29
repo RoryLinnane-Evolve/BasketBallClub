@@ -11,7 +11,7 @@ namespace BasketBallRegistration
 {
 
 
-    public partial class frmPayment
+    public partial class frmCommsLog
     {
 
         /// <summary>
