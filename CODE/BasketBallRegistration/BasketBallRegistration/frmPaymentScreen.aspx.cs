@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using System.Web.Services;
 using Microsoft.Ajax.Utilities;
 using System.Web.Script.Services;
+using static BasketBallRegistration.DAL.BasketBall;
 
 namespace BasketBallRegistration
 {
@@ -20,6 +21,8 @@ namespace BasketBallRegistration
         public static decimal Price;
         static int ChildAmount;
         static int AdultAmount;
+        
+        public string unpaidPlayersList;
 
         static HttpContext context;
 
@@ -47,6 +50,12 @@ namespace BasketBallRegistration
                 Response.Redirect("~/frmRegister_Grid.aspx");
             else
             {
+                var Unpaid= taPlayers.GetDataBy_Cart(context.User.Identity.Name);
+                foreach(var item in Unpaid)
+                {
+                    unpaidPlayersList += $"<br/><label>{item.Name},</label>";
+                }
+                unpaidPlayersList += $"<br/><label>Total Amount: {Price}</label>";
                 return;
             }
         }
