@@ -1,7 +1,7 @@
 # Clare Cascaders Basketball Club Registration System
 
 ## Overview
-This repository contains the source code for the Clare Cascaders Basketball Club Registration System. The system was developed to streamline the registration process for club members, addressing issues with clunky software provided by Basketball Ireland and lack of customer support. 
+This repository contains the source code for the Clare Cascaders Basketball Club Registration System. The system was developed to streamline the registration process for club members, addressing issues with clunky software. 
 
 ## Features
 - **Dynamic Registration System:** The system adapts based on the number of players being registered and applicable discounts, simplifying the process for the registrar.
