@@ -1,30 +1,32 @@
-# Project Title
+# Clare Cascaders Basketball Club Registration System
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+## Overview
+This repository contains the source code for the Clare Cascaders Basketball Club Registration System. The system was developed to streamline the registration process for club members, addressing issues with clunky software provided by Basketball Ireland and lack of customer support. 
 
-## Description
+## Features
+- **Dynamic Registration System:** The system adapts based on the number of players being registered and applicable discounts, simplifying the process for the registrar.
+- **Integration with Basketball Ireland:** Initially, the system supported both standalone registration and integration with Basketball Ireland's software for registration. However, due to policy changes, it later interfaced directly with Basketball Ireland's software.
+- **Secure Payment Integration:** Initially planned to use Stripe, the system ultimately integrated with PayPal for its simplicity and familiarity.
+- **Confidential Data Handling:** The system employs a relational database to manage member information, ensuring confidentiality, especially regarding health information.
 
-A brief description of your project. What does it do? Why was it created?
+## Technologies Used
+- **Frontend:** ASP.NET Webforms with Bootstrap CSS for a clean and responsive user interface.
+- **Backend:** Microsoft SQL Express for database management, utilizing Datasets (.xsd) for seamless database connectivity.
+- **Payment Integration:** Initially planned with Stripe, later switched to PayPal for ease of setup and familiarity.
+- **Version Control:** Git was used for version control, facilitating collaboration and code management.
 
-## Table of Contents
+## Functionality
+- **Dynamic Forms:** The player registration form dynamically adjusts fields based on the player's date of birth, optimizing input for child and adult players.
+- **Discount Handling:** Discounts for the registration fee are managed via a setup table in the database, allowing for rate adjustments without hardcoding.
+- **User Authentication:** User login and registration forms ensure secure access to the system, enhancing data security.
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Installation
-
-Instructions on how to install your project and get it up and running.
-
-## Usage
-
-Instructions and examples on how to use your project. Include screenshots if applicable.
+## Known Issues
+- Due to time constraints, some functions may not be optimized or may lack robust error handling.
+- As of the last update, the system interfaces with Basketball Ireland's software, but future policy changes may require further adjustments.
 
 ## Contributing
-
-Guidelines for contributing to the project. How can others contribute? What should they know?
+Contributions to improve the system are welcome. Please fork the repository, make your changes, and submit a pull request for review.
 
 ## License
-
 This project is licensed under the [MIT License](LICENSE).
+
