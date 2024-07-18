@@ -1,7 +1,7 @@
 # Clare Cascaders Basketball Club Registration System
 
 ## Overview
-This repository contains the source code for the Clare Cascaders Basketball Club Registration System. The system was developed to streamline the registration process for club members, addressing issues with clunky software provided by Basketball Ireland and lack of customer support. 
+This repository contains the source code for the Clare Cascaders Basketball Club Registration System. The system was developed to streamline the registration process for club members, addressing issues with clunky software. 
 
 ## Features
 - **Dynamic Registration System:** The system adapts based on the number of players being registered and applicable discounts, simplifying the process for the registrar.
@@ -12,8 +12,8 @@ This repository contains the source code for the Clare Cascaders Basketball Club
 ## Technologies Used
 - **Frontend:** ASP.NET Webforms with Bootstrap CSS for a clean and responsive user interface.
 - **Backend:** Microsoft SQL Express for database management, utilizing Datasets (.xsd) for seamless database connectivity.
-- **Payment Integration:** Initially planned with Stripe, later switched to PayPal for ease of setup and familiarity.
-- **Version Control:** Git was used for version control, facilitating collaboration and code management.
+- **Payment Integration:** PayPal Button.
+- **Version Control:** Git was used for version control and code management.
 
 ## Functionality
 - **Dynamic Forms:** The player registration form dynamically adjusts fields based on the player's date of birth, optimizing input for child and adult players.
@@ -24,9 +24,4 @@ This repository contains the source code for the Clare Cascaders Basketball Club
 - Due to time constraints, some functions may not be optimized or may lack robust error handling.
 - As of the last update, the system interfaces with Basketball Ireland's software, but future policy changes may require further adjustments.
 
-## Contributing
-Contributions to improve the system are welcome. Please fork the repository, make your changes, and submit a pull request for review.
-
-## License
-This project is licensed under the [MIT License](LICENSE).
 
